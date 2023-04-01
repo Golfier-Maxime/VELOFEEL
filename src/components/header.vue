@@ -17,7 +17,7 @@ const switchMenu = () => {
     <header :class="menuOpen && ` `, !menuOpen && `backdrop-blur-sm dark:backdrop-blur-sm`"
         class="text-Grey-Velofeel dark:text-Dark-Grey fixed  top-[-6px] w-full bg-Header_color  flex justify-between items-center max-w-screen px-9 lg:px-40 z-20 h-16 lg:h-[82px]   bg-opacity-75  dark:bg-opacity-20 ">
         <router-link to="/" class="w-36 ">
-            <img src="/images/logo_velofeel.png" alt="" class="">
+            <img src="/images/logo_velofeel.png" alt="Logo de Vélofeel" class="">
 
         </router-link>
         <nav class=" relative right-4 md:right-9 lg:right-40 ">
