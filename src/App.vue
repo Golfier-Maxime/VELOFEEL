@@ -1,15 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import headerVue from "@/components/header.vue";
 </script>
 
 <template>
-  <div :class="isDark ? 'dark' : ''"> <!--si isDark = true, Dark mode | si isDark = false, Light mode-->
-
-    <div class="bg-[#333] dark:bg-[#eee] duration-700">
+  <div :class="isDark ? 'dark' : ''" class="text-Grey-Velofeel dark:text-Dark-Grey">
+    <!--si isDark = true, Dark mode | si isDark = false, Light mode-->
+    <headerVue></headerVue>
+    <div class="pt-[88px]   bg-Dark-Grey dark:bg-Grey-Velofeel duration-700">
       <!-- Rajouter une transition duration pour une transition de DarkMode à LightMode + douce -->
 
       <div class="w-14 h-14 bg-red-300" checked @click="isDark = !isDark"></div>
-      <p>test</p>
+
       <RouterView />
     </div>
 

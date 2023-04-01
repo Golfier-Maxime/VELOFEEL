@@ -2,5 +2,5 @@
 </script>
 
 <template>
-    <h1 class="text-white dark:text-black">COUCOu</h1>
+    <h1 class="text-Grey-Velofeel dark:text-Dark-Grey">COUCOu</h1>
 </template>
