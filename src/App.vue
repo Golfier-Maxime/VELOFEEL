@@ -9,6 +9,7 @@ import { RouterLink, RouterView } from "vue-router";
       <!-- Rajouter une transition duration pour une transition de DarkMode à LightMode + douce -->
 
       <div class="w-14 h-14 bg-red-300" checked @click="isDark = !isDark"></div>
+      <p>test</p>
       <RouterView />
     </div>
 
