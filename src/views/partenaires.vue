@@ -1,0 +1,11 @@
+<template>
+    <div>
+        <h1>Partenaires</h1>
+        <p>d</p>
+        <p>d</p>
+        <p>d</p>
+        <p>d</p>
+        <p>d</p>
+        <p>d</p>
+    </div>
+</template>

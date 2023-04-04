@@ -11,7 +11,7 @@ import footerVue from "@/components/footer.vue";
     <div class="pt-[88px]   bg-Dark-Grey dark:bg-Grey-Velofeel duration-700">
       <!-- Rajouter une transition duration pour une transition de DarkMode à LightMode + douce -->
 
-      <div class="w-14 h-14 bg-red-300" checked @click="isDark = !isDark"></div>
+      <div class="w-14 h-14 bg-red-300 fixed" checked @click="isDark = !isDark"></div>
 
       <RouterView />
     </div>
