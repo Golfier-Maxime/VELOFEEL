@@ -30,7 +30,9 @@ import LogoInsta from './logo/insta.vue'
             </div>
             <div class="flex flex-col gap-6">
                 <h4 class="font-bold text-base">Légal</h4>
-                <p>Mentions légales</p>
+                <RouterLink to="/legal">
+                    <p>Mentions légales</p>
+                </RouterLink>
                 <p>Politique de confidentialité</p>
                 <p>CGU - Condition gérénal d'utilisation</p>
             </div>
@@ -44,7 +46,9 @@ import LogoInsta from './logo/insta.vue'
                 </div>
                 <div>
                     <p></p>
-                    <p>contact.clients@velofeel.com</p>
+                    <a href="mailto:contact.clients@velofeel.com">
+                        <p>contact.clients@velofeel.com</p>
+                    </a>
                 </div>
                 <div>
                     <p></p>
