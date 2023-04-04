@@ -25,6 +25,9 @@ module.exports = withAnimations({
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      fontFamily: {
+        'Open-Sans': ['sans-serif'],
+      },
       "colors": {
         "Dark-Grey": "#222226",
         "Light-Grey": "#8D99AE",
