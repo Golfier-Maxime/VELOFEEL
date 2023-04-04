@@ -13,21 +13,24 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/',
-      name: 'legal',
+      path: '/legal',
+      name: 'Legal',
       component: LegalView
     },
     {
-      path: '/',
-      name: 'apropos',
+      path: '/apropos',
+      name: 'Apropos',
       component: AproposView
     },
     {
-      path: '/',
-      name: 'partenaires',
+      path: '/partenaires',
+      name: 'Partenaires',
       component: PartenairesView
     },
-  ]
+  ],
+  scrollBehavior() {
+    return { top: 0 }
+  }
 })
 
 export default router

@@ -49,6 +49,9 @@
             </div>
         </div>
     </div>
+    <div class="flex justify-center mt-10">
+        <img src="/images/Arrow_Down.svg" alt="">
+    </div>
 </template>
 
 <style scoped>

@@ -13,7 +13,6 @@ const switchMenu = () => {
 </script>
 
 <template>
-    <!-- <div class="sticky  h-[6px] top-0 left-0  bg-topbar "></div> -->
     <header :class="menuOpen && ` `, !menuOpen && `backdrop-blur-sm dark:backdrop-blur-sm`"
         class="font-OpenSans font-bold text-Grey-Velofeel dark:text-Dark-Grey fixed  top-[-6px] w-full bg-Header_color  flex justify-between items-center max-w-screen px-9 lg:px-40 z-20 h-16 lg:h-[82px]   bg-opacity-75  dark:bg-opacity-20 ">
         <router-link to="/" class="w-36 ">
