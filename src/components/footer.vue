@@ -10,7 +10,7 @@ import LogoInsta from './logo/insta.vue'
             <img src="/images/logo_velofeel.png" alt="Logo de vélofeel" class="">
         </div>
         <div class="bg-Light-Grey h-[2px] rounded-sm mx-[10%] mt-6"></div>
-        <div class="flex flex-col lg:flex-row justify-evenly gap-12 mt-6 font-Open-Sans">
+        <div class="flex flex-col lg:flex-row justify-evenly gap-12 mt-6 font-OpenSans">
             <div class="flex flex-col gap-6">
                 <div>
                     <h4 class="font-bold text-base">Réseaux sociaux</h4>
@@ -56,8 +56,8 @@ import LogoInsta from './logo/insta.vue'
                 </div>
             </div>
         </div>
-        <div class="flex justify-center font-light pb-6 mt-6">
-            <p>@2023 Vélofeel. All rights reserved </p>
+        <div class="flex justify-center  pb-6 mt-6 ">
+            <p class="font-OpenSans font-light">@2023 Vélofeel. All rights reserved </p>
         </div>
     </footer>
 </template>

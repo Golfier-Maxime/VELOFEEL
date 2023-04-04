@@ -26,7 +26,8 @@ module.exports = withAnimations({
     },
     extend: {
       fontFamily: {
-        'Open-Sans': ['sans-serif'],
+        OpenSans: ['"Open sans"'],
+        overpass: ['"Overpass"']
       },
       "colors": {
         "Dark-Grey": "#222226",
