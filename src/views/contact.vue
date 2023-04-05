@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-    <div class="lg:mx-20">
+    <div class="lg:mx-20 text-Grey-Velofeel dark:text-Dark-Grey">
         <div>
             <h1
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
