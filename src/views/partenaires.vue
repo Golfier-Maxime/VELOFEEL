@@ -14,7 +14,7 @@
         <div class=" flex flex-wrap justify-evenly gap-6">
             <img src="/images/logo_cannondale.png" alt="" class="w-[300px] h-[100px]">
             <img src="/images/logo_Giant.png" alt="" class="w-[300px] h-[100px]">
-            <img src="/images/logo_KTM.png" alt="" class="w-[300px] h-[100px]">
+            <img src="/images/logo_KTM.jpg" alt="" class="w-[300px] h-[100px]">
             <img src="/images/logo_Thule.png" alt="" class="w-[300px] h-[100px]">
             <img src="/images/logo_peugeot.png" alt="" class="w-[300px] h-[100px]">
             <img src="/images/logo_shimano.png" alt="" class="w-[300px] h-[100px]">
