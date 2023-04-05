@@ -20,6 +20,7 @@
         </div>
 
         <div class="flex justify-evenly mt-11 font-OpenSans">
+            <!--Info Contact -->
             <div class="flex flex-col gap-3">
                 <div>
                     <p></p>
@@ -36,6 +37,7 @@
                     <p>Espace Lumière2, Boulevard Moïse Foglia 25400 Audincourt</p>
                 </div>
             </div>
+            <!-- Horraires -->
             <div>
                 <p class="font-bold text-[20px]">Horaires</p>
                 <div class="flex gap-4">

@@ -2,6 +2,7 @@
 </script>
 
 <template>
+    <!--  -->
     <div class="mx-20">
         <h1
             class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
@@ -20,7 +21,7 @@
             Du Mardi au
             Samedi de 9:30-12:00 à 14:00-19:00</p>
     </div>
-
+    <!-- Slider automatic et infini de quelque marque associé -->
     <div class="slider mt-10">
         <div class="slide-track flex gap-5 ml-16">
             <div class="slide">
@@ -30,8 +31,8 @@
             <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
         </div>
             <!-- <div class="slide">
-                                                                                                                                                                                                                                                                                <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
-                                                                                                                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                                                                                                                            <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
+                                                                                                                                                                                                                                                                                                        </div> -->
             <div class="slide">
                 <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
             </div>
@@ -52,7 +53,7 @@
     <div class="flex justify-center mt-10">
         <img src="/images/Arrow_Down.svg" alt="">
     </div>
-
+    <!-- Présentation produit a metre en avant -->
     <div class="lg:mx-40 mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly gap-8">
         <div>
             <h4 class="font-overpass text-[50px] font-bold">Produit - Velo
@@ -61,11 +62,11 @@
                 ultricies quam in magna
                 congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non tristique
                 mi volutpat quis. </p>
-            <router-link to="/contact">
-                <div class="font-OpenSans mt-11">
+            <div class="font-OpenSans mt-11">
+                <router-link to="/contact" class="">
                     <p class="btn-produit text-center py-3 w-52 text-base font-bold">Plus d'info</p>
-                </div>
-            </router-link>
+                </router-link>
+            </div>
         </div>
         <div class="w-[800px] ">
             <img src="/images/PLACEHOLDER.jpg" alt="">
