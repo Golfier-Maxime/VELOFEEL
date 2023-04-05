@@ -27,11 +27,11 @@
                 <img src="/images/logo_cannondale.png" height="100" width="250" alt="" class="mt-8" />
             </div>
             <div class="slide">
-                <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
-            </div>
-            <div class="slide">
-                <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
-            </div>
+            <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
+        </div>
+            <!-- <div class="slide">
+                    <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
+                </div> -->
             <div class="slide">
                 <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
             </div>
