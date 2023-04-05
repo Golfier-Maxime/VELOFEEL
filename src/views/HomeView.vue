@@ -30,8 +30,8 @@
             <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
         </div>
             <!-- <div class="slide">
-                    <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
-                </div> -->
+                                                                                                                                                                                                                                                            <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
+                                                                                                                                                                                                                                                        </div> -->
             <div class="slide">
                 <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
             </div>
@@ -52,9 +52,39 @@
     <div class="flex justify-center mt-10">
         <img src="/images/Arrow_Down.svg" alt="">
     </div>
+
+    <div class="lg:mx-20 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly gap-8">
+        <div>
+            <h4 class="font-overpass text-[50px] font-bold">Produit - Velo
+                Marque</h4>
+            <p class="font-OpenSans mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+                ultricies quam in magna
+                congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non tristique
+                mi volutpat quis. </p>
+            <div class="font-OpenSans mt-11">
+                <p class="btn-produit text-center py-3 w-52 text-base font-bold">Plus d'info</p>
+            </div>
+        </div>
+        <div class="w-[800px] ">
+            <img src="/images/PLACEHOLDER.jpg" alt="">
+        </div>
+    </div>
 </template>
 
 <style scoped>
+.btn-produit {
+    border: 2px solid #F8344C;
+    border-radius: 8px;
+    transition: .4s;
+}
+
+.btn-produit:hover {
+    background-color: #F8344C;
+    color: white;
+
+}
+
+
 /* SLIDER MARQUE */
 
 @-webkit-keyframes scroll {
