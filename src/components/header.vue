@@ -9,7 +9,6 @@ const switchMenu = () => {
     if (window.innerWidth <= 720) {
         menuOpen.value = !menuOpen.value
     }
-
 }
 
 
