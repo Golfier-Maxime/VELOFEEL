@@ -6,54 +6,54 @@ const props = defineProps({
 })
 const menuOpen = ref(false)
 const switchMenu = () => {
-    menuOpen.value = !menuOpen.value
+    if (window.innerWidth <= 720) {
+        menuOpen.value = !menuOpen.value
+    }
+
 }
 
 
 </script>
 
 <template>
-    <header :class="menuOpen && ` `, !menuOpen && `backdrop-blur-sm dark:backdrop-blur-sm`"
-        class="font-OpenSans font-bold text-Grey-Velofeel dark:text-Dark-Grey fixed  top-[-6px] w-full bg-Header_color  flex justify-between items-center max-w-screen px-9 lg:px-40 z-20 h-16 lg:h-[82px]   bg-opacity-75  dark:bg-opacity-20 ">
+    <header :class="menuOpen && ``, !menuOpen && `backdrop-blur-md `"
+        class="font-OpenSans  font-bold text-Grey-Velofeel dark:text-Dark-Grey fixed  top-[-6px] w-full bg-Header_color  flex justify-between items-center max-w-screen px-9 lg:px-40 z-20 h-16 lg:h-[82px]   bg-opacity-75  dark:bg-opacity-20 ">
         <router-link to="/" class="w-36 ">
             <img src="/images/logo_velofeel.png" alt="Logo de Vélofeel" class="">
-
         </router-link>
         <nav class=" relative right-4 md:right-9 lg:right-40 ">
             <div class="flex  z-50 md:hidden w-8 h-3 flex-col justify-between"
                 :class="menuOpen && `fixed right-10`, !menuOpen && `relative`" @click="switchMenu">
-                <span class="w-full h-[2px] bg-Grey-Velofeel transition-all dark:bg-Dark-Grey"
+                <span class="w-full h-[3px] bg-Grey-Velofeel transition-all dark:bg-Dark-Grey"
                     :class="menuOpen && `rotate-45`"></span>
-                <span class="h-[2px] bg-Grey-Velofeel self-end transition-all dark:bg-Dark-Grey"
+                <span class="h-[3px] bg-Grey-Velofeel self-end transition-all dark:bg-Dark-Grey"
                     :class="menuOpen && ` -rotate-45 absolute w-full`, !menuOpen && `w-2/3`"></span>
             </div>
             <ul class="fixed z-40 flex flex-col justify-center top-0 bottom-0 left-0 right-0 bg-Dark-Grey md:bg-transparent translate-x-full transition-all md:translate-x-0 md:flex-row md:relative gap-10 items-center dark:bg-Grey-Velofeel  dark:lg:bg-transparent "
                 :class="menuOpen && `translate-x-0 md:translate-x-0`">
                 <li class="md:hidden">
-                    <RouterLink @click="switchMenu" to="/" class=" duration-700 2xl:text-[24px] lg:text-[18px]">Accueil
+                    <RouterLink @click="switchMenu" to="/" class=" 2xl:text-[24px] lg:text-[18px]">Accueil
                     </RouterLink>
                 </li>
 
                 <li class="btn_header_red">
-                    <RouterLink @click="switchMenu" to="/produit"
-                        class="  duration-700 btn_header 2xl:text-[24px] lg:text-[20px]">
+                    <RouterLink @click="switchMenu" to="/produit" class="   btn_header 2xl:text-[24px] lg:text-[20px]">
                         Nos produits
                     </RouterLink>
                 </li>
                 <li class="btn_header_red">
-                    <RouterLink @click="switchMenu" to="/partenaires"
-                        class=" duration-700 btn_header 2xl:text-[24px] lg:text-[20px]">
+                    <RouterLink @click="switchMenu" to="/partenaires" class="  btn_header 2xl:text-[24px] lg:text-[20px]">
                         Nos Partenaires
                     </RouterLink>
                 </li>
                 <li class="btn_header_red">
-                    <RouterLink @click="switchMenu" to="/apropos"
-                        class=" duration-700 btn_header 2xl:text-[24px] lg:text-[20px]">À Propos
+                    <RouterLink @click="switchMenu" to="/apropos" class="  btn_header 2xl:text-[24px] lg:text-[20px]">À
+                        Propos
                     </RouterLink>
                 </li>
                 <li class="btn_header_red">
-                    <RouterLink @click="switchMenu" to="/contact"
-                        class=" duration-700 btn_header 2xl:text-[24px] lg:text-[20px]">Contact
+                    <RouterLink @click="switchMenu" to="/contact" class="  btn_header 2xl:text-[24px] lg:text-[20px]">
+                        Contact
                     </RouterLink>
                 </li>
             </ul>
