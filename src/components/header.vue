@@ -6,7 +6,7 @@ const props = defineProps({
 })
 const menuOpen = ref(false)
 const switchMenu = () => {
-    if (window.innerWidth <= 720) {
+    if (window.innerWidth <= 768) {
         menuOpen.value = !menuOpen.value
     }
 }
