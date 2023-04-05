@@ -31,8 +31,8 @@
             <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
         </div>
             <!-- <div class="slide">
-                                                                                                                                                                                                                                                                                                            <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
-                                                                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                                                                                                <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
+                                                                                                                                                                                                                                                                                                                                            </div> -->
             <div class="slide">
                 <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
             </div>
@@ -54,7 +54,7 @@
         <img src="/images/Arrow_Down.svg" alt="">
     </div>
     <!-- Présentation produit a metre en avant -->
-    <div class="lg:mx-40 mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly gap-8">
+    <div class="lg:mx-[15%] mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly ">
         <div>
             <h4 class="font-overpass text-[50px] font-bold">Produit - Velo
                 Marque</h4>
@@ -68,7 +68,7 @@
                 </router-link>
             </div>
         </div>
-        <div class="w-[800px] ">
+        <div class="w-full ">
             <img src="/images/PLACEHOLDER.jpg" alt="">
         </div>
     </div>
