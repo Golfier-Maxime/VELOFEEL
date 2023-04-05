@@ -26,6 +26,7 @@
                 <img src="/images/logo_velofeel.png" alt="" class="w-[600px]">
             </div>
         </div>
+        <div class="bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-16 lg:mx-20 w-[100hv]"></div>
     </div>
 </template>
 
