@@ -30,8 +30,8 @@
             <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
         </div>
             <!-- <div class="slide">
-                                                                                                                                                                                                                                                            <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
-                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                                <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
+                                                                                                                                                                                                                                                                            </div> -->
             <div class="slide">
                 <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
             </div>
@@ -53,7 +53,7 @@
         <img src="/images/Arrow_Down.svg" alt="">
     </div>
 
-    <div class="lg:mx-20 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly gap-8">
+    <div class="lg:mx-40 mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly gap-8">
         <div>
             <h4 class="font-overpass text-[50px] font-bold">Produit - Velo
                 Marque</h4>
@@ -61,9 +61,11 @@
                 ultricies quam in magna
                 congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non tristique
                 mi volutpat quis. </p>
-            <div class="font-OpenSans mt-11">
-                <p class="btn-produit text-center py-3 w-52 text-base font-bold">Plus d'info</p>
-            </div>
+            <router-link to="/contact">
+                <div class="font-OpenSans mt-11">
+                    <p class="btn-produit text-center py-3 w-52 text-base font-bold">Plus d'info</p>
+                </div>
+            </router-link>
         </div>
         <div class="w-[800px] ">
             <img src="/images/PLACEHOLDER.jpg" alt="">
