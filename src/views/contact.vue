@@ -9,12 +9,16 @@
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
                 Nous contactez</h2>
         </div>
+        <div class="flex justify-center mt-10">
+            <img src="/images/Arrow_Down.svg" alt="">
+        </div>
         <div class="lg:mt-14">
             <h3 class="text-Grey-Velofeel dark:text-Dark-Grey font-overpass font-extrabold lg:text-5xl">Nous contactez avec
                 nos
                 adresses
             </h3>
         </div>
+
         <div class="flex justify-evenly mt-11 font-OpenSans">
             <div class="flex flex-col gap-3">
                 <div>
