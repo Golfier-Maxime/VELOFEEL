@@ -2,74 +2,98 @@
 </script>
 
 <template>
-    <!--  -->
-    <div class="mx-20">
-        <h1
-            class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
-            Vélofeel
-        </h1>
-        <h2
-            class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
-            Votre
-            référence en vélo </h2>
-        <h2
-            class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
-            à
-            Audincourt</h2>
-        <p
-            class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[24px] text-center font-overpass leading-tight">
-            Du Mardi au
-            Samedi de 9:30-12:00 à 14:00-19:00</p>
-    </div>
-    <!-- Slider automatic et infini de quelque marque associé -->
-    <div class="slider mt-10">
-        <div class="slide-track flex gap-5 ml-16">
-            <div class="slide">
-                <img src="/images/logo_cannondale.png" height="100" width="250" alt="" class="mt-8" />
-            </div>
-            <div class="slide">
-            <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
+    <div>
+        <!-- titre -->
+        <div class="mx-20">
+            <h1
+                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
+                Vélofeel
+            </h1>
+            <h2
+                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
+                Votre
+                référence en vélo </h2>
+            <h2
+                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
+                à
+                Audincourt</h2>
+            <p
+                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[24px] text-center font-overpass leading-tight">
+                Du Mardi au
+                Samedi de 9:30-12:00 à 14:00-19:00</p>
         </div>
-            <!-- <div class="slide">
-                                                                                                                                                                                                                                                                                                                                                <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
-                                                                                                                                                                                                                                                                                                                                            </div> -->
-            <div class="slide">
-                <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
+        <!-- Slider automatic et infini de quelque marque associé -->
+        <div class="slider mt-10">
+            <div class="slide-track flex gap-5 ml-16">
+                <div class="slide">
+                    <img src="/images/logo_cannondale.png" height="100" width="250" alt="" class="mt-8" />
+                </div>
+                <div class="slide">
+                <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
             </div>
-            <div class="slide">
-                <img src="/images/logo_peugeot.png" height="100" width="300" alt="" class="mt-4 ml-[-80px]" />
-            </div>
-            <div class="slide">
-                <img src="/images/logo_shimano.png" height="100" width="300" alt="" class="mt-7 ml-[-60px]" />
-            </div>
-            <div class="slide">
-                <img src="/images/logo_pro.jpg" height="100" width="150" alt="" class="mt-4 ml-[-30px]" />
-            </div>
-            <div class="slide">
-                <img src="/images/logo_lazer.png" height="100" width="250" alt="" class="mt-[-20px] ml-[-100px]" />
-            </div>
-        </div>
-    </div>
-    <div class="flex justify-center mt-10">
-        <img src="/images/Arrow_Down.svg" alt="">
-    </div>
-    <!-- Présentation produit a metre en avant -->
-    <div class="lg:mx-[15%] mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly ">
-        <div>
-            <h4 class="font-overpass text-[50px] font-bold">Produit - Velo
-                Marque</h4>
-            <p class="font-OpenSans mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-                ultricies quam in magna
-                congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non tristique
-                mi volutpat quis. </p>
-            <div class="font-OpenSans mt-11">
-                <router-link to="/contact" class="">
-                    <p class="btn-produit text-center py-3 w-52 text-base font-bold">Plus d'info</p>
-                </router-link>
+                <!-- <div class="slide">
+                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
+                <div class="slide">
+                    <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
+                </div>
+                <div class="slide">
+                    <img src="/images/logo_peugeot.png" height="100" width="300" alt="" class="mt-4 ml-[-80px]" />
+                </div>
+                <div class="slide">
+                    <img src="/images/logo_shimano.png" height="100" width="300" alt="" class="mt-7 ml-[-60px]" />
+                </div>
+                <div class="slide">
+                    <img src="/images/logo_pro.jpg" height="100" width="150" alt="" class="mt-4 ml-[-30px]" />
+                </div>
+                <div class="slide">
+                    <img src="/images/logo_lazer.png" height="100" width="250" alt="" class="mt-[-20px] ml-[-100px]" />
+                </div>
             </div>
         </div>
-        <div class="w-full ">
-            <img src="/images/PLACEHOLDER.jpg" alt="">
+        <div class="flex justify-center mt-10">
+            <img src="/images/Arrow_Down.svg" alt="">
+        </div>
+        <!-- Présentation produit a metre en avant -->
+        <div class="lg:mx-[15%] mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly ">
+            <div>
+                <h4 class="font-overpass text-[50px] font-bold">Produit - Velo
+                    Marque</h4>
+                <p class="font-OpenSans mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus
+                    ultricies quam in magna
+                    congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non
+                    tristique
+                    mi volutpat quis. </p>
+                <div class="font-OpenSans mt-11">
+                    <router-link to="/contact" class="">
+                        <p class="btn-produit text-center py-3 w-52 text-base font-bold">Plus d'info</p>
+                    </router-link>
+                </div>
+            </div>
+            <div class="w-full ">
+                <img src="/images/PLACEHOLDER.jpg" alt="">
+            </div>
+        </div>
+        <!-- quelques produits -->
+        <div class="lg:mx-[15%] lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
+            <div>
+                <h4 class="font-OpenSans font-bold text-lg">Quelques produits</h4>
+            </div>
+            <!-- enssemble produit -->
+            <div>
+                <!-- produit -->
+                <div>
+                    <img src="/images/velo_placeholder.jpg" alt="">
+                    <h5 class="font-OpenSans font-bold">Revolt X Advanced Pro 0</h5>
+                    <p>6 800 €</p>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </div>
 </template>
