@@ -1,4 +1,5 @@
 <script setup>
+import LogoFB from '@/components/logo/facebook.vue';
 </script>
 
 <template>
@@ -28,12 +29,12 @@
                 <div class="slide">
                     <img src="/images/logo_cannondale.png" height="100" width="250" alt="" class="mt-8" />
                 </div>
-                <div class="slide">
+            <div class="slide">
                 <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
-            </div>
+                </div>
                 <!-- <div class="slide">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div> -->
                 <div class="slide">
                     <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
                 </div>
@@ -115,10 +116,34 @@
                 </div>
             </div>
         </div>
+        <!-- Présentation Facebook a metre en avant -->
+        <div class="lg:mx-[10%] mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly ">
+            <div>
+                <h4 class="font-overpass text-[50px] font-bold">Evènement
+                    Facebook</h4>
+                <p class="font-OpenSans mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus
+                    ultricies quam in magna
+                    congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non
+                    tristique
+                    mi volutpat quis. </p>
+                <div class="font-OpenSans mt-11 btn-facebook text-center py-3 w-52 text-base font-bold ">
+                    <router-link to="/contact" class="flex justify-center gap-4">
+                        <LogoFB class=""></LogoFB>
+                        <p class="">
+                            Nous rejoindre
+                        </p>
+                    </router-link>
+                </div>
+            </div>
+            <div class="w-full ">
+                <img src="/images/PLACEHOLDER.jpg" alt="">
+            </div>
+        </div>
     </div>
 </template>
 
-<style scoped>
+<style>
 .btn-produit {
     border: 2px solid #F8344C;
     border-radius: 8px;
@@ -127,6 +152,19 @@
 
 .btn-produit:hover {
     background-color: #F8344C;
+    color: white;
+
+}
+
+
+.btn-facebook {
+    border: 2px solid #8D99AE;
+    border-radius: 8px;
+    transition: .4s;
+}
+
+.btn-facebook:hover {
+    background-color: #8D99AE;
     color: white;
 
 }

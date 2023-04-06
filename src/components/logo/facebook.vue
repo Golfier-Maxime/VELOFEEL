@@ -5,3 +5,5 @@
             class="fill-Grey-Velofeel dark:fill-Dark-Grey" />
     </svg>
 </template>
+
+<style></style>
