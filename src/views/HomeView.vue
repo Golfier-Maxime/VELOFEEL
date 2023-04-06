@@ -33,8 +33,8 @@ import LogoFB from '@/components/logo/facebook.vue';
                 <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
                 </div>
                 <!-- <div class="slide">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
                 <div class="slide">
                     <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
                 </div>
@@ -138,6 +138,36 @@ import LogoFB from '@/components/logo/facebook.vue';
             </div>
             <div class="w-full ">
                 <img src="/images/PLACEHOLDER.jpg" alt="">
+            </div>
+        </div>
+        <!-- quelques produits -->
+        <div class="lg:mx-[10%] lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
+            <div>
+                <h4 class="font-OpenSans font-bold text-lg">Nos derniers posts</h4>
+            </div>
+            <!-- enssemble produit -->
+            <div class="flex flex-wrap justify-between">
+                <!-- produit -->
+                <div class="flex flex-col gap-3 mt-6">
+                    <img src="/images/post_fb.jpg" alt="" class="w-[300px]">
+                    <h5 class="font-OpenSans font-bold text-center">KTM</h5>
+                    <p class="font-OpenSans w-[300px] ">Macina Kapoho 7972
+
+                        Un VTTAE passe partout en 160mm de
+                        débattement.
+                        Que ça grimpe fort ou que ça descende vite,
+                        le plaisir sera au rendez-vous.</p>
+                </div>
+                <div class="flex flex-col gap-3 mt-6">
+                    <img src="/images/post_fb.jpg" alt="">
+                    <h5 class="font-OpenSans font-bold text-center">POST 2</h5>
+                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
+                </div>
+                <div class="flex flex-col gap-3 mt-6">
+                    <img src="/images/post_fb.jpg" alt="">
+                    <h5 class="font-OpenSans font-bold text-center">POST 3</h5>
+                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
+                </div>
             </div>
         </div>
     </div>
