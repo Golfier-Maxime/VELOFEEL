@@ -32,8 +32,8 @@
                 <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
             </div>
                 <!-- <div class="slide">
-                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
                 <div class="slide">
                     <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
                 </div>
@@ -55,7 +55,7 @@
             <img src="/images/Arrow_Down.svg" alt="">
         </div>
         <!-- Présentation produit a metre en avant -->
-        <div class="lg:mx-[15%] mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly ">
+        <div class="lg:mx-[10%] mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly ">
             <div>
                 <h4 class="font-overpass text-[50px] font-bold">Produit - Velo
                     Marque</h4>
@@ -76,23 +76,43 @@
             </div>
         </div>
         <!-- quelques produits -->
-        <div class="lg:mx-[15%] lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
+        <div class="lg:mx-[10%] lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
             <div>
                 <h4 class="font-OpenSans font-bold text-lg">Quelques produits</h4>
             </div>
             <!-- enssemble produit -->
-            <div>
+            <div class="flex flex-wrap justify-between">
                 <!-- produit -->
-                <div>
+                <div class="flex flex-col gap-3 mt-6">
                     <img src="/images/velo_placeholder.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold">Revolt X Advanced Pro 0</h5>
-                    <p>6 800 €</p>
+                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
+                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
                 </div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="flex flex-col gap-3 mt-6">
+                    <img src="/images/velo_placeholder.jpg" alt="">
+                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
+                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
+                </div>
+                <div class="flex flex-col gap-3 mt-6">
+                    <img src="/images/velo_placeholder.jpg" alt="">
+                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
+                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
+                </div>
+                <div class="flex flex-col gap-3 mt-6">
+                    <img src="/images/velo_placeholder.jpg" alt="">
+                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
+                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
+                </div>
+                <div class="flex flex-col gap-3 mt-6">
+                    <img src="/images/velo_placeholder.jpg" alt="">
+                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
+                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
+                </div>
+                <div class="flex flex-col gap-3 mt-6">
+                    <img src="/images/velo_placeholder.jpg" alt="">
+                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
+                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
+                </div>
             </div>
         </div>
     </div>
