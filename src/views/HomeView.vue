@@ -33,7 +33,7 @@ import LogoFB from '@/components/logo/facebook.vue';
                     <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
                 </div>
                 <div class="slide">
-                    <img src="/images/logo_ktm.jpg" height="100" width="150" alt="" class="mt-2" />
+                    <img src="/images/logo_ktm2.jpg" height="100" width="150" alt="" class="mt-2" />
                 </div>
                 <div class="slide">
                     <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
