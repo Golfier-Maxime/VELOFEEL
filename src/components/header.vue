@@ -12,6 +12,27 @@ const switchMenu = () => {
 }
 
 
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+
 </script>
 
 <template>
@@ -35,10 +56,20 @@ const switchMenu = () => {
                     </RouterLink>
                 </li>
 
-                <li class="btn_header_red">
-                    <RouterLink @click="switchMenu" to="/produit" class="   btn_header 2xl:text-[24px] lg:text-[20px]">
-                        Nos produits
-                    </RouterLink>
+                <li class="">
+                    <div @click="switchMenu" class="dropdown   2xl:text-[24px] lg:text-[20px]">
+                        <button @click="myFunction" class="dropbtn">Nos produits</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <div class="flex">
+                                <div>
+                                    <a href="#home" class="mx-4">Home</a>
+                                    <p>TEST1</p>
+                                </div>
+                                <a href="#about" class="mx-4">About</a>
+                                <a href="#contact" class="mx-4">Contact</a>
+                            </div>
+                        </div>
+                    </div>
                 </li>
                 <li class="btn_header_red">
                     <RouterLink @click="switchMenu" to="/partenaires" class="  btn_header 2xl:text-[24px] lg:text-[20px]">
@@ -61,6 +92,47 @@ const switchMenu = () => {
 </template>
 
 <style>
+/* menu dropdown */
+.dropbtn {
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    margin-top: 26px;
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    min-width: 100%;
+    overflow: auto;
+}
+
+.show {
+    display: block;
+}
+
+/* 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100%;
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+} */
+
+/*  */
+
+
 .btn_header_red:hover {
     color: #F8344C;
 }
