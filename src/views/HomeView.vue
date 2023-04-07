@@ -25,16 +25,16 @@ import LogoFB from '@/components/logo/facebook.vue';
         </div>
         <!-- Slider automatic et infini de quelque marque associé -->
         <div class="slider mt-10">
-            <div class="slide-track flex gap-5 ml-16">
+            <div class="slide-track flex gap-5 ml-40">
                 <div class="slide">
                     <img src="/images/logo_cannondale.png" height="100" width="250" alt="" class="mt-8" />
                 </div>
-            <div class="slide">
-                <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
+                <div class="slide">
+                    <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
                 </div>
-                <!-- <div class="slide">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="/images/logo_KTM.jpg" height="100" width="150" alt="" class="mt-2" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
+                <div class="slide">
+                    <img src="/images/logo_ktm.jpg" height="100" width="150" alt="" class="mt-2" />
+                </div>
                 <div class="slide">
                     <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
                 </div>
