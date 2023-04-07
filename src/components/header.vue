@@ -58,9 +58,16 @@ window.onclick = function (event) {
 
                 <li class="">
                     <div @click="switchMenu" class="dropdown   2xl:text-[24px] lg:text-[20px]">
-                        <button @click="myFunction" class="dropbtn">Nos produits</button>
+                        <div class="flex items-center gap-2">
+                            <button @click="myFunction" class="dropbtn">Nos produits</button>
+                            <svg width="21" height="12" viewBox="0 0 21 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.43934 0.43934C1.02513 -0.146447 1.97487 -0.146447 2.56066 0.43934L10.5 8.37868L18.4393 0.43934C19.0251 -0.146447 19.9749 -0.146447 20.5607 0.43934C21.1464 1.02513 21.1464 1.97487 20.5607 2.56066L11.5607 11.5607C10.9749 12.1464 10.0251 12.1464 9.43934 11.5607L0.43934 2.56066C-0.146447 1.97487 -0.146447 1.02513 0.43934 0.43934Z"
+                                    fill="#222226" :class="menuOpen && `hidden`" class="" />
+                            </svg>
+                        </div>
                         <div id="myDropdown" class="dropdown-content">
-                            <div class="flex w-[800px] ">
+                            <div class="flex">
                                 <div>
                                     <a href="#home" class="mx-4">Vélo route</a>
                                     <p>TEST1</p>
@@ -101,6 +108,7 @@ window.onclick = function (event) {
 .dropdown {
     position: relative;
     display: inline-block;
+
 }
 
 .dropdown-content {
@@ -108,7 +116,7 @@ window.onclick = function (event) {
     display: none;
     position: absolute;
     background-color: #FFFFFF;
-    min-width: 100%;
+    min-width: 800px;
     overflow: auto;
 }
 
