@@ -63,18 +63,19 @@ window.onclick = function (event) {
                     </RouterLink>
                 </li>
 
-                <li class="">
-                    <div @click="switchMenu" class="dropdown  2xl:text-[24px] lg:text-[20px]">
+                <li class="text-Grey-Velofeel dark:text-Dark-Grey">
+                    <div @click="switchMenu" class="dropdown btn_header 2xl:text-[24px] lg:text-[20px]">
                         <div class="flex items-center gap-2 ">
                             <button @click="myFunction" class="dropbtn">Nos produits</button>
                             <svg id="mySvg" width="21" height="12" viewBox="0 0 21 12" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" class="transi-rota">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M0.43934 0.43934C1.02513 -0.146447 1.97487 -0.146447 2.56066 0.43934L10.5 8.37868L18.4393 0.43934C19.0251 -0.146447 19.9749 -0.146447 20.5607 0.43934C21.1464 1.02513 21.1464 1.97487 20.5607 2.56066L11.5607 11.5607C10.9749 12.1464 10.0251 12.1464 9.43934 11.5607L0.43934 2.56066C-0.146447 1.97487 -0.146447 1.02513 0.43934 0.43934Z"
-                                    fill="#222226" :class="menuOpen && `hidden`" class="origin-center " />
+                                    :class="menuOpen && `hidden`"
+                                    class="origin-center fill-Grey-Velofeel dark:fill-Dark-Grey " />
                             </svg>
                         </div>
-                        <div id="myDropdown" class="dropdown-content  ">
+                        <div id="myDropdown" class="dropdown-content shadow-md bg-Dark-Grey dark:bg-Grey-Velofeel ">
                             <div class="flex gap-5 ml-4 mr-4">
                                 <div class="">
                                     <router-link to="/produit">
@@ -152,7 +153,7 @@ window.onclick = function (event) {
     margin-top: 26px;
     display: none;
     position: absolute;
-    background-color: #FFF;
+
 
     overflow: auto;
 }
