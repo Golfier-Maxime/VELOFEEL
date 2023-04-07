@@ -1,6 +1,7 @@
 <script setup></script>
 <template>
     <div class="lg:mx-20 text-Grey-Velofeel dark:text-Dark-Grey">
+        <!-- titre -->
         <div>
             <h1
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
@@ -9,16 +10,18 @@
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
                 Nous contactez</h2>
         </div>
+        <!-- fleche rouge -->
         <div class="flex justify-center mt-10">
             <img src="/images/Arrow_Down.svg" alt="">
         </div>
+        <!-- sous titre -->
         <div class="lg:mt-14">
             <h3 class="text-Grey-Velofeel dark:text-Dark-Grey font-overpass font-extrabold lg:text-5xl">Nous contactez avec
                 nos
                 adresses
             </h3>
         </div>
-
+        <!-- info -->
         <div class="flex justify-evenly mt-11 font-OpenSans">
             <!--Info Contact -->
             <div class="flex flex-col gap-3">
@@ -64,6 +67,7 @@
             </div>
 
         </div>
+        <!-- google maps -->
         <div>
             <h4 class="mb-8 text-Grey-Velofeel dark:text-Dark-Grey font-overpass font-extrabold lg:text-5xl">Nous sommes ici
                 !

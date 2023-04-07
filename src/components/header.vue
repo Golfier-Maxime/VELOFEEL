@@ -4,6 +4,7 @@ import { ref } from 'vue';
 const props = defineProps({
     user: { type: Object, default: () => { } }
 })
+// création menuOpen pour le responsive
 const menuOpen = ref(false)
 const switchMenu = () => {
     if (window.innerWidth <= 768) {
@@ -43,12 +44,16 @@ window.onclick = function (event) {
 </script>
 
 <template>
+    <!-- header / en-tete  -->
     <header :class="menuOpen && ``, !menuOpen && `backdrop-blur-md `"
         class="font-OpenSans  font-bold text-Grey-Velofeel dark:text-Dark-Grey fixed  top-[-6px] w-full bg-Header_color  flex justify-between items-center max-w-screen px-9 lg:px-40 z-20 h-16 lg:h-[82px]   bg-opacity-75  dark:bg-opacity-20 ">
+        <!-- lien vers accueil -->
         <router-link to="/" class="w-36 ">
             <img src="/images/logo_velofeel.png" alt="Logo de Vélofeel" class="">
         </router-link>
+        <!-- nav bar -->
         <nav class=" relative right-4 md:right-9 lg:right-40 ">
+            <!-- convertion menu pc vers mobile -->
             <div class="flex  z-50 md:hidden w-8 h-3 flex-col justify-between"
                 :class="menuOpen && `fixed right-10`, !menuOpen && `relative`" @click="switchMenu">
                 <span class="w-full h-[3px] bg-Grey-Velofeel transition-all dark:bg-Dark-Grey"
@@ -56,13 +61,14 @@ window.onclick = function (event) {
                 <span class="h-[3px] bg-Grey-Velofeel self-end transition-all dark:bg-Dark-Grey"
                     :class="menuOpen && ` -rotate-45 absolute w-full`, !menuOpen && `w-2/3`"></span>
             </div>
+            <!-- contenue nav bar -->
             <ul class="fixed z-40 flex flex-col justify-center top-0 bottom-0 left-0 right-0 bg-Dark-Grey md:bg-transparent translate-x-full transition-all md:translate-x-0 md:flex-row md:relative gap-10 items-center dark:bg-Grey-Velofeel  dark:lg:bg-transparent "
                 :class="menuOpen && `translate-x-0 md:translate-x-0`">
                 <li class="md:hidden">
                     <RouterLink @click="switchMenu" to="/" class=" 2xl:text-[24px] lg:text-[18px]">Accueil
                     </RouterLink>
                 </li>
-
+                <!-- menu déroulant / backdrop -->
                 <li class="text-Grey-Velofeel dark:text-Dark-Grey">
                     <div @click="switchMenu" class="dropdown btn_header 2xl:text-[24px] lg:text-[20px]">
                         <div class="flex items-center gap-2 ">
