@@ -60,13 +60,13 @@ window.onclick = function (event) {
                     <div @click="switchMenu" class="dropdown   2xl:text-[24px] lg:text-[20px]">
                         <button @click="myFunction" class="dropbtn">Nos produits</button>
                         <div id="myDropdown" class="dropdown-content">
-                            <div class="flex">
+                            <div class="flex w-[800px] ">
                                 <div>
-                                    <a href="#home" class="mx-4">Home</a>
+                                    <a href="#home" class="mx-4">Vélo route</a>
                                     <p>TEST1</p>
                                 </div>
-                                <a href="#about" class="mx-4">About</a>
-                                <a href="#contact" class="mx-4">Contact</a>
+                                <a href="#about" class="mx-4">VTT</a>
+                                <a href="#contact" class="mx-4">Vélo enfant</a>
                             </div>
                         </div>
                     </div>
