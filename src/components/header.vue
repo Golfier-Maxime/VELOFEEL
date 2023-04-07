@@ -67,13 +67,21 @@ window.onclick = function (event) {
                             </svg>
                         </div>
                         <div id="myDropdown" class="dropdown-content  ">
-                            <div class="flex w-[50vw]  ">
+                            <div class="flex gap-5 ml-4 mr-4">
                                 <div class="">
-                                    <a href="#home" class="mx-4 ">Vélo route</a>
-                                    <p>TEST1</p>
+                                    <h6 href="#home" class=" ">Route</h6>
+                                    <p class="font-medium text-base ">TEST1</p>
+                                    <p class="font-medium text-base ">TEST2</p>
+                                    <p class="font-medium text-base ">TEST3</p>
                                 </div>
-                                <a href="#about" class="mx-4">VTT</a>
-                                <a href="#contact" class="mx-4">Vélo enfant</a>
+                                <div class="">
+                                    <h6 href="#home" class=" ">Enfant</h6>
+                                    <p class="font-medium text-base ">TEST1</p>
+                                </div>
+                                <div class="">
+                                    <h6 href="#home" class=" ">VTT</h6>
+                                    <p class="font-medium text-base ">TEST1</p>
+                                </div>
                             </div>
                         </div>
                     </div>
