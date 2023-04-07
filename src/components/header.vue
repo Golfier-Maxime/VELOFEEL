@@ -66,10 +66,10 @@ window.onclick = function (event) {
                                     fill="#222226" :class="menuOpen && `hidden`" class="" />
                             </svg>
                         </div>
-                        <div id="myDropdown" class="dropdown-content">
-                            <div class="flex">
-                                <div>
-                                    <a href="#home" class="mx-4">Vélo route</a>
+                        <div id="myDropdown" class="dropdown-content  ">
+                            <div class="flex w-[50vw]  ">
+                                <div class="">
+                                    <a href="#home" class="mx-4 ">Vélo route</a>
                                     <p>TEST1</p>
                                 </div>
                                 <a href="#about" class="mx-4">VTT</a>
@@ -100,6 +100,8 @@ window.onclick = function (event) {
 
 <style>
 /* menu dropdown */
+
+
 .dropbtn {
     border: none;
     cursor: pointer;
@@ -115,13 +117,15 @@ window.onclick = function (event) {
     margin-top: 26px;
     display: none;
     position: absolute;
-    background-color: #FFFFFF;
-    min-width: 800px;
+    background-color: #FFF;
+
     overflow: auto;
 }
 
+
 .show {
     display: block;
+
 }
 
 /* 
