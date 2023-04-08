@@ -11,7 +11,7 @@ import LogoInsta from './logo/insta.vue'
             <img src="/images/logo_velofeel.png" alt="Logo de vélofeel" class="">
         </div>
         <div class="bg-Light-Grey h-[2px] rounded-sm mx-[10%] mt-6"></div>
-        <div class="flex flex-col lg:flex-row justify-evenly gap-12 mt-6 font-OpenSans">
+        <div class="mx-4 lg:mx-0 flex flex-col lg:flex-row justify-evenly gap-12 mt-6 font-OpenSans">
             <!-- Nos Réseaux -->
             <div class="flex flex-col gap-6">
                 <div>
