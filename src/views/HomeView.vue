@@ -3,23 +3,23 @@ import LogoFB from '@/components/logo/facebook.vue';
 </script>
 
 <template>
-    <div>
+    <div class="">
         <!-- titre -->
-        <div class="mx-20">
+        <div class="lg:mx-20 mx-4">
             <h1
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
+                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-[50px] text-center font-overpass leading-tight">
                 Vélofeel
             </h1>
             <h2
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
+                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-4xl text-center font-overpass leading-tight">
                 Votre
                 référence en vélo </h2>
             <h2
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
+                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-4xl text-center font-overpass leading-tight">
                 à
                 Audincourt</h2>
             <p
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[24px] text-center font-overpass leading-tight">
+                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[24px]  text-center font-overpass leading-tight">
                 Du Mardi au
                 Samedi de 9:30-12:00 à 14:00-19:00</p>
         </div>
@@ -56,17 +56,18 @@ import LogoFB from '@/components/logo/facebook.vue';
             <img src="/images/Arrow_Down.svg" alt="">
         </div>
         <!-- Présentation produit a metre en avant -->
-        <div class="lg:mx-[10%] mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly ">
+        <div
+            class="lg:mx-[10%] mx-4 mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col-reverse justify-evenly ">
             <div>
-                <h4 class="font-overpass text-[50px] font-bold">Produit - Velo
+                <h4 class="font-overpass lg:text-[50px] text-4xl mt-4 lg:mt-0 font-bold">Produit - Velo
                     Marque</h4>
-                <p class="font-OpenSans mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <p class="font-OpenSans lg:mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Phasellus
                     ultricies quam in magna
                     congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non
                     tristique
                     mi volutpat quis. </p>
-                <div class="font-OpenSans mt-11">
+                <div class="font-OpenSans mt-11 mb-11 lg:mb-0">
                     <router-link to="/contact" class="">
                         <p class="btn-produit text-center py-3 w-52 text-base font-bold">Plus d'info</p>
                     </router-link>
@@ -77,7 +78,7 @@ import LogoFB from '@/components/logo/facebook.vue';
             </div>
         </div>
         <!-- quelques produits -->
-        <div class="lg:mx-[10%] lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
+        <div class="lg:mx-[10%] mx-4 lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
             <div>
                 <h4 class="font-OpenSans font-bold text-lg">Quelques produits</h4>
             </div>
@@ -99,17 +100,17 @@ import LogoFB from '@/components/logo/facebook.vue';
                     <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
                     <p class="font-OpenSans font-bold text-center">6 800 €</p>
                 </div>
-                <div class="flex flex-col gap-3 mt-6">
+                <div class="lg:flex flex-col gap-3 mt-6 hidden lg:visible">
                     <img src="/images/velo_placeholder.jpg" alt="">
                     <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
                     <p class="font-OpenSans font-bold text-center">6 800 €</p>
                 </div>
-                <div class="flex flex-col gap-3 mt-6">
+                <div class="lg:flex flex-col gap-3 mt-6 hidden lg:visible">
                     <img src="/images/velo_placeholder.jpg" alt="">
                     <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
                     <p class="font-OpenSans font-bold text-center">6 800 €</p>
                 </div>
-                <div class="flex flex-col gap-3 mt-6">
+                <div class="lg:flex flex-col gap-3 mt-6 hidden lg:visible">
                     <img src="/images/velo_placeholder.jpg" alt="">
                     <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
                     <p class="font-OpenSans font-bold text-center">6 800 €</p>
@@ -117,17 +118,18 @@ import LogoFB from '@/components/logo/facebook.vue';
             </div>
         </div>
         <!-- Présentation Facebook a metre en avant -->
-        <div class="lg:mx-[10%] mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex justify-evenly ">
+        <div
+            class="lg:mx-[10%] mx-4  mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col-reverse justify-evenly ">
             <div>
-                <h4 class="font-overpass text-[50px] font-bold">Evènement
+                <h4 class="font-overpass lg:text-[50px] text-4xl  mt-4 lg:mt-0 font-bold">Evènement
                     Facebook</h4>
-                <p class="font-OpenSans mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <p class="font-OpenSans lg:mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Phasellus
                     ultricies quam in magna
                     congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non
                     tristique
                     mi volutpat quis. </p>
-                <div class="font-OpenSans mt-11 btn-facebook text-center py-3 w-52 text-base font-bold ">
+                <div class="font-OpenSans mt-11 mb-11 lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
                     <router-link to="/contact" class="flex justify-center gap-4">
                         <LogoFB class=""></LogoFB>
                         <p class="">
@@ -140,18 +142,18 @@ import LogoFB from '@/components/logo/facebook.vue';
                 <img src="/images/PLACEHOLDER.jpg" alt="">
             </div>
         </div>
-        <!-- quelques produits -->
-        <div class="lg:mx-[10%] lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
+        <!-- last fb post -->
+        <div class="lg:mx-[10%] mx-4 lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
             <div>
                 <h4 class="font-OpenSans font-bold text-lg">Nos derniers posts</h4>
             </div>
-            <!-- enssemble produit -->
+            <!-- ensemble post -->
             <div class="flex flex-wrap justify-between">
-                <!-- produit -->
+                <!-- post -->
                 <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/post_fb.jpg" alt="" class="w-[300px]">
+                    <img src="/images/post_fb.jpg" alt="" class="lg:w-[300px]">
                     <h5 class="font-OpenSans font-bold text-center">KTM</h5>
-                    <p class="font-OpenSans w-[300px] ">Macina Kapoho 7972
+                    <p class="font-OpenSans lg:w-[300px] ">Macina Kapoho 7972
 
                         Un VTTAE passe partout en 160mm de
                         débattement.
