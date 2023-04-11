@@ -16,7 +16,7 @@
         <div class="partenaires rounded-lg shadow-md text-Dark-Grey font-OpenSans">
             <div class=" flex flex-col  gap-10 mx-4">
                 <!-- Partenaire -->
-                <div class="flex gap-10 justify-center">
+                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
                     <img src="/images/logo_cannondale.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.cannondale.com/fr-fr" target="_blank">Lien vers le site du partenaires en
@@ -29,7 +29,7 @@
                 <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
-                <div class="flex gap-10 justify-center">
+                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
                     <img src="/images/logo_Giant.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.giant-bicycles.com/fr" target="_blank">Lien vers le site du partenaires en
@@ -42,7 +42,7 @@
                 <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
-                <div class="flex gap-10 justify-center">
+                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
                     <img src="/images/logo_ktm2.jpg" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.ktm-bikes.at/" target="_blank">Lien vers le site du partenaires en cliquant
@@ -54,7 +54,7 @@
                 <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
-                <div class="flex gap-10 justify-center">
+                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
                     <img src="/images/logo_Thule.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.thule.com/fr-fr/" target="_blank">Lien vers le site du partenaires en cliquant
@@ -66,7 +66,7 @@
                 <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
-                <div class="flex gap-10 justify-center">
+                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
                     <img src="/images/logo_peugeot.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
                         <a href="https://cycles.peugeot.fr/" target="_blank">Lien vers le site du partenaires en cliquant
@@ -78,7 +78,7 @@
                 <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
-                <div class="flex gap-10 justify-center">
+                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
                     <img src="/images/logo_shimano.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
                         <a href="https://bike.shimano.com/fr-FR/home.html" target="_blank">Lien vers le site du partenaires
@@ -91,7 +91,7 @@
                 <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
-                <div class="flex gap-10 justify-center">
+                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
                     <img src="/images/logo_pro.jpg" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.pro-bikegear.com/fr/" target="_blank">Lien vers le site du partenaires en
@@ -104,7 +104,7 @@
                 <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
-                <div class="flex gap-10 justify-center">
+                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
                     <img src="/images/logo_lazer.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.lazersport.com/fr/" target="_blank">Lien vers le site du partenaires en

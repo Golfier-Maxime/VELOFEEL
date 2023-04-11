@@ -68,7 +68,7 @@
 
         </div>
         <!-- google maps -->
-        <div class="flex gap-4 flex-col lg:flex-row ">
+        <div class="flex lg:gap-16 gap-4 flex-col lg:flex-row ">
             <div>
                 <h4
                     class="mb-8 mt-11 lg:mt-0 text-Grey-Velofeel dark:text-Dark-Grey font-overpass font-extrabold lg:text-5xl text-2xl">
@@ -76,7 +76,9 @@
                     sommes ici
                     !
                 </h4>
-                <img src="/images/googlemaps.jpg" alt="">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5392.320575227619!2d6.8393929802201265!3d47.48679074281933!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47921750511bcc73%3A0x43fdf31f4bee52c!2sCycles+Thierry+Denis!5e0!3m2!1sfr!2sfr!4v1414766931647"
+                    frameborder="0" class="lg:w-[500px] w-[280px] h-[500px]"></iframe>
             </div>
             <div class="lg:w-[50%]">
                 <!-- CONTACT FORM HERE -->
@@ -109,6 +111,7 @@
                     <button type="submit" class="btn-produit px-12 py-2 font-OpenSans font-bold mt-4 ">Envoyer</button>
                 </form>
             </div>
+
         </div>
     </div>
 </template>
