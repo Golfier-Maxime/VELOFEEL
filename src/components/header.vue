@@ -52,7 +52,7 @@ window.onclick = function (event) {
             <img src="/images/logo_velofeel.png" alt="Logo de Vélofeel" class="">
         </router-link>
         <!-- nav bar -->
-        <nav class=" relative right-4 md:right-9 lg:right-40 ">
+        <nav class=" relative right-4 md:right-9 lg:right-0 ">
             <!-- convertion menu pc vers mobile -->
             <div class="flex  z-50 md:hidden w-8 h-3 flex-col justify-between"
                 :class="menuOpen && `fixed right-10`, !menuOpen && `relative`" @click="switchMenu">
