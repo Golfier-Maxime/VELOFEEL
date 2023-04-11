@@ -84,29 +84,29 @@
                     <input type="hidden" name="access_key" value="  ">
                     <div>
                         <label for="email"
-                            class="block mb-2 mt-4 text-Grey-Velofeel dark:text-Dark-Grey  duration-700">E-Mail</label>
+                            class="block mb-2 mt-4 font-OpenSans font-bold text-Grey-Velofeel dark:text-Dark-Grey  duration-700">E-Mail</label>
                         <input type="email" id="email"
-                            class="shadow-sm bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                            class="shadow-sm bg-gray-50 border font-OpenSans border-gray-300  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                             placeholder="Votre@adress.fr" required>
                     </div>
                     <div>
                         <label for="subject"
-                            class="block mb-2 mt-4    text-Grey-Velofeel dark:text-Dark-Grey duration-700">Sujet
+                            class="block mb-2 mt-4  font-OpenSans font-bold   text-Grey-Velofeel dark:text-Dark-Grey duration-700">Sujet
                             du mail</label>
                         <input type="text" id="subject"
-                            class="block p-3 w-full mt-4 text-sm  bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                            class="block p-3 w-full mt-4 text-sm font-OpenSans bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                             placeholder="Quelle est votre demande ?" required>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="message"
-                            class="block mb-2 mt-4 text-Grey-Velofeel dark:text-Dark-Grey   duration-700">Votre
+                            class="block mb-2 mt-4 font-OpenSans font-bold text-Grey-Velofeel dark:text-Dark-Grey   duration-700">Votre
                             message</label>
                         <textarea id="message" rows="6"
-                            class="block p-2.5 w-full mt-4  bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            class="block p-2.5 w-full mt-4 font-OpenSans bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             placeholder="Message"></textarea>
                     </div>
                     <input type="hidden" name="redirect" value="https://web3forms.com/success">
-                    <button type="submit" class="">Envoyer</button>
+                    <button type="submit" class="btn-produit px-12 py-2 font-OpenSans font-bold mt-4 ">Envoyer</button>
                 </form>
             </div>
         </div>
