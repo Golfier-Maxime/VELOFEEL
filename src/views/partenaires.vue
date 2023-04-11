@@ -19,7 +19,7 @@
                     <img src="/images/logo_cannondale.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.cannondale.com/fr-fr">Lien vers le site du partenaires en cliquant
-                            <span class="font-bold">ICI</span>.</a>
+                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
                         <p>Cannondale est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
                 </div>
