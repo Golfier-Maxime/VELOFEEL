@@ -19,7 +19,8 @@
                 <div class="flex gap-10 justify-center">
                     <img src="/images/logo_cannondale.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
-                        <a href="https://www.cannondale.com/fr-fr">Lien vers le site du partenaires en cliquant
+                        <a href="https://www.cannondale.com/fr-fr" target="_blank">Lien vers le site du partenaires en
+                            cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
                         <p>Cannondale est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
@@ -31,7 +32,8 @@
                 <div class="flex gap-10 justify-center">
                     <img src="/images/logo_Giant.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
-                        <a href="https://www.giant-bicycles.com/fr">Lien vers le site du partenaires en cliquant
+                        <a href="https://www.giant-bicycles.com/fr" target="_blank">Lien vers le site du partenaires en
+                            cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
                         <p>Giant est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
@@ -43,7 +45,7 @@
                 <div class="flex gap-10 justify-center">
                     <img src="/images/logo_ktm2.jpg" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
-                        <a href="https://www.ktm-bikes.at/">Lien vers le site du partenaires en cliquant
+                        <a href="https://www.ktm-bikes.at/" target="_blank">Lien vers le site du partenaires en cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
                         <p>KTM est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
@@ -55,7 +57,7 @@
                 <div class="flex gap-10 justify-center">
                     <img src="/images/logo_Thule.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
-                        <a href="https://www.thule.com/fr-fr/">Lien vers le site du partenaires en cliquant
+                        <a href="https://www.thule.com/fr-fr/" target="_blank">Lien vers le site du partenaires en cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
                         <p>THULE est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
@@ -67,7 +69,7 @@
                 <div class="flex gap-10 justify-center">
                     <img src="/images/logo_peugeot.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
-                        <a href="https://cycles.peugeot.fr/">Lien vers le site du partenaires en cliquant
+                        <a href="https://cycles.peugeot.fr/" target="_blank">Lien vers le site du partenaires en cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
                         <p>Peugeot cycles est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
@@ -79,7 +81,8 @@
                 <div class="flex gap-10 justify-center">
                     <img src="/images/logo_shimano.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
-                        <a href="https://bike.shimano.com/fr-FR/home.html">Lien vers le site du partenaires en cliquant
+                        <a href="https://bike.shimano.com/fr-FR/home.html" target="_blank">Lien vers le site du partenaires
+                            en cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
                         <p>SHIMANO est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
@@ -91,9 +94,10 @@
                 <div class="flex gap-10 justify-center">
                     <img src="/images/logo_pro.jpg" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
-                        <a href="https://www.pro-bikegear.com/fr/">Lien vers le site du partenaires en cliquant
+                        <a href="https://www.pro-bikegear.com/fr/" target="_blank">Lien vers le site du partenaires en
+                            cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>SHIMANO est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <p>PRO est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
                 </div>
                 <!-- barre de séparation -->
@@ -103,9 +107,10 @@
                 <div class="flex gap-10 justify-center">
                     <img src="/images/logo_lazer.png" alt="" class="w-[300px]">
                     <div class="flex flex-col gap-2">
-                        <a href="https://www.lazersport.com/fr/">Lien vers le site du partenaires en cliquant
+                        <a href="https://www.lazersport.com/fr/" target="_blank">Lien vers le site du partenaires en
+                            cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>SHIMANO est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <p>LAZER est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
                 </div>
                 <!-- barre de séparation -->
