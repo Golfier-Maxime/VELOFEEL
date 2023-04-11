@@ -11,7 +11,7 @@ import footerVue from "@/components/footer.vue";
     <div class="pt-[88px]   bg-Dark-Grey dark:bg-Grey-Velofeel duration-700">
       <!-- Rajouter une transition duration pour une transition de DarkMode à LightMode + douce -->
       <!--  bg-red-300 -->
-      <div class="ml-4   fixed" checked @click="isDark = !isDark">
+      <div class="lg:ml-4 ml-2 -mt-4 lg:mt-0   fixed" checked @click="isDark = !isDark">
         <div class="invisible dark:visible">
           <svg class=" svg_darkmode" width="56px" height="56px" viewBox="0 0 24 24" fill="none"
             xmlns="http://www.w3.org/2000/svg">
