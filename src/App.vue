@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from "vue-router";
 import headerVue from "@/components/header.vue";
 import footerVue from "@/components/footer.vue";
+
 </script>
 
 <template>
@@ -141,6 +142,7 @@ input:checked+.slider:before {
 </style>
 
 <script>
+
 export default {
   data() {
     return {
@@ -151,4 +153,7 @@ export default {
 
   },
 };
+
+
+
 </script>
