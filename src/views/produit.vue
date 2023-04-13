@@ -30,13 +30,10 @@ export default {
     data() {
         // Données de la vue
         return {
-            imageAxolott: [],
             user: {
                 // user se connectant
                 email: null,
                 password: null,
-                pseudo: null,
-                axolott: null,
             },
             message: null, // Message de connexion
             Connected: false,
@@ -75,12 +72,10 @@ export default {
             await onSnapshot(q, (snapshot) => {
                 let user = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
                 console.log(user);
-                this.user.pseudo = user[0].pseudo;
-                this.user.axolott = user[0].axolott;
             });
         },
         onCnx() {
-            // Se connecter avec user et mot de passe
+            // Se connecter avec user email et mot de passe
             signInWithEmailAndPassword(getAuth(), this.user.email, this.user.password)
                 .then((response) => {
                     // Connexion OK
