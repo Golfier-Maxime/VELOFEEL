@@ -5,6 +5,7 @@ import AproposView from '../views/apropos.vue'
 import PartenairesView from '../views/partenaires.vue'
 import ContactView from '../views/contact.vue'
 import ProduitView from '../views/produit.vue'
+import PrivateZoneView from '../views/privatezone.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/produit',
       name: 'Produit',
       component: ProduitView
+    },
+    {
+      path: '/privatezone',
+      name: 'PrivateZone',
+      component: PrivateZoneView
     },
   ],
   scrollBehavior() {
