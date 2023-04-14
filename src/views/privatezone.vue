@@ -224,13 +224,13 @@ export default {
         <button class="bouton_deco" @click="onDcnx" v-if="Connected">Se deconnecter</button>
         <!--  -->
         <!-- LISTE VELO / PRODUIT -->
-        <div class="mt-16">
+        <div class="mt-16 flex gap-16">
             <div class="mt-8" v-for="velo in listeVeloSynchro">
                 <p class=" text-black">Le nom du produit est : {{ velo.nomProduit }}</p>
                 <p class="text-black">La description du produit : {{ velo.descProduit }}</p>
                 <p class="text-black">le prix du produit est : {{ velo.prixProduit }}€</p>
                 <p class="text-black">le type du produit est : {{ velo.typeProduit }}</p>
-                <img :src="velo.imageProduit" />
+                <img :src="velo.imageProduit" class="w-[300px]" />
 
             </div>
         </div>
