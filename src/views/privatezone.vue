@@ -40,6 +40,8 @@ export default {
     data() {
         // Données de la vue
         return {
+            filter: "",
+            // liste
             listeVeloSynchro: [],
             user: {
                 // user se connectant
@@ -162,20 +164,20 @@ export default {
             const firestore = getFirestore()
             const dbVelo = collection(firestore, "velo");
             const docRef = await addDoc(dbVelo, {
-                nom: this.nom,
+                nomProduit: this.nomProduit,
             });
             console.log("document créé avec le id : ", docRef.id);
         },
-        async updateVelo(quetes) {
+        async updateVelo(velo) {
             const firestore = getFirestore();
-            const docRef = doc(firestore, "velo", quetes.id);
+            const docRef = doc(firestore, "velo", velo.id);
             await updateDoc(docRef, {
-                nom: quetes.nom,
+                nomProduit: velo.nomProduit,
             });
         },
-        async deleteVelo(quetes) {
+        async deleteVelo(velo) {
             const firestore = getFirestore();
-            const docRef = doc(firestore, "velo", quetes.id);
+            const docRef = doc(firestore, "velo", velo.id);
             await deleteDoc(docRef);
         },
     },
@@ -183,6 +185,7 @@ export default {
 
 
     computed: {
+
         // Tri des pays par nom en ordre croissant
         orderByName: function () {
             // Parcours et tri des pays 2 à 2
@@ -195,6 +198,25 @@ export default {
                 return 0;
             });
         },
+
+        // Filtrage de la propriété calculée de tri
+        filterByName: function () {
+            // On effectue le fitrage seulement si le filtre est rnseigné
+            if (this.filter.length > 0) {
+                // On récupère le filtre saisi en minuscule (on évite les majuscules)
+                let filter = this.filter.toLowerCase();
+                // Filtrage de la propriété calculée de tri
+                return this.orderByName.filter(function (velo) {
+                    // On ne renvoie que les pays dont le nom contient
+                    // la chaine de caractère du filtre
+                    return velo.nomProduit.toLowerCase().includes(filter);
+                });
+            } else {
+                // Si le filtre n'est pas saisi
+                // On renvoie l'intégralité de la liste triée
+                return this.orderByName;
+            }
+        },
     },
 };
 
@@ -202,7 +224,40 @@ export default {
 </script>
 
 <template>
-    <div class="mt-16">
+    <div class="mt-16 text-black">
+        <div class="">
+            <span class="text-black">Filtrage</span>
+        </div>
+        <div class="flex justify-center gap-4">
+            <input type="text" class="" v-model="filter" />
+            <button class="bouton_liste" type="submit" title="Création">Filtrer</button>
+        </div>
+        <!--  -->
+        <tbody>
+            <tr v-for="velo in filterByName" :key="velo.id">
+                <td>
+                    <form>
+                        <div class="flex">
+                            <div class="flex flex-col justify-center">
+                                <p class="shadow_text mt-2 text-center font-prompt text-[25px] font-semibold text-white">Nom
+                                    de l'velo</p>
+
+                                <input type="text" class="" v-model="velo.nomProduit" required />
+                            </div>
+                            <div class="mt-2 mb-2 flex justify-center w-[300px]">
+                                <img :src="velo.imageProduit" alt="" />
+                            </div>
+                            <div class="flex justify-center gap-4 ">
+                                <button class="bouton_liste" type="submit" title="Création"
+                                    @click.prevent="updateVelo(velo)">MODIF</button>
+                                <button class="bouton_liste" type="submit" title="Suppression"
+                                    @click.prevent="deleteVelo(velo)">DELETE</button>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
         <!--  -->
         <form @submit.prevent="onCnx" class="flex flex-col justify-center" v-if="!Connected">
             <div class="">
@@ -225,7 +280,7 @@ export default {
         <!--  -->
         <!-- LISTE VELO / PRODUIT -->
         <div class="mt-16 flex gap-16">
-            <div class="mt-8" v-for="velo in listeVeloSynchro">
+            <div class="mt-8" v-for="velo in filterByName" :key="velo.id">
                 <p class=" text-black">Le nom du produit est : {{ velo.nomProduit }}</p>
                 <p class="text-black">La description du produit : {{ velo.descProduit }}</p>
                 <p class="text-black">le prix du produit est : {{ velo.prixProduit }}€</p>
