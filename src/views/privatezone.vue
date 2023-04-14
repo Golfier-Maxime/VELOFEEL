@@ -224,42 +224,9 @@ export default {
 </script>
 
 <template>
-    <div class="mt-16 text-black">
-        <div class="">
-            <span class="text-black">Filtrage</span>
-        </div>
-        <div class="flex justify-center gap-4">
-            <input type="text" class="" v-model="filter" />
-            <button class="bouton_liste" type="submit" title="Création">Filtrer</button>
-        </div>
+    <div class="mt-16 mx-20 text-black">
         <!--  -->
-        <tbody>
-            <tr v-for="velo in filterByName" :key="velo.id">
-                <td>
-                    <form>
-                        <div class="flex">
-                            <div class="flex flex-col justify-center">
-                                <p class="shadow_text mt-2 text-center font-prompt text-[25px] font-semibold text-white">Nom
-                                    de l'velo</p>
-
-                                <input type="text" class="" v-model="velo.nomProduit" required />
-                            </div>
-                            <div class="mt-2 mb-2 flex justify-center w-[300px]">
-                                <img :src="velo.imageProduit" alt="" />
-                            </div>
-                            <div class="flex justify-center gap-4 ">
-                                <button class="bouton_liste" type="submit" title="Création"
-                                    @click.prevent="updateVelo(velo)">MODIF</button>
-                                <button class="bouton_liste" type="submit" title="Suppression"
-                                    @click.prevent="deleteVelo(velo)">DELETE</button>
-                            </div>
-                        </div>
-                    </form>
-                </td>
-            </tr>
-        </tbody>
-        <!--  -->
-        <form @submit.prevent="onCnx" class="flex flex-col justify-center" v-if="!Connected">
+        <form @submit.prevent="onCnx" class="flex flex-col items-center mt-4" v-if="!Connected">
             <div class="">
                 <div class="">
                     <button class="text-Grey-Velofeel dark:text-Dark-Grey ">Email</button>
@@ -278,6 +245,57 @@ export default {
         </form>
         <button class="bouton_deco" @click="onDcnx" v-if="Connected">Se deconnecter</button>
         <!--  -->
+        <div class="flex gap-2">
+            <div class="">
+                <span class="text-black">Filtrage</span>
+            </div>
+            <div class="flex justify-center gap-4">
+                <input type="text" class="" v-model="filter" />
+                <button class="bouton_liste" type="submit" title="Création">Filtrer</button>
+            </div>
+        </div>
+        <!--  -->
+        <tbody class="">
+            <tr v-for="velo in filterByName" :key="velo.id">
+                <td>
+                    <form class="mt-8">
+                        <div class="flex gap-2 ">
+                            <div class="flex flex-col gap-1 justify-center">
+                                <div>
+                                    <p class="">Nom du velo</p>
+                                    <input type="text" class="" v-model="velo.nomProduit" required />
+                                </div>
+
+                                <div>
+                                    <p class="">Prix du velo en €</p>
+                                    <input type="text" class="" v-model="velo.prixProduit" required />
+                                </div>
+                                <div>
+                                    <p class="">Type du velo</p>
+                                    <input type="text" class="" v-model="velo.typeProduit" required />
+                                </div>
+                            </div>
+
+                            <div class="mt-2 mb-2 flex justify-center w-[320px]">
+                                <img :src="velo.imageProduit" alt="" />
+                            </div>
+                            <div class="flex justify-center gap-4 ">
+                                <button class="bouton_liste" type="submit" title="Création"
+                                    @click.prevent="updateVelo(velo)">MODIFIER</button>
+                                <button class="bouton_liste" type="submit" title="Suppression"
+                                    @click.prevent="deleteVelo(velo)">SUPPRIMER</button>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="">Description du velo</p>
+                            <textarea type="text" class="" v-model="velo.descProduit" required cols="40"
+                                rows="4"> </textarea>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+
         <!-- LISTE VELO / PRODUIT -->
         <div class="mt-16 flex gap-16">
             <div class="mt-8" v-for="velo in filterByName" :key="velo.id">
