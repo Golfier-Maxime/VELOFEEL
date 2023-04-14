@@ -27,9 +27,11 @@ import {
 import { emitter } from "../main";
 
 export default {
+    name: "ListeVelo",
     data() {
         // Données de la vue
         return {
+            listeVeloSynchro: [],
             user: {
                 // user se connectant
                 email: null,
@@ -41,6 +43,7 @@ export default {
     },
 
     mounted() {
+        this.getVeloSynchro();
         // this.getImageAxolott();
         this.getUserConnect();
         // Montage de la vue
@@ -110,8 +113,58 @@ export default {
                     console.log("erreur deconnexion ", error);
                 });
         },
+
+        async getVeloSynchro() {
+            const firestore = getFirestore();
+            const dbVelo = collection(firestore, "velo");
+            const query = await onSnapshot(dbVelo, (snapshot) => {
+                this.listeVeloSynchro = snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+            });
+        },
+        async createVelo() {
+            const firestore = getFirestore()
+            const dbVelo = collection(firestore, "velo");
+            const docRef = await addDoc(dbVelo, {
+                nom: this.nom,
+            });
+            console.log("document créé avec le id : ", docRef.id);
+        },
+        async updateVelo(quetes) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "velo", quetes.id);
+            await updateDoc(docRef, {
+                nom: quetes.nom,
+            });
+        },
+        async deleteVelo(quetes) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "velo", quetes.id);
+            await deleteDoc(docRef);
+        },
+    },
+
+
+
+    computed: {
+        // Tri des pays par nom en ordre croissant
+        orderByName: function () {
+            // Parcours et tri des pays 2 à 2
+            return this.listeVeloSynchro.sort(function (a, b) {
+                // Si le nom du pays est avant on retourne -1
+                if (a.nom < b.nom) return -1;
+                // Si le nom du pays est après on retourne 1
+                if (a.nom > b.nom) return 1;
+                // Sinon ni avant ni après (homonyme) on retourne 0
+                return 0;
+            });
+        },
     },
 };
+
+
 </script>
 
 <template>
@@ -120,7 +173,7 @@ export default {
         <form @submit.prevent="onCnx" class="flex flex-col justify-center" v-if="!Connected">
             <div class="">
                 <div class="">
-                    <button class="text-white">Email</button>
+                    <button class="text-Grey-Velofeel dark:text-Dark-Grey ">Email</button>
                 </div>
                 <input class="text-black" type="text" v-model="user.email" required />
             </div>
@@ -135,6 +188,14 @@ export default {
             </div>
         </form>
         <button class="bouton_deco" @click="onDcnx" v-if="Connected">Se deconnecter</button>
+        <!--  -->
+        <!-- LISTE VELO / PRODUIT -->
+        <div class="mt-16">
+            <div v-for="velo in listeVeloSynchro">
+                <p class="text-black">Le nom du produit est : {{ velo.nomProduit }}</p>
+                <p class="text-black">La description du produit : {{ velo.descProduit }}</p>
+            </div>
+        </div>
         <!--  -->
     </div>
 </template>
