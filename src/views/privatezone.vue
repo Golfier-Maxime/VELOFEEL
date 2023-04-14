@@ -24,6 +24,15 @@ import {
     where,
 } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
 
+// Cloud Storage : import des fonctions
+import {
+    getStorage,             // Obtenir le Cloud Storage
+    ref,                    // Pour créer une référence à un fichier à uploader
+    deleteObject,
+    getDownloadURL,         // Permet de récupérer l'adress complète d'un fichier du Storage
+    uploadString,           // Permet d'uploader sur le Cloud Storage une image en Base64
+} from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js'
+
 import { emitter } from "../main";
 
 export default {
@@ -37,6 +46,13 @@ export default {
                 email: null,
                 password: null,
             },
+            velo: {
+                nomProduit: null,
+                descProduit: null,
+                prixProduit: null,
+                typeProduit: null,
+            },
+            refVelo: null,
             message: null, // Message de connexion
             Connected: false,
         };
@@ -121,8 +137,26 @@ export default {
                 this.listeVeloSynchro = snapshot.docs.map((doc) => ({
                     id: doc.id,
                     ...doc.data(),
-                }));
+                }
+                ))
+                // récupération des images des produit/velo
+                // parcours de la liste 
+                this.listeVeloSynchro.forEach(function (velo) {
+                    const storage = getStorage();
+                    //récup des l'image par son nom de fichier
+                    const spaceRef = ref(storage, 'VELOFEEL/' + velo.imageProduit);
+                    //recup de l'url de l'image
+                    getDownloadURL(spaceRef).then((url) => {
+                        //on remplace le nom du fichier
+                        // par l'url complete de l'image
+                        velo.imageProduit = url;
+                    })
+                        .catch((error) => {
+                            console.log('erreur downloadUrl', error);
+                        })
+                })
             });
+
         },
         async createVelo() {
             const firestore = getFirestore()
@@ -191,10 +225,13 @@ export default {
         <!--  -->
         <!-- LISTE VELO / PRODUIT -->
         <div class="mt-16">
-            <div v-for="velo in listeVeloSynchro">
-                <p class="text-black">Le nom du produit est : {{ velo.nomProduit }}</p>
+            <div class="mt-8" v-for="velo in listeVeloSynchro">
+                <p class=" text-black">Le nom du produit est : {{ velo.nomProduit }}</p>
                 <p class="text-black">La description du produit : {{ velo.descProduit }}</p>
                 <p class="text-black">le prix du produit est : {{ velo.prixProduit }}€</p>
+                <p class="text-black">le type du produit est : {{ velo.typeProduit }}</p>
+                <img :src="velo.imageProduit" />
+
             </div>
         </div>
         <!--  -->
