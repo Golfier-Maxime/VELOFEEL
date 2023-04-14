@@ -194,6 +194,7 @@ export default {
             <div v-for="velo in listeVeloSynchro">
                 <p class="text-black">Le nom du produit est : {{ velo.nomProduit }}</p>
                 <p class="text-black">La description du produit : {{ velo.descProduit }}</p>
+                <p class="text-black">le prix du produit est : {{ velo.prixProduit }}€</p>
             </div>
         </div>
         <!--  -->
