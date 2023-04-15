@@ -54,7 +54,6 @@ export default {
                 descProduit: null,
                 prixProduit: null,
                 typeProduit: null,
-                imageProduit: null,
             },
             refVelo: null,
             message: null, // Message de connexion
@@ -78,7 +77,9 @@ export default {
     },
 
     methods: {
-
+        reloadPage() {
+            location.reload();
+        },
         async getUserConnect() {
             await getAuth().onAuthStateChanged(
                 function (user) {
@@ -167,7 +168,7 @@ export default {
             // Mise à jour de la photo du Produit
             this.file = this.$refs.file.files[0];
             // Récupérer le nom du fichier pour la photo du Produit
-            this.velo.Produit = this.file.name;
+            this.velo.imageProduit = this.file.name;
             // Reference to the DOM input element
             // Reference du fichier à prévisualiser
             var input = event.target;
@@ -316,26 +317,25 @@ export default {
                 <input class="mx-auto flex justify-center" placeholder="Ici le type" v-model="velo.typeProduit" required />
             </div>
 
+
             <div>
-                <div>
-                    <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-semibold text-black">image</p>
-                    <div class="flex justify-center">
-                        <img class="preview img-fluid w-2/4" :src="imageData" />
-                    </div>
-                </div>
-                <div class="custom-file mt-2 flex justify-center">
-                    <input type="file" class="custom-file-input" ref="file" id="file" @change="previewImage" />
-                    <!-- <label class="custom-file-label" for="file">Sélectionner l'image</label> -->
+                <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-semibold text-black">image</p>
+                <div class="flex justify-center">
+                    <img class="preview img-fluid w-2/4" :src="imageData" />
                 </div>
             </div>
+            <div class="custom-file mt-2 flex justify-center">
+                <input type="file" class="custom-file-input" ref="file" id="file" @change="previewImage" />
+                <label class="custom-file-label" for="file">Sélectionner l'image</label>
+            </div>
+
 
             <div class="mt-2 flex justify-center gap-4 pb-16">
                 <button type="submit" class="bouton_liste">Créer</button>
-                <button>
-                    <router-link to="/privatezone" class="bouton_liste">Cancel</router-link>
-                </button>
+                <button @click="reloadPage">Annuler</button>
             </div>
         </form>
+
 
 
         <!-- Filtrage par Nom en Input -->
