@@ -230,7 +230,6 @@ export default {
 
 
     computed: {
-
         // Tri des pays par nom en ordre croissant
         orderByName: function () {
             // Parcours et tri des pays 2 à 2
@@ -289,6 +288,7 @@ export default {
             </div>
         </form>
         <button class="bouton_deco" @click="onDcnx" v-if="Connected">Se deconnecter</button>
+
         <!-- Création Produit -->
         <form enctype="multipart/form-data" @submit.prevent="createVelo" class="mb-32 mt-16">
             <div class="">
@@ -336,8 +336,6 @@ export default {
             </div>
         </form>
 
-
-
         <!-- Filtrage par Nom en Input -->
         <div class="flex gap-2 mt-4">
             <div class="">
@@ -348,6 +346,7 @@ export default {
                 <button class="bouton_liste" type="submit" title="Création">Filtrer</button>
             </div>
         </div>
+
         <!--Liste des vélo modifiable / Supprimable  -->
         <tbody class="">
             <tr v-for="velo in filterByName" :key="velo.id">
@@ -389,6 +388,7 @@ export default {
                 </td>
             </tr>
         </tbody>
+
         <!-- LISTE VELO / PRODUIT -->
         <div class="mt-16 flex gap-16">
             <div class="mt-8" v-for="velo in filterByName" :key="velo.id">
@@ -400,7 +400,6 @@ export default {
 
             </div>
         </div>
-        <!--  -->
     </div>
 </template>
 
