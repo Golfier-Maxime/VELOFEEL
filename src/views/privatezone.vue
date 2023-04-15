@@ -40,6 +40,7 @@ export default {
     data() {
         // Données de la vue
         return {
+            imageData: null,
             filter: "",
             // liste
             listeVeloSynchro: [],
@@ -53,6 +54,7 @@ export default {
                 descProduit: null,
                 prixProduit: null,
                 typeProduit: null,
+                imageProduit: null,
             },
             refVelo: null,
             message: null, // Message de connexion
@@ -160,11 +162,53 @@ export default {
             });
 
         },
+
+        previewImage: function (event) {
+            // Mise à jour de la photo du Produit
+            this.file = this.$refs.file.files[0];
+            // Récupérer le nom du fichier pour la photo du Produit
+            this.velo.Produit = this.file.name;
+            // Reference to the DOM input element
+            // Reference du fichier à prévisualiser
+            var input = event.target;
+            // On s'assure que l'on a au moins un fichier à lire
+            if (input.files && input.files[0]) {
+                // Creation d'un filereader
+                // Pour lire l'image et la convertir en base 64
+                var reader = new FileReader();
+                // fonction callback appellée lors que le fichier a été chargé
+                reader.onload = (e) => {
+                    // Read image as base64 and set to imageData
+                    // lecture du fichier pour mettre à jour
+                    // la prévisualisation
+                    this.imageData = e.target.result;
+                };
+                // Demarrage du reader pour la transformer en data URL (format base 64)
+                reader.readAsDataURL(input.files[0]);
+            }
+        },
+
+
         async createVelo() {
+            // Obtenir storage Firebase
+            const storage = getStorage();
             const firestore = getFirestore()
+            // Référence de l'image à uploader
+            const refStorage = ref(storage, "VELOFEEL/" + this.velo.imageProduit);
+            // Upload de l'image sur le Cloud Storage
+            await uploadString(refStorage, this.imageData, "data_url").then((snapshot) => {
+                console.log("Uploaded a base64 string");
+                // Création du velo sur le Firestore
+                const db = getFirestore();
+                const docRef = addDoc(collection(db, "velo"), this.velo);
+            });
             const dbVelo = collection(firestore, "velo");
             const docRef = await addDoc(dbVelo, {
                 nomProduit: this.nomProduit,
+                descProduit: this.descProduit,
+                prixProduit: this.prixProduit,
+                typeProduit: this.typeProduit,
+                imageProduit: this.imageProduit,
             });
             console.log("document créé avec le id : ", docRef.id);
         },
@@ -225,7 +269,7 @@ export default {
 
 <template>
     <div class="mt-16 mx-20 text-black">
-        <!--  -->
+        <!-- Connection / Déconection -->
         <form @submit.prevent="onCnx" class="flex flex-col items-center mt-4" v-if="!Connected">
             <div class="">
                 <div class="">
@@ -244,8 +288,55 @@ export default {
             </div>
         </form>
         <button class="bouton_deco" @click="onDcnx" v-if="Connected">Se deconnecter</button>
-        <!--  -->
-        <div class="flex gap-2">
+        <!-- Création Produit -->
+        <form enctype="multipart/form-data" @submit.prevent="createVelo" class="mb-32 mt-16">
+            <div class="">
+                <h2 class="shadow_text text-center font-prompt text-[30px] font-semibold text-black">Création Velo</h2>
+                <div class="line mx-auto"></div>
+            </div>
+
+            <!-- nom velo -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">Nom de Velo</p>
+                <input class="mx-auto flex justify-center" placeholder="Ici le nom" v-model="velo.nomProduit" required />
+            </div>
+            <!-- desc velo -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">desc de Velo</p>
+                <input class="mx-auto flex justify-center" placeholder="Ici le desc" v-model="velo.descProduit" required />
+            </div>
+            <!-- prix velo -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">prix de Velo</p>
+                <input class="mx-auto flex justify-center" placeholder="Ici le prix" v-model="velo.prixProduit" required />
+            </div>
+            <!-- type velo -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">type de Velo</p>
+                <input class="mx-auto flex justify-center" placeholder="Ici le type" v-model="velo.typeProduit" required />
+            </div>
+
+            <div>
+                <div>
+                    <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-semibold text-black">image</p>
+                    <div class="flex justify-center">
+                        <img class="preview img-fluid w-2/4" :src="imageData" />
+                    </div>
+                </div>
+                <div class="custom-file mt-2 flex justify-center">
+                    <input type="file" class="custom-file-input" ref="file" id="file" @change="previewImage" />
+                    <!-- <label class="custom-file-label" for="file">Sélectionner l'image</label> -->
+                </div>
+            </div>
+
+            <div class="mt-2 flex justify-center gap-4 pb-16">
+                <button type="submit" class="bouton_liste">Créer</button>
+            </div>
+        </form>
+
+
+        <!-- Filtrage par Nom en Input -->
+        <div class="flex gap-2 mt-4">
             <div class="">
                 <span class="text-black">Filtrage</span>
             </div>
@@ -254,7 +345,7 @@ export default {
                 <button class="bouton_liste" type="submit" title="Création">Filtrer</button>
             </div>
         </div>
-        <!--  -->
+        <!--Liste des vélo modifiable / Supprimable  -->
         <tbody class="">
             <tr v-for="velo in filterByName" :key="velo.id">
                 <td>
@@ -295,7 +386,6 @@ export default {
                 </td>
             </tr>
         </tbody>
-
         <!-- LISTE VELO / PRODUIT -->
         <div class="mt-16 flex gap-16">
             <div class="mt-8" v-for="velo in filterByName" :key="velo.id">
