@@ -331,6 +331,9 @@ export default {
 
             <div class="mt-2 flex justify-center gap-4 pb-16">
                 <button type="submit" class="bouton_liste">Créer</button>
+                <button>
+                    <router-link to="/privatezone" class="bouton_liste">Cancel</router-link>
+                </button>
             </div>
         </form>
 
