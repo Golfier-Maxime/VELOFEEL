@@ -36,7 +36,7 @@ import {
 import { emitter } from "../main";
 
 export default {
-    name: "ListeVelo",
+
     data() {
         // Données de la vue
         return {
