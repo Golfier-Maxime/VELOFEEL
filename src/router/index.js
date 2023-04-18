@@ -6,6 +6,7 @@ import PartenairesView from '../views/partenaires.vue'
 import ContactView from '../views/contact.vue'
 import ProduitView from '../views/produit.vue'
 import PrivateZoneView from '../views/privatezone.vue'
+import ProduitFicheView from '../views/produitFiche.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/produitFiche/:id',
+      name: 'ProduitFiche',
+      component: ProduitFicheView
     },
     {
       path: '/legal',

@@ -304,6 +304,7 @@ export default {
                 <p class="text-center text-lg">{{ velo.nomProduit }}</p>
                 <p class="text-center text-lg">{{ velo.prixProduit }}€</p>
                 <p class="text-center text-sm font-light">{{ velo.typeProduit }}</p>
+                <router-link :to="`/produitFiche/${velo.id}`">VOIR LE PRODUIT</router-link>
                 <!-- <p class="text-center text-lg">{{ velo.descProduit }}</p> -->
             </div>
         </div>
