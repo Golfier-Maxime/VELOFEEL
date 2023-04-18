@@ -1,5 +1,8 @@
-<script>
+<script setup>
 import LogoFB from '@/components/logo/facebook.vue';
+</script>
+
+<script>
 
 // Bibliothèques Firebase  : import des fonctions
 //  signInWithEmailAndPassword : Authentification avec email et mot de passe
