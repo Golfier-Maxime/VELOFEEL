@@ -284,13 +284,14 @@ export default {
             <img src="/images/Arrow_Down.svg" alt="">
         </div>
         <!-- Filtrage par Nom en Input -->
-        <div class="flex flex-col gap-2 mt-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans lg:ml-32">
-            <div class="">
-                <span class="">Filtrage par nom</span>
-            </div>
-            <div class="text-Dark-Grey">
-                <input type="text" class="w-[200px] border-2 border-Dark-Grey rounded" v-model="filter"
-                    placeholder="Filtrez ici" />
+        <div class="w-[280px] lg:ml-32  mt-16 text-Grey-Velofeel dark:text-Dark-Grey ">
+            <div class="search text-Dark-Grey">
+                <input type="text" class="searchTerm border-3 border-Dark-Grey" placeholder="Filtrez par nom"
+                    v-model="filter">
+                <button type="submit"
+                    class="searchButton text-Dark-Grey dark:text-Grey-Velofeel dark:bg-Dark-Grey bg-Grey-Velofeel border-2 dark:border-Dark-Grey border-Grey-Velofeel">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
         </div>
         <!-- LISTE VELO / PRODUIT -->
@@ -309,4 +310,27 @@ export default {
 
 
 
-<style scoped></style>
+<style scoped>
+.search {
+    display: flex;
+}
+
+.searchTerm {
+    width: 100%;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.searchButton {
+    width: 40px;
+    height: 36px;
+    text-align: center;
+
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+</style>
