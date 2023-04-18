@@ -68,48 +68,10 @@ window.onclick = function (event) {
                     <RouterLink @click="switchMenu" to="/" class=" 2xl:text-[24px] lg:text-[18px]">Accueil
                     </RouterLink>
                 </li>
-                <!-- menu déroulant / backdrop -->
-                <li class="text-Grey-Velofeel dark:text-Dark-Grey">
-                    <div @click="switchMenu" class="dropdown btn_header 2xl:text-[24px] lg:text-[20px]">
-                        <div class="flex items-center gap-2 lg:ml-0 ml-8">
-                            <button @click="myFunction" class="dropbtn">Nos produits</button>
-                            <svg id="mySvg" width="21" height="12" viewBox="0 0 21 12" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="transi-rota lg:visible">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M0.43934 0.43934C1.02513 -0.146447 1.97487 -0.146447 2.56066 0.43934L10.5 8.37868L18.4393 0.43934C19.0251 -0.146447 19.9749 -0.146447 20.5607 0.43934C21.1464 1.02513 21.1464 1.97487 20.5607 2.56066L11.5607 11.5607C10.9749 12.1464 10.0251 12.1464 9.43934 11.5607L0.43934 2.56066C-0.146447 1.97487 -0.146447 1.02513 0.43934 0.43934Z"
-                                    :class="menuOpen && `hidden`"
-                                    class="origin-center fill-Grey-Velofeel dark:fill-Dark-Grey " />
-                            </svg>
-                        </div>
-                        <div id="myDropdown" class="dropdown-content shadow-md bg-Dark-Grey dark:bg-Grey-Velofeel ">
-                            <div class="flex gap-5 ml-4 mr-4">
-                                <div class="">
-                                    <router-link to="/produit">
-                                        <h6 href="#home" class=" ">Route</h6>
-                                    </router-link>
-                                    <p class="font-medium text-base ">TEST1</p>
-                                    <p class="font-medium text-base ">TEST2</p>
-                                    <p class="font-medium text-base ">TEST3</p>
-                                </div>
-                                <div class="">
-                                    <h6 href="#home" class=" ">Enfant</h6>
-                                    <p class="font-medium text-base ">TEST1</p>
-                                </div>
-                                <div class="">
-                                    <h6 href="#home" class=" ">VTT</h6>
-                                    <p class="font-medium text-base ">TEST1</p>
-                                </div>
-                                <div class="">
-                                    <h6 href="#home" class=" ">Electrique</h6>
-                                    <p class="font-medium text-base ">TEST1</p>
-                                </div>
-                                <div class="">
-                                    <h6 href="#home" class=" ">Accesoires</h6>
-                                    <p class="font-medium text-base ">TEST1</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <li class="btn_header_red">
+                    <RouterLink @click="switchMenu" to="/produit" class="  btn_header 2xl:text-[24px] lg:text-[20px]">
+                        Nos Produits
+                    </RouterLink>
                 </li>
                 <li class="btn_header_red">
                     <RouterLink @click="switchMenu" to="/partenaires" class="  btn_header 2xl:text-[24px] lg:text-[20px]">
