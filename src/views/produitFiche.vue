@@ -146,7 +146,7 @@ export default {
                     console.log("erreur deconnexion ", error);
                 });
         },
-
+        // avoir info pour le produit
         async getVelo(id) {
             const firestore = getFirestore();
             const docRef = doc(firestore, "velo", id);
