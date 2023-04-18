@@ -288,12 +288,14 @@ export default {
             <div class="search text-Dark-Grey">
                 <input type="text" class="searchTerm border-3 border-Dark-Grey" placeholder="Filtrez par nom"
                     v-model="filter">
+
                 <button type="submit"
                     class="searchButton text-Dark-Grey dark:text-Grey-Velofeel dark:bg-Dark-Grey bg-Grey-Velofeel border-2 dark:border-Dark-Grey border-Grey-Velofeel">
                     <i class="fa fa-search"></i>
                 </button>
             </div>
         </div>
+
         <!-- LISTE VELO / PRODUIT -->
         <div
             class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans font-bold">
