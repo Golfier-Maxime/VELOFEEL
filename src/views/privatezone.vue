@@ -290,7 +290,7 @@ export default {
         <button class="bouton_deco" @click="onDcnx" v-if="Connected">Se deconnecter</button>
 
         <!-- Création Produit -->
-        <form enctype="multipart/form-data" @submit.prevent="createVelo" class="mb-32 mt-16">
+        <form enctype="multipart/form-data" @submit.prevent="createVelo" class="mb-32 mt-16" v-if="Connected">
             <div class="">
                 <h2 class="shadow_text text-center font-prompt text-[30px] font-semibold text-black">Création Velo</h2>
                 <div class="line mx-auto"></div>
@@ -337,7 +337,7 @@ export default {
         </form>
 
         <!-- Filtrage par Nom en Input -->
-        <div class="flex gap-2 mt-4">
+        <div class="flex gap-2 mt-4" v-if="Connected">
             <div class="">
                 <span class="text-black">Filtrage</span>
             </div>
@@ -348,7 +348,7 @@ export default {
         </div>
 
         <!--Liste des vélo modifiable / Supprimable  -->
-        <tbody class="">
+        <tbody class="" v-if="Connected">
             <tr v-for="velo in filterByName" :key="velo.id">
                 <td>
                     <form class="mt-8">
