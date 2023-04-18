@@ -289,7 +289,8 @@ export default {
                 <span class="">Filtrage par nom</span>
             </div>
             <div class="text-Dark-Grey">
-                <input type="text" class="w-[200px] border-2 border-Dark-Grey rounded" v-model="filter" />
+                <input type="text" class="w-[200px] border-2 border-Dark-Grey rounded" v-model="filter"
+                    placeholder="Filtrez ici" />
             </div>
         </div>
         <!-- LISTE VELO / PRODUIT -->
