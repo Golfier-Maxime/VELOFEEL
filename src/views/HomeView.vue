@@ -37,6 +37,7 @@ import {
 
 import { emitter } from "../main";
 
+
 export default {
     name: "ListeVelo",
     data() {
@@ -46,12 +47,19 @@ export default {
             filter: "",
             // liste
             listeVeloSynchro: [],
+            listeVelo2Synchro: [],
             user: {
                 // user se connectant
                 email: null,
                 password: null,
             },
             velo: {
+                nomProduit: null,
+                descProduit: null,
+                prixProduit: null,
+                typeProduit: null,
+            },
+            velo2: {
                 nomProduit: null,
                 descProduit: null,
                 prixProduit: null,
@@ -65,7 +73,7 @@ export default {
 
     mounted() {
         this.getVeloSynchro();
-        // this.getImageAxolott();
+        this.getVelo2Synchro();
         this.getUserConnect();
         // Montage de la vue
         // Rechercher si un user est déjà connecté
@@ -165,12 +173,66 @@ export default {
             });
 
         },
+        // velo2
+        async getVelo2Synchro() {
+            const firestore = getFirestore();
+            const dbVelo2 = collection(firestore, "velo2");
+            const query = await onSnapshot(dbVelo2, (snapshot) => {
+                this.listeVelo2Synchro = snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }
+                ))
+                // récupération des images des produit/velo
+                // parcours de la liste 
+                this.listeVelo2Synchro.forEach(function (velo2) {
+                    const storage = getStorage();
+                    //récup des l'image par son nom de fichier
+                    const spaceRef = ref(storage, 'VELOFEEL/' + velo2.imageProduit);
+                    //recup de l'url de l'image
+                    getDownloadURL(spaceRef).then((url) => {
+                        //on remplace le nom du fichier
+                        // par l'url complete de l'image
+                        velo2.imageProduit = url;
+                    })
+                        .catch((error) => {
+                            console.log('erreur downloadUrl', error);
+                        })
+                })
+            });
+
+        },
 
         previewImage: function (event) {
             // Mise à jour de la photo du Produit
             this.file = this.$refs.file.files[0];
             // Récupérer le nom du fichier pour la photo du Produit
             this.velo.imageProduit = this.file.name;
+            // Reference to the DOM input element
+            // Reference du fichier à prévisualiser
+            var input = event.target;
+            // On s'assure que l'on a au moins un fichier à lire
+            if (input.files && input.files[0]) {
+                // Creation d'un filereader
+                // Pour lire l'image et la convertir en base 64
+                var reader = new FileReader();
+                // fonction callback appellée lors que le fichier a été chargé
+                reader.onload = (e) => {
+                    // Read image as base64 and set to imageData
+                    // lecture du fichier pour mettre à jour
+                    // la prévisualisation
+                    this.imageData = e.target.result;
+                };
+                // Demarrage du reader pour la transformer en data URL (format base 64)
+                reader.readAsDataURL(input.files[0]);
+            }
+        },
+        // velo2
+        previewImage2: function (event) {
+            // Mise à jour de la photo du Produit
+            this.file = this.$refs.file.files[0];
+            // Récupérer le nom du fichier pour la photo du Produit
+            this.velo2.imageProduit = this.file.name;
             // Reference to the DOM input element
             // Reference du fichier à prévisualiser
             var input = event.target;
@@ -215,6 +277,31 @@ export default {
             });
             console.log("document créé avec le id : ", docRef.id);
         },
+        // velo2
+        async createVelo2() {
+            // Obtenir storage Firebase
+            const storage = getStorage();
+            const firestore = getFirestore()
+            // Référence de l'image à uploader
+            const refStorage = ref(storage, "VELOFEEL/" + this.velo2.imageProduit);
+            // Upload de l'image sur le Cloud Storage
+            await uploadString(refStorage, this.imageData, "data_url").then((snapshot) => {
+                console.log("Uploaded a base64 string");
+                // Création du velo sur le Firestore
+                const db = getFirestore();
+                const docRef = addDoc(collection(db, "velo2"), this.velo2);
+            });
+            const dbVelo2 = collection(firestore, "velo2");
+            const docRef = await addDoc(dbVelo2, {
+                nomProduit: this.nomProduit,
+                descProduit: this.descProduit,
+                prixProduit: this.prixProduit,
+                typeProduit: this.typeProduit,
+                imageProduit: this.imageProduit,
+            });
+            console.log("document créé avec le id : ", docRef.id);
+        },
+
         async updateVelo(velo) {
             const firestore = getFirestore();
             const docRef = doc(firestore, "velo", velo.id);
@@ -222,9 +309,24 @@ export default {
                 nomProduit: velo.nomProduit,
             });
         },
+        // velo2
+        async updateVelo2(velo2) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "velo2", velo2.id);
+            await updateDoc(docRef, {
+                nomProduit: velo2.nomProduit,
+            });
+        },
+
         async deleteVelo(velo) {
             const firestore = getFirestore();
             const docRef = doc(firestore, "velo", velo.id);
+            await deleteDoc(docRef);
+        },
+        // velo2
+        async deleteVelo2(velo2) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "velo2", velo2.id);
             await deleteDoc(docRef);
         },
     },
@@ -236,6 +338,17 @@ export default {
         orderByName: function () {
             // Parcours et tri des pays 2 à 2
             return this.listeVeloSynchro.sort(function (a, b) {
+                // Si le nom du pays est avant on retourne -1
+                if (a.nom < b.nom) return -1;
+                // Si le nom du pays est après on retourne 1
+                if (a.nom > b.nom) return 1;
+                // Sinon ni avant ni après (homonyme) on retourne 0
+                return 0;
+            });
+        },
+        orderByName2: function () {
+            // Parcours et tri des pays 2 à 2
+            return this.listeVelo2Synchro.sort(function (a, b) {
                 // Si le nom du pays est avant on retourne -1
                 if (a.nom < b.nom) return -1;
                 // Si le nom du pays est après on retourne 1
@@ -263,10 +376,25 @@ export default {
                 return this.orderByName;
             }
         },
+        filterByName2: function () {
+            // On effectue le fitrage seulement si le filtre est rnseigné
+            if (this.filter.length > 0) {
+                // On récupère le filtre saisi en minuscule (on évite les majuscules)
+                let filter = this.filter.toLowerCase();
+                // Filtrage de la propriété calculée de tri
+                return this.orderByName2.filter(function (velo2) {
+                    // On ne renvoie que les pays dont le nom contient
+                    // la chaine de caractère du filtre
+                    return velo2.nomProduit.toLowerCase().includes(filter);
+                });
+            } else {
+                // Si le filtre n'est pas saisi
+                // On renvoie l'intégralité de la liste triée
+                return this.orderByName2;
+            }
+        },
     },
 };
-
-
 
 </script>
 
@@ -347,40 +475,17 @@ export default {
         <!-- quelques produits -->
         <div class="lg:mx-[10%] mx-4 lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
             <div>
-                <h4 class="font-OpenSans font-bold text-lg">Quelques produits</h4>
+                <h4 class="font-OpenSans font-bold text-2xl">Nos Produits en avant</h4>
             </div>
-            <!-- enssemble produit -->
-            <div class="flex flex-wrap justify-between">
-                <!-- produit -->
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/velo_placeholder.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
-                </div>
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/velo_placeholder.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
-                </div>
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/velo_placeholder.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
-                </div>
-                <div class="lg:flex flex-col gap-3 mt-6 hidden lg:visible">
-                    <img src="/images/velo_placeholder.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
-                </div>
-                <div class="lg:flex flex-col gap-3 mt-6 hidden lg:visible">
-                    <img src="/images/velo_placeholder.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
-                </div>
-                <div class="lg:flex flex-col gap-3 mt-6 hidden lg:visible">
-                    <img src="/images/velo_placeholder.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">Revolt X Advanced Pro 0</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
+            <!-- enssemble produit velo2 limité a 6 produit présenté-->
+            <div
+                class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans font-bold">
+                <div class="mt-8" v-for="velo2 in filterByName2" :key="velo2.id">
+                    <img :src="velo2.imageProduit" class="w-[330px] h-[220px]" />
+                    <p class="text-center text-lg">{{ velo2.nomProduit }}</p>
+                    <p class="text-center text-lg">{{ velo2.prixProduit }}€</p>
+                    <p class="text-center text-sm font-light">{{ velo2.typeProduit }}</p>
+                    <!-- <p class="text-center text-lg">{{ velo2.descProduit }}</p> -->
                 </div>
             </div>
         </div>
