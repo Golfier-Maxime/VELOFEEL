@@ -6,6 +6,7 @@ import PartenairesView from '../views/partenaires.vue'
 import ContactView from '../views/contact.vue'
 import ProduitView from '../views/produit.vue'
 import PrivateZoneView from '../views/privatezone.vue'
+import PrivateZone2View from '../views/privatezone2.vue'
 import ProduitFicheView from '../views/produitFiche.vue'
 
 const router = createRouter({
@@ -50,6 +51,11 @@ const router = createRouter({
       path: '/privatezone',
       name: 'PrivateZone',
       component: PrivateZoneView
+    },
+    {
+      path: '/privatezone2',
+      name: 'PrivateZone2',
+      component: PrivateZone2View
     },
   ],
   scrollBehavior() {

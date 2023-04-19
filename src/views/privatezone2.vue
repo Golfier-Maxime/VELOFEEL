@@ -1,4 +1,4 @@
-<script >
+<script>
 
 // Bibliothèques Firebase  : import des fonctions
 //  signInWithEmailAndPassword : Authentification avec email et mot de passe
@@ -43,6 +43,7 @@ export default {
         // Données de la vue
         return {
             imageData: null,
+            imageData2: null,
             filter: "",
             // liste
             listeVeloSynchro: [],
@@ -57,7 +58,6 @@ export default {
                 descProduit: null,
                 prixProduit: null,
                 typeProduit: null,
-                imageProduit: null,
             },
             velo2: {
                 nomProduit: null,
@@ -270,7 +270,7 @@ export default {
                     // Read image as base64 and set to imageData
                     // lecture du fichier pour mettre à jour
                     // la prévisualisation
-                    this.imageData = e.target.result;
+                    this.imageData2 = e.target.result;
                 };
                 // Demarrage du reader pour la transformer en data URL (format base 64)
                 reader.readAsDataURL(input.files[0]);
@@ -309,7 +309,7 @@ export default {
             // Référence de l'image à uploader
             const refStorage = ref(storage, "VELOFEEL/" + this.velo2.imageProduit);
             // Upload de l'image sur le Cloud Storage
-            await uploadString(refStorage, this.imageData, "data_url").then((snapshot) => {
+            await uploadString(refStorage, this.imageData2, "data_url").then((snapshot) => {
                 console.log("Uploaded a base64 string");
                 // Création du velo sur le Firestore
                 const db = getFirestore();
@@ -438,7 +438,7 @@ export default {
                 Vélofeel</h1>
             <h2
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
-                Privatezone pour les produits</h2>
+                Privatezone pour les produits mis en avant sur la page d'accueil</h2>
         </div>
         <!-- Connection / Déconection -->
         <form @submit.prevent="onCnx" class="flex flex-col items-center mt-4" v-if="!Connected">
@@ -461,7 +461,7 @@ export default {
         <button class="bouton_deco" @click="onDcnx" v-if="Connected">Se deconnecter</button>
 
         <!-- Création Produit -->
-        <form enctype="multipart/form-data" @submit.prevent="createVelo" class="mb-32 mt-16" v-if="Connected">
+        <form enctype="multipart/form-data" @submit.prevent="createVelo2" class="mb-32 mt-16" v-if="Connected">
             <div class="">
                 <h2 class="shadow_text text-center font-prompt text-[30px] font-semibold text-black">Création Velo</h2>
                 <div class="line mx-auto"></div>
@@ -470,33 +470,33 @@ export default {
             <!-- nom velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">Nom de Velo</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le nom" v-model="velo.nomProduit" required />
+                <input class="mx-auto flex justify-center" placeholder="Ici le nom" v-model="velo2.nomProduit" required />
             </div>
             <!-- desc velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">desc de Velo</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le desc" v-model="velo.descProduit" required />
+                <input class="mx-auto flex justify-center" placeholder="Ici le desc" v-model="velo2.descProduit" required />
             </div>
             <!-- prix velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">prix de Velo</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le prix" v-model="velo.prixProduit" required />
+                <input class="mx-auto flex justify-center" placeholder="Ici le prix" v-model="velo2.prixProduit" required />
             </div>
             <!-- type velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">type de Velo</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le type" v-model="velo.typeProduit" required />
+                <input class="mx-auto flex justify-center" placeholder="Ici le type" v-model="velo2.typeProduit" required />
             </div>
 
 
             <div>
                 <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-semibold text-black">image</p>
                 <div class="flex justify-center">
-                    <img class="preview img-fluid w-2/4" :src="imageData" />
+                    <img class="preview img-fluid w-2/4" :src="imageData2" />
                 </div>
             </div>
             <div class="custom-file mt-2 flex justify-center">
-                <input type="file" class="custom-file-input" ref="file" id="file" @change="previewImage" />
+                <input type="file" class="custom-file-input" ref="file" id="file" @change="previewImage2" />
                 <label class="custom-file-label" for="file">Sélectionner l'image</label>
             </div>
 
@@ -520,39 +520,39 @@ export default {
 
         <!--Liste des vélo modifiable / Supprimable  -->
         <tbody class="" v-if="Connected">
-            <tr v-for="velo in filterByName" :key="velo.id">
+            <tr v-for="velo2 in filterByName2" :key="velo2.id">
                 <td>
                     <form class="mt-8">
                         <div class="flex gap-2 ">
                             <div class="flex flex-col gap-1 justify-center">
                                 <div>
                                     <p class="">Nom du velo</p>
-                                    <input type="text" class="" v-model="velo.nomProduit" required />
+                                    <input type="text" class="" v-model="velo2.nomProduit" required />
                                 </div>
 
                                 <div>
                                     <p class="">Prix du velo en €</p>
-                                    <input type="text" class="" v-model="velo.prixProduit" required />
+                                    <input type="text" class="" v-model="velo2.prixProduit" required />
                                 </div>
                                 <div>
                                     <p class="">Type du velo</p>
-                                    <input type="text" class="" v-model="velo.typeProduit" required />
+                                    <input type="text" class="" v-model="velo2.typeProduit" required />
                                 </div>
                             </div>
 
                             <div class="mt-2 mb-2 flex justify-center w-[320px]">
-                                <img :src="velo.imageProduit" alt="image du produit" />
+                                <img :src="velo2.imageProduit" alt="image du produit" />
                             </div>
                             <div class="flex justify-center gap-4 ">
                                 <button class="bouton_liste" type="submit" title="Création"
-                                    @click.prevent="updateVelo(velo)">MODIFIER</button>
+                                    @click.prevent="updateVelo2(velo2)">MODIFIER</button>
                                 <button class="bouton_liste" type="submit" title="Suppression"
-                                    @click.prevent="deleteVelo(velo)">SUPPRIMER</button>
+                                    @click.prevent="deleteVelo2(velo2)">SUPPRIMER</button>
                             </div>
                         </div>
                         <div>
                             <p class="">Description du velo</p>
-                            <textarea type="text" class="" v-model="velo.descProduit" required cols="40"
+                            <textarea type="text" class="" v-model="velo2.descProduit" required cols="40"
                                 rows="4"> </textarea>
                         </div>
                     </form>
@@ -562,12 +562,12 @@ export default {
 
         <!-- LISTE VELO / PRODUIT -->
         <div class="mt-16  ">
-            <div class="mt-8" v-for="velo in filterByName" :key="velo.id">
-                <p class=" text-black">Le nom du produit est : {{ velo.nomProduit }}</p>
-                <p class="text-black">La description du produit : {{ velo.descProduit }}</p>
-                <p class="text-black">le prix du produit est : {{ velo.prixProduit }}€</p>
-                <p class="text-black">le type du produit est : {{ velo.typeProduit }}</p>
-                <img :src="velo.imageProduit" class="w-[300px]" />
+            <div class="mt-8" v-for="velo2 in filterByName2" :key="velo2.id">
+                <p class=" text-black">Le nom du produit est : {{ velo2.nomProduit }}</p>
+                <p class="text-black">La description du produit : {{ velo2.descProduit }}</p>
+                <p class="text-black">le prix du produit est : {{ velo2.prixProduit }}€</p>
+                <p class="text-black">le type du produit est : {{ velo2.typeProduit }}</p>
+                <img :src="velo2.imageProduit" class="w-[300px]" />
 
             </div>
         </div>
