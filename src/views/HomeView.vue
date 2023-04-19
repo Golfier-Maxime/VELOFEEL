@@ -689,7 +689,6 @@ export default {
                 <h4 class="font-OpenSans font-bold text-2xl">Nos Produits en avant</h4>
                 <div class="bar-title h-1 mt-2 w-[265px]"></div>
             </div>
-
             <!-- enssemble produit velo2 limité a 6 ou 3 produit présenté-->
             <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
                 <div class="mt-8 card_produit" v-for="velo2 in filterByName2" :key="velo2.id">
