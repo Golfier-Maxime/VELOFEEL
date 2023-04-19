@@ -218,6 +218,10 @@ export default {
             const docRef = doc(firestore, "velo", velo.id);
             await updateDoc(docRef, {
                 nomProduit: velo.nomProduit,
+                descProduit: velo.descProduit,
+                prixProduit: velo.prixProduit,
+                typeProduit: velo.typeProduit,
+                imageProduit: velo.imageProduit,
             });
         },
         async deleteVelo(velo) {
