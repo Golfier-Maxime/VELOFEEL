@@ -297,15 +297,22 @@ export default {
         </div>
 
         <!-- LISTE VELO / PRODUIT -->
-        <div
-            class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans font-bold">
-            <div class="mt-8" v-for="velo in filterByName" :key="velo.id">
-                <img :src="velo.imageProduit" class="w-[330px] h-[220px]" />
-                <p class="text-center text-lg">{{ velo.nomProduit }}</p>
-                <p class="text-center text-lg">{{ velo.prixProduit }}€</p>
-                <p class="text-center text-sm font-light">{{ velo.typeProduit }}</p>
-                <router-link :to="`/produitFiche/${velo.id}`">VOIR LE PRODUIT</router-link>
-                <!-- <p class="text-center text-lg">{{ velo.descProduit }}</p> -->
+        <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans ">
+            <div class="mt-8 " v-for="velo in filterByName" :key="velo.id">
+                <img :src="velo.imageProduit" class="w-[330px] h-[220px] rounded-t-lg" />
+                <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
+                    <div class="flex justify-between">
+                        <p class="ml-4 mt-3 text-lg font-semibold">{{ velo.nomProduit }}</p>
+                        <p class="mr-4 mt-3 text-sm font-light">{{ velo.typeProduit }}</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <p class="ml-4  text-lg font-extrabold">{{ velo.prixProduit }}€</p>
+                        <router-link :to="`/produitFiche/${velo.id}`"
+                            class="mr-4 py-1 px-2 font-overpass font-sm btn-produit-p">Voir le
+                            produit</router-link>
+                    </div>
+                    <!-- <p class="text-center text-lg">{{ velo.descProduit }}</p> -->
+                </div>
             </div>
         </div>
     </div>
@@ -314,6 +321,19 @@ export default {
 
 
 <style scoped>
+.btn-produit-p {
+    border: 2px solid #F8344C;
+    border-radius: 8px;
+    transition: .4s;
+}
+
+.btn-produit-p:hover {
+    background-color: #F8344C;
+    color: white;
+
+}
+
+
 .search {
     display: flex;
 }
