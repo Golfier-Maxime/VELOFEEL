@@ -482,7 +482,7 @@ export default {
 
 
 
-<style scoped>
+<style >
 .card_produit {
     transition: .3s;
 }

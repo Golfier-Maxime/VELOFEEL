@@ -512,15 +512,22 @@ export default {
                 <h4 class="font-OpenSans font-bold text-2xl">Nos Produits en avant</h4>
             </div>
             <!-- enssemble produit velo2 limité a 6 ou 3 produit présenté-->
-            <div
-                class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans font-bold">
-                <div class="mt-8" v-for="velo2 in filterByName2" :key="velo2.id">
-                    <img :src="velo2.imageProduit" class="w-[330px] h-[220px]" />
-                    <p class="text-center text-lg">{{ velo2.nomProduit }}</p>
-                    <p class="text-center text-lg">{{ velo2.prixProduit }}€</p>
-                    <p class="text-center text-sm font-light">{{ velo2.typeProduit }}</p>
-                    <router-link to="/${velo.id}"></router-link>
-                    <!-- <p class="text-center text-lg">{{ velo2.descProduit }}</p> -->
+            <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
+                <div class="mt-8 card_produit" v-for="velo2 in filterByName2" :key="velo2.id">
+                    <img :src="velo2.imageProduit" class="w-[330px] h-[220px] rounded-t-lg" />
+                    <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
+                        <div class="flex justify-between">
+                            <p class="ml-4 mt-3 text-lg font-semibold">{{ velo2.nomProduit }}</p>
+                            <p class="mr-4 mt-3 text-sm font-light">{{ velo2.typeProduit }}</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="ml-4  text-lg font-extrabold">{{ velo2.prixProduit }}€</p>
+                            <router-link :to="`/produitFiche/${velo2.id}`"
+                                class="mr-4 py-1 px-2 font-overpass font-sm btn-produit-p">Voir le
+                                produit</router-link>
+                        </div>
+                        <!-- <p class="text-center text-lg">{{ velo.descProduit }}</p> -->
+                    </div>
                 </div>
             </div>
         </div>
