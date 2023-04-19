@@ -1,8 +1,5 @@
-<script setup>
-import LogoFB from '@/components/logo/facebook.vue';
-</script>
-
 <script>
+
 // Bibliothèques Firebase  : import des fonctions
 //  signInWithEmailAndPassword : Authentification avec email et mot de passe
 //  getAuth : Fonction générale d'authentification
@@ -46,6 +43,7 @@ export default {
         // Données de la vue
         return {
             imageData: null,
+            imageData2: null,
             filter: "",
             // liste
             listeVeloSynchro: [],
@@ -60,7 +58,6 @@ export default {
                 descProduit: null,
                 prixProduit: null,
                 typeProduit: null,
-                imageProduit: null,
             },
             velo2: {
                 nomProduit: null,
@@ -89,6 +86,7 @@ export default {
             this.message = "User non connecté : " + this.user.email;
         }
         this.getVelo(this.$route.params.id)
+        this.getVelo2(this.$route.params.id)
     },
 
     methods: {
@@ -168,7 +166,26 @@ export default {
                 .then((url) => {
                     this.img_Prod = url;
                 })
+        },
+        // avoir info pour le produit
+        async getVelo2(id) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "velo2", id);
+            this.refVelo = await getDoc(docRef);
+            if (this.refVelo.exists()) {
+                this.velo2 = this.refVelo.data();
+                this.img_Prod = this.velo2.imageProduit;
 
+            }
+            else {
+                this.console.log("Velo Inexistant");
+            }
+            const storage = getStorage();
+            const spaceRef = ref(storage, 'VELOFEEL/' + this.velo2.imageProduit);
+            getDownloadURL(spaceRef)
+                .then((url) => {
+                    this.img_Prod = url;
+                })
         },
 
 
@@ -273,7 +290,7 @@ export default {
                     // Read image as base64 and set to imageData
                     // lecture du fichier pour mettre à jour
                     // la prévisualisation
-                    this.imageData = e.target.result;
+                    this.imageData2 = e.target.result;
                 };
                 // Demarrage du reader pour la transformer en data URL (format base 64)
                 reader.readAsDataURL(input.files[0]);
@@ -312,7 +329,7 @@ export default {
             // Référence de l'image à uploader
             const refStorage = ref(storage, "VELOFEEL/" + this.velo2.imageProduit);
             // Upload de l'image sur le Cloud Storage
-            await uploadString(refStorage, this.imageData, "data_url").then((snapshot) => {
+            await uploadString(refStorage, this.imageData2, "data_url").then((snapshot) => {
                 console.log("Uploaded a base64 string");
                 // Création du velo sur le Firestore
                 const db = getFirestore();
@@ -430,254 +447,40 @@ export default {
         },
     },
 };
+
 </script>
 
+
 <template>
-    <div class="">
+    <div class="lg:mx-20 mx-4">
         <!-- titre -->
-        <div class="lg:mx-20 mx-4">
+        <div>
             <h1
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-[50px] text-center font-overpass leading-tight">
-                Vélofeel
-            </h1>
+                class="text-Grey-Velofeel dark:text-Dark-Grey lg:text-[100px] text-[50px] font-extrabold  text-center font-overpass leading-tight">
+                Vélofeel</h1>
             <h2
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
-                L'expert du vélo pour tous </h2>
-            <h2
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
-                à
-                Audincourt</h2>
-            <p
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[24px]  text-center font-overpass leading-tight">
-                Du Mardi au
-                Samedi de 9:30-12:00 à 14:00-19:00</p>
+                Votre produit</h2>
         </div>
-        <!-- Slider automatic et infini de quelque marque associé -->
-        <div class="slider mt-10">
-            <div class="slide-track flex gap-5 ml-40">
-                <div class="slide">
-                    <img src="/images/logo_cannondale.png" height="100" width="250" alt="" class="mt-8" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_ktm2.jpg" height="100" width="150" alt="" class="mt-2" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_peugeot.png" height="100" width="300" alt="" class="mt-4 ml-[-80px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_shimano.png" height="100" width="300" alt="" class="mt-7 ml-[-60px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_pro.jpg" height="100" width="150" alt="" class="mt-4 ml-[-30px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_lazer.png" height="100" width="250" alt="" class="mt-[-20px] ml-[-100px]" />
-                </div>
-            </div>
-        </div>
+        <!-- fleche rouge qui montre en bas -->
         <div class="flex justify-center mt-10">
             <img src="/images/Arrow_Down.svg" alt="">
         </div>
-        <!-- Présentation produit a metre en avant -->
-        <div
-            class="lg:mx-[10%] mx-4 mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col-reverse justify-evenly ">
-            <div>
-                <h4 class="font-overpass lg:text-[50px] text-4xl mt-4 lg:mt-0 font-bold">Produit - Velo
-                    Marque</h4>
-                <p class="font-OpenSans lg:mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus
-                    ultricies quam in magna
-                    congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non
-                    tristique
-                    mi volutpat quis. </p>
-                <div class="font-OpenSans mt-11 mb-11 lg:mb-0">
-                    <router-link to="/contact" class="">
-                        <p class="btn-produit text-center py-3 w-52 text-base font-bold">Plus d'info</p>
-                    </router-link>
-                </div>
+        <!-- fiche produit -->
+        <div class="mt-16 flex flex-col-reverse lg:flex-row justify-evenly">
+            <div class="flex flex-col gap-2">
+                <p class="text-[50px] font-overpass font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{
+                    velo2.nomProduit }}
+                </p>
+                <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.typeProduit }}</p>
+                <p class="mr-16 text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.descProduit }}</p>
+                <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.prixProduit }} €</p>
             </div>
-            <div class="w-full ">
-                <img src="/images/PLACEHOLDER.jpg" alt="">
-            </div>
+            <img :src="img_Prod" class="lg:w-1/2" />
         </div>
-        <!-- quelques produits -->
-        <div class="lg:mx-[10%] mx-4 lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
-            <div>
-                <h4 class="font-OpenSans font-bold text-2xl">Nos Produits en avant</h4>
-            </div>
-            <!-- enssemble produit velo2 limité a 6 ou 3 produit présenté-->
-            <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
-                <div class="mt-8 card_produit" v-for="velo2 in filterByName2" :key="velo2.id">
-                    <img :src="velo2.imageProduit" class="w-[330px] h-[220px] rounded-t-lg" />
-                    <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
-                        <div class="flex justify-between">
-                            <p class="ml-4 mt-3 text-lg font-semibold">{{ velo2.nomProduit }}</p>
-                            <p class="mr-4 mt-3 text-sm font-light">{{ velo2.typeProduit }}</p>
-                        </div>
-                        <div class="flex justify-between">
-                            <p class="ml-4  text-lg font-extrabold">{{ velo2.prixProduit }}€</p>
-                            <router-link :to="`/produitFiche2/${velo2.id}`"
-                                class="mr-4 py-1 px-2 font-overpass font-sm btn-produit-p">Voir le
-                                produit</router-link>
-                        </div>
-                        <!-- <p class="text-center text-lg">{{ velo.descProduit }}</p> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Présentation Facebook a metre en avant -->
-        <div
-            class="lg:mx-[10%] mx-4  mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col-reverse justify-evenly ">
-            <div>
-                <h4 class="font-overpass lg:text-[50px] text-4xl  mt-4 lg:mt-0 font-bold">Evènement
-                    Facebook</h4>
-                <p class="font-OpenSans lg:mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus
-                    ultricies quam in magna
-                    congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non
-                    tristique
-                    mi volutpat quis. </p>
-                <div class="font-OpenSans mt-11 mb-11 lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
-                    <router-link to="/contact" class="flex justify-center gap-4">
-                        <LogoFB class=""></LogoFB>
-                        <p class="">
-                            Nous rejoindre
-                        </p>
-                    </router-link>
-                </div>
-            </div>
-            <div class="w-full ">
-                <img src="/images/PLACEHOLDER.jpg" alt="">
-            </div>
-        </div>
-        <!-- last fb post -->
-        <div class="lg:mx-[10%] mx-4 lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
-            <div>
-                <h4 class="font-OpenSans font-bold text-lg">Nos derniers posts</h4>
-            </div>
-            <!-- ensemble post -->
-            <div class="flex flex-wrap justify-between">
-                <!-- post -->
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/post_fb.jpg" alt="" class="lg:w-[300px]">
-                    <h5 class="font-OpenSans font-bold text-center">KTM</h5>
-                    <p class="font-OpenSans lg:w-[300px] ">Macina Kapoho 7972
 
-                        Un VTTAE passe partout en 160mm de
-                        débattement.
-                        Que ça grimpe fort ou que ça descende vite,
-                        le plaisir sera au rendez-vous.</p>
-                </div>
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/post_fb.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">POST 2</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
-                </div>
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/post_fb.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">POST 3</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
-                </div>
-            </div>
-        </div>
+
+
+
     </div>
 </template>
-
-<style>
-.btn-produit {
-    border: 2px solid #F8344C;
-    border-radius: 8px;
-    transition: .4s;
-}
-
-.btn-produit:hover {
-    background-color: #F8344C;
-    color: white;
-
-}
-
-
-.btn-facebook {
-    border: 2px solid #8D99AE;
-    border-radius: 8px;
-    transition: .4s;
-}
-
-.btn-facebook:hover {
-    background-color: #8D99AE;
-    color: white;
-
-}
-
-
-/* SLIDER MARQUE */
-
-@-webkit-keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-250px * 7));
-    }
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-250px * 7));
-    }
-}
-
-.slider {
-    background: white;
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-    height: 100px;
-
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-}
-
-.slider::before,
-.slider::after {
-    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
-    content: "";
-    height: 100px;
-    position: absolute;
-    width: 35px;
-    z-index: 2;
-}
-
-.slider::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
-}
-
-.slider::before {
-    left: 0;
-    top: 0;
-}
-
-.slider .slide-track {
-    -webkit-animation: scroll 40s linear infinite;
-    animation: scroll 40s linear infinite;
-    display: flex;
-    width: calc(250px * 14);
-}
-
-.slider .slide {
-    height: 100px;
-    width: 250px;
-}
-</style>

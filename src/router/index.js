@@ -8,6 +8,7 @@ import ProduitView from '../views/produit.vue'
 import PrivateZoneView from '../views/privatezone.vue'
 import PrivateZone2View from '../views/privatezone2.vue'
 import ProduitFicheView from '../views/produitFiche.vue'
+import ProduitFiche2View from '../views/produitFiche2.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,11 @@ const router = createRouter({
       path: '/produitFiche/:id',
       name: 'ProduitFiche',
       component: ProduitFicheView
+    },
+    {
+      path: '/produitFiche2/:id',
+      name: 'ProduitFiche2',
+      component: ProduitFiche2View
     },
     {
       path: '/legal',

@@ -86,6 +86,7 @@ export default {
             this.message = "User non connecté : " + this.user.email;
         }
         this.getVelo(this.$route.params.id)
+        this.getVelo2(this.$route.params.id)
     },
 
     methods: {
@@ -165,7 +166,26 @@ export default {
                 .then((url) => {
                     this.img_Prod = url;
                 })
+        },
+        // avoir info pour le produit
+        async getVelo2(id) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "velo2", id);
+            this.refVelo = await getDoc(docRef);
+            if (this.refVelo.exists()) {
+                this.velo2 = this.refVelo.data();
+                this.img_Prod = this.velo2.imageProduit;
 
+            }
+            else {
+                this.console.log("Velo Inexistant");
+            }
+            const storage = getStorage();
+            const spaceRef = ref(storage, 'VELOFEEL/' + this.velo2.imageProduit);
+            getDownloadURL(spaceRef)
+                .then((url) => {
+                    this.img_Prod = url;
+                })
         },
 
 
