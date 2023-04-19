@@ -440,12 +440,12 @@ export default {
         </div>
         <!-- fiche produit -->
         <div class="mt-16 flex flex-col-reverse lg:flex-row justify-evenly">
-            <div class="flex flex-col justify-between">
+            <div class="flex flex-col gap-2">
                 <p class="text-[50px] font-overpass font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{
                     velo.nomProduit }}
                 </p>
-                <p class="mb-2 text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.typeProduit }}</p>
-                <p class="mb-2 text-xl text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.descProduit }}</p>
+                <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.typeProduit }}</p>
+                <p class="mr-16 text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.descProduit }}</p>
                 <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.prixProduit }} €</p>
             </div>
             <img :src="img_Prod" class="lg:w-1/2" />
