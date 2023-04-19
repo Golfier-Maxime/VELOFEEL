@@ -6,7 +6,7 @@ import LogoInsta from './logo/insta.vue'
 
 <template>
     <footer
-        class="text-Grey-Velofeel dark:text-Dark-Grey bg-Dark-Grey dark:bg-Grey-Velofeel duration-700 tracking-wide pt-12">
+        class="text-Grey-Velofeel dark:text-Dark-Grey bg-Dark-Grey dark:bg-Grey-Velofeel duration-700 tracking-wide pt-24">
         <div class="flex justify-center">
             <img src="/images/logo_velofeel.png" alt="Logo de vélofeel" class="">
         </div>
