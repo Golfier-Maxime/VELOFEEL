@@ -46,10 +46,13 @@ export default {
         // Données de la vue
         return {
             imageData: null,
+            imageData2: null,
+            imageData3: null,
             filter: "",
             // liste
             listeVeloSynchro: [],
             listeVelo2Synchro: [],
+            listeVelo3Synchro: [],
             user: {
                 // user se connectant
                 email: null,
@@ -60,9 +63,14 @@ export default {
                 descProduit: null,
                 prixProduit: null,
                 typeProduit: null,
-                imageProduit: null,
             },
             velo2: {
+                nomProduit: null,
+                descProduit: null,
+                prixProduit: null,
+                typeProduit: null,
+            },
+            velo3: {
                 nomProduit: null,
                 descProduit: null,
                 prixProduit: null,
@@ -78,6 +86,7 @@ export default {
     mounted() {
         this.getVeloSynchro();
         this.getVelo2Synchro();
+        this.getVelo3Synchro();
         this.getUserConnect();
         // Montage de la vue
         // Rechercher si un user est déjà connecté
@@ -89,6 +98,8 @@ export default {
             this.message = "User non connecté : " + this.user.email;
         }
         this.getVelo(this.$route.params.id)
+        this.getVelo2(this.$route.params.id)
+        this.getVelo3(this.$route.params.id)
     },
 
     methods: {
@@ -168,7 +179,46 @@ export default {
                 .then((url) => {
                     this.img_Prod = url;
                 })
+        },
+        // avoir info pour le produit velo2
+        async getVelo2(id) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "velo2", id);
+            this.refVelo = await getDoc(docRef);
+            if (this.refVelo.exists()) {
+                this.velo2 = this.refVelo.data();
+                this.img_Prod = this.velo2.imageProduit;
 
+            }
+            else {
+                this.console.log("Velo Inexistant");
+            }
+            const storage = getStorage();
+            const spaceRef = ref(storage, 'VELOFEEL/' + this.velo2.imageProduit);
+            getDownloadURL(spaceRef)
+                .then((url) => {
+                    this.img_Prod = url;
+                })
+        },
+        // avoir info pour le produit velo3
+        async getVelo3(id) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "velo3", id);
+            this.refVelo = await getDoc(docRef);
+            if (this.refVelo.exists()) {
+                this.velo3 = this.refVelo.data();
+                this.img_Prod = this.velo3.imageProduit;
+
+            }
+            else {
+                this.console.log("Velo Inexistant");
+            }
+            const storage = getStorage();
+            const spaceRef = ref(storage, 'VELOFEEL/' + this.velo3.imageProduit);
+            getDownloadURL(spaceRef)
+                .then((url) => {
+                    this.img_Prod = url;
+                })
         },
 
 
@@ -227,6 +277,35 @@ export default {
                         })
                 })
             });
+        },
+
+        // velo3
+        async getVelo3Synchro() {
+            const firestore = getFirestore();
+            const dbVelo3 = collection(firestore, "velo3");
+            const query = await onSnapshot(dbVelo3, (snapshot) => {
+                this.listeVelo3Synchro = snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }
+                ))
+                // récupération des images des produit/velo
+                // parcours de la liste 
+                this.listeVelo3Synchro.forEach(function (velo3) {
+                    const storage = getStorage();
+                    //récup des l'image par son nom de fichier
+                    const spaceRef = ref(storage, 'VELOFEEL/' + velo3.imageProduit);
+                    //recup de l'url de l'image
+                    getDownloadURL(spaceRef).then((url) => {
+                        //on remplace le nom du fichier
+                        // par l'url complete de l'image
+                        velo3.imageProduit = url;
+                    })
+                        .catch((error) => {
+                            console.log('erreur downloadUrl', error);
+                        })
+                })
+            });
 
         },
 
@@ -273,7 +352,32 @@ export default {
                     // Read image as base64 and set to imageData
                     // lecture du fichier pour mettre à jour
                     // la prévisualisation
-                    this.imageData = e.target.result;
+                    this.imageData2 = e.target.result;
+                };
+                // Demarrage du reader pour la transformer en data URL (format base 64)
+                reader.readAsDataURL(input.files[0]);
+            }
+        },
+        // velo3
+        previewImage3: function (event) {
+            // Mise à jour de la photo du Produit
+            this.file = this.$refs.file.files[0];
+            // Récupérer le nom du fichier pour la photo du Produit
+            this.velo3.imageProduit = this.file.name;
+            // Reference to the DOM input element
+            // Reference du fichier à prévisualiser
+            var input = event.target;
+            // On s'assure que l'on a au moins un fichier à lire
+            if (input.files && input.files[0]) {
+                // Creation d'un filereader
+                // Pour lire l'image et la convertir en base 64
+                var reader = new FileReader();
+                // fonction callback appellée lors que le fichier a été chargé
+                reader.onload = (e) => {
+                    // Read image as base64 and set to imageData
+                    // lecture du fichier pour mettre à jour
+                    // la prévisualisation
+                    this.imageData3 = e.target.result;
                 };
                 // Demarrage du reader pour la transformer en data URL (format base 64)
                 reader.readAsDataURL(input.files[0]);
@@ -312,7 +416,7 @@ export default {
             // Référence de l'image à uploader
             const refStorage = ref(storage, "VELOFEEL/" + this.velo2.imageProduit);
             // Upload de l'image sur le Cloud Storage
-            await uploadString(refStorage, this.imageData, "data_url").then((snapshot) => {
+            await uploadString(refStorage, this.imageData2, "data_url").then((snapshot) => {
                 console.log("Uploaded a base64 string");
                 // Création du velo sur le Firestore
                 const db = getFirestore();
@@ -320,6 +424,30 @@ export default {
             });
             const dbVelo2 = collection(firestore, "velo2");
             const docRef = await addDoc(dbVelo2, {
+                nomProduit: this.nomProduit,
+                descProduit: this.descProduit,
+                prixProduit: this.prixProduit,
+                typeProduit: this.typeProduit,
+                imageProduit: this.imageProduit,
+            });
+            console.log("document créé avec le id : ", docRef.id);
+        },
+        // velo3
+        async createVelo3() {
+            // Obtenir storage Firebase
+            const storage = getStorage();
+            const firestore = getFirestore()
+            // Référence de l'image à uploader
+            const refStorage = ref(storage, "VELOFEEL/" + this.velo3.imageProduit);
+            // Upload de l'image sur le Cloud Storage
+            await uploadString(refStorage, this.imageData3, "data_url").then((snapshot) => {
+                console.log("Uploaded a base64 string");
+                // Création du velo sur le Firestore
+                const db = getFirestore();
+                const docRef = addDoc(collection(db, "velo3"), this.velo3);
+            });
+            const dbVelo2 = collection(firestore, "velo3");
+            const docRef = await addDoc(dbVelo3, {
                 nomProduit: this.nomProduit,
                 descProduit: this.descProduit,
                 prixProduit: this.prixProduit,
@@ -352,6 +480,18 @@ export default {
                 imageProduit: velo2.imageProduit,
             });
         },
+        // velo3
+        async updateVelo3(velo3) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "velo3", velo3.id);
+            await updateDoc(docRef, {
+                nomProduit: velo3.nomProduit,
+                descProduit: velo3.descProduit,
+                prixProduit: velo3.prixProduit,
+                typeProduit: velo3.typeProduit,
+                imageProduit: velo3.imageProduit,
+            });
+        },
 
         async deleteVelo(velo) {
             const firestore = getFirestore();
@@ -362,6 +502,12 @@ export default {
         async deleteVelo2(velo2) {
             const firestore = getFirestore();
             const docRef = doc(firestore, "velo2", velo2.id);
+            await deleteDoc(docRef);
+        },
+        // velo3
+        async deleteVelo3(velo3) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "velo3", velo3.id);
             await deleteDoc(docRef);
         },
     },
@@ -384,6 +530,17 @@ export default {
         orderByName2: function () {
             // Parcours et tri des pays 2 à 2
             return this.listeVelo2Synchro.sort(function (a, b) {
+                // Si le nom du pays est avant on retourne -1
+                if (a.nom < b.nom) return -1;
+                // Si le nom du pays est après on retourne 1
+                if (a.nom > b.nom) return 1;
+                // Sinon ni avant ni après (homonyme) on retourne 0
+                return 0;
+            });
+        },
+        orderByName3: function () {
+            // Parcours et tri des pays 2 à 2
+            return this.listeVelo3Synchro.sort(function (a, b) {
                 // Si le nom du pays est avant on retourne -1
                 if (a.nom < b.nom) return -1;
                 // Si le nom du pays est après on retourne 1
@@ -428,8 +585,26 @@ export default {
                 return this.orderByName2;
             }
         },
+        filterByName3: function () {
+            // On effectue le fitrage seulement si le filtre est rnseigné
+            if (this.filter.length > 0) {
+                // On récupère le filtre saisi en minuscule (on évite les majuscules)
+                let filter = this.filter.toLowerCase();
+                // Filtrage de la propriété calculée de tri
+                return this.orderByName3.filter(function (velo3) {
+                    // On ne renvoie que les pays dont le nom contient
+                    // la chaine de caractère du filtre
+                    return velo3.nomProduit.toLowerCase().includes(filter);
+                });
+            } else {
+                // Si le filtre n'est pas saisi
+                // On renvoie l'intégralité de la liste triée
+                return this.orderByName3;
+            }
+        },
     },
 };
+
 </script>
 
 <template>
@@ -481,29 +656,28 @@ export default {
                 </div>
             </div>
         </div>
-        <div class="flex justify-center mt-10">
+        <div class="lg:mx-20 mx-4 flex justify-center mt-10">
             <img src="/images/Arrow_Down.svg" alt="">
         </div>
         <!-- Présentation produit a metre en avant -->
-        <div
-            class="lg:mx-[10%] mx-4 mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col-reverse justify-evenly ">
-            <div>
-                <h4 class="font-overpass lg:text-[50px] text-4xl mt-4 lg:mt-0 font-bold">Produit - Velo
-                    Marque</h4>
-                <p class="font-OpenSans lg:mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus
-                    ultricies quam in magna
-                    congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non
-                    tristique
-                    mi volutpat quis. </p>
-                <div class="font-OpenSans mt-11 mb-11 lg:mb-0">
-                    <router-link to="/contact" class="">
-                        <p class="btn-produit text-center py-3 w-52 text-base font-bold">Plus d'info</p>
-                    </router-link>
+        <div class="flex justify-center">
+            <div v-for="velo3 in filterByName3" :key="velo3.id"
+                class="lg:mx-20 mx-4 mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col-reverse  lg:gap-16">
+                <div>
+                    <h4 class="font-overpass lg:text-[50px] text-4xl mt-4 lg:mt-0 font-extrabold">{{ velo3.nomProduit }}
+                    </h4>
+                    <p class="font-OpenSans ">{{ velo3.descProduit }}</p>
+                    <p class="font-OpenSans ">{{ velo3.typeProduit }}</p>
+                    <p class="font-OpenSans ">{{ velo3.prixProduit }} €</p>
+                    <div class="font-OpenSans mt-11 mb-11 lg:mb-0">
+                        <router-link to="/contact" class="">
+                            <p class="btn-produit text-center py-3 w-52 text-base font-bold">Plus d'info</p>
+                        </router-link>
+                    </div>
                 </div>
-            </div>
-            <div class="w-full ">
-                <img src="/images/PLACEHOLDER.jpg" alt="">
+                <div class="">
+                    <img :src="velo3.imageProduit" alt="">
+                </div>
             </div>
         </div>
         <!-- quelques produits -->
@@ -535,7 +709,7 @@ export default {
         </div>
         <!-- Présentation Facebook a metre en avant -->
         <div
-            class="lg:mx-[10%] mx-4  mt-16 text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col-reverse justify-evenly ">
+            class="lg:mx-[10%] mx-4  mt-20 text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col-reverse justify-evenly ">
             <div>
                 <h4 class="font-overpass lg:text-[50px] text-4xl  mt-4 lg:mt-0 font-bold">Evènement
                     Facebook</h4>
