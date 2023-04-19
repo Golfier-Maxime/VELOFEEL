@@ -7,8 +7,10 @@ import ContactView from '../views/contact.vue'
 import ProduitView from '../views/produit.vue'
 import PrivateZoneView from '../views/privatezone.vue'
 import PrivateZone2View from '../views/privatezone2.vue'
+import PrivateZone3View from '../views/privatezone3.vue'
 import ProduitFicheView from '../views/produitFiche.vue'
 import ProduitFiche2View from '../views/produitFiche2.vue'
+import ProduitFiche3View from '../views/produitFiche3.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +29,11 @@ const router = createRouter({
       path: '/produitFiche2/:id',
       name: 'ProduitFiche2',
       component: ProduitFiche2View
+    },
+    {
+      path: '/produitFiche3/:id',
+      name: 'ProduitFiche3',
+      component: ProduitFiche3View
     },
     {
       path: '/legal',
@@ -62,6 +69,11 @@ const router = createRouter({
       path: '/privatezone2',
       name: 'PrivateZone2',
       component: PrivateZone2View
+    },
+    {
+      path: '/privatezone3',
+      name: 'PrivateZone3',
+      component: PrivateZone3View
     },
   ],
   scrollBehavior() {

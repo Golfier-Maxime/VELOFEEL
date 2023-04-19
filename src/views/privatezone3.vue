@@ -1,7 +1,3 @@
-<script setup>
-import LogoFB from '@/components/logo/facebook.vue';
-</script>
-
 <script>
 // Bibliothèques Firebase  : import des fonctions
 //  signInWithEmailAndPassword : Authentification avec email et mot de passe
@@ -608,260 +604,161 @@ export default {
 </script>
 
 <template>
-    <div class="">
+    <div class="mt-16 mx-20 text-black">
         <!-- titre -->
-        <div class="lg:mx-20 mx-4">
+        <div>
             <h1
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-[50px] text-center font-overpass leading-tight">
-                Vélofeel
-            </h1>
+                class="text-Grey-Velofeel dark:text-Dark-Grey lg:text-[100px] text-[50px] font-extrabold  text-center font-overpass leading-tight">
+                Vélofeel</h1>
             <h2
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
-                L'expert du vélo pour tous </h2>
-            <h2
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
-                à
-                Audincourt</h2>
-            <p
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[24px]  text-center font-overpass leading-tight">
-                Du Mardi au
-                Samedi de 9:30-12:00 à 14:00-19:00</p>
+                Privatezone pour le produits phare sur la page d'accueil</h2>
         </div>
-        <!-- Slider automatic et infini de quelque marque associé -->
-        <div class="slider mt-10">
-            <div class="slide-track flex gap-5 ml-40">
-                <div class="slide">
-                    <img src="/images/logo_cannondale.png" height="100" width="250" alt="" class="mt-8" />
+        <!-- Connection / Déconection -->
+        <form @submit.prevent="onCnx" class="flex flex-col items-center mt-4" v-if="!Connected">
+            <div class="">
+                <div class="">
+                    <button class="text-Grey-Velofeel dark:text-Dark-Grey ">Email</button>
                 </div>
-                <div class="slide">
-                    <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_ktm2.jpg" height="100" width="150" alt="" class="mt-2" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_peugeot.png" height="100" width="300" alt="" class="mt-4 ml-[-80px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_shimano.png" height="100" width="300" alt="" class="mt-7 ml-[-60px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_pro.jpg" height="100" width="150" alt="" class="mt-4 ml-[-30px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_lazer.png" height="100" width="250" alt="" class="mt-[-20px] ml-[-100px]" />
-                </div>
+                <input class="text-black" type="text" v-model="user.email" required />
             </div>
-        </div>
-        <div class="lg:mx-20 mx-4 flex justify-center mt-10">
-            <img src="/images/Arrow_Down.svg" alt="">
-        </div>
-        <!-- Présentation produit a metre en avant -->
-        <div class="flex justify-center">
-            <div v-for="velo3 in filterByName3" :key="velo3.id"
-                class="mt-16 flex flex-col-reverse lg:flex-row justify-evenly">
-                <div class="flex flex-col gap-2">
-                    <p class="text-[50px] font-overpass font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{
-                        velo3.nomProduit }}
-                    </p>
-                    <p class="w-[300px] text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.descProduit }}</p>
-                    <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.typeProduit }}</p>
-                    <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.prixProduit }} €</p>
-                    <div class="font-OpenSans mt-8 mb-11 lg:mb-0">
-                        <router-link :to="`/produitFiche3/${velo3.id}`" class="">
-                            <p
-                                class="btn-produit text-center py-3 w-52 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
-                                Plus d'info</p>
-                        </router-link>
-                    </div>
+            <div class="">
+                <div class="">
+                    <button class="text-white">Mot de passe</button>
                 </div>
-                <div class="lg:w-[500px] w-[350px]">
-                    <img :src="velo3.imageProduit" alt="">
-                </div>
+                <input class="text-black" type="password" v-model="user.password" required />
             </div>
-        </div>
-        <!-- quelques produits -->
-        <div class="lg:mx-[10%] mx-4 lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
-            <div>
-                <h4 class="font-OpenSans font-bold text-2xl">Nos Produits en avant</h4>
-                <div class="bar-title h-1 mt-2 w-[265px]"></div>
+            <div class="flex justify-center">
+                <button class="bouton_deco mt-4" type="submit">Se connecter</button>
+            </div>
+        </form>
+        <button class="bouton_deco" @click="onDcnx" v-if="Connected">Se deconnecter</button>
+
+        <!-- Création Produit -->
+        <form enctype="multipart/form-data" @submit.prevent="createVelo3" class="mb-32 mt-16" v-if="Connected">
+            <div class="">
+                <h2 class="shadow_text text-center font-prompt text-[30px] font-semibold text-black">Création Velo</h2>
+                <div class="line mx-auto"></div>
             </div>
 
-            <!-- enssemble produit velo2 limité a 6 ou 3 produit présenté-->
-            <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
-                <div class="mt-8 card_produit" v-for="velo2 in filterByName2" :key="velo2.id">
-                    <img :src="velo2.imageProduit" class="w-[330px] h-[220px] rounded-t-lg" />
-                    <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
-                        <div class="flex justify-between">
-                            <p class="ml-4 mt-3 text-lg font-semibold">{{ velo2.nomProduit }}</p>
-                            <p class="mr-4 mt-3 text-sm font-light">{{ velo2.typeProduit }}</p>
-                        </div>
-                        <div class="flex justify-between">
-                            <p class="ml-4  text-lg font-extrabold">{{ velo2.prixProduit }}€</p>
-                            <router-link :to="`/produitFiche2/${velo2.id}`"
-                                class="mr-4 py-1 px-2 font-overpass font-sm btn-produit-p">Voir le
-                                produit</router-link>
-                        </div>
-                        <!-- <p class="text-center text-lg">{{ velo.descProduit }}</p> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Présentation Facebook a metre en avant -->
-        <div
-            class="lg:mx-[10%] mx-4  mt-20 text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col-reverse justify-evenly ">
+            <!-- nom velo -->
             <div>
-                <h4 class="font-overpass lg:text-[50px] text-4xl  mt-4 lg:mt-0 font-bold">Evènement
-                    Facebook</h4>
-                <p class="font-OpenSans lg:mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus
-                    ultricies quam in magna
-                    congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non
-                    tristique
-                    mi volutpat quis. </p>
-                <div class="font-OpenSans mt-11 mb-11 lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
-                    <router-link to="/contact" class="flex justify-center gap-4">
-                        <LogoFB class=""></LogoFB>
-                        <p class="">
-                            Nous rejoindre
-                        </p>
-                    </router-link>
-                </div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">Nom de Velo</p>
+                <input class="mx-auto flex justify-center" placeholder="Ici le nom" v-model="velo3.nomProduit" required />
             </div>
-            <div class="w-full ">
-                <img src="/images/PLACEHOLDER.jpg" alt="">
-            </div>
-        </div>
-        <!-- last fb post -->
-        <div class="lg:mx-[10%] mx-4 lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
+            <!-- desc velo -->
             <div>
-                <h4 class="font-OpenSans font-bold text-lg">Nos derniers posts</h4>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">desc de Velo</p>
+                <input class="mx-auto flex justify-center" placeholder="Ici le desc" v-model="velo3.descProduit" required />
             </div>
-            <!-- ensemble post -->
-            <div class="flex flex-wrap justify-between">
-                <!-- post -->
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/post_fb.jpg" alt="" class="lg:w-[300px]">
-                    <h5 class="font-OpenSans font-bold text-center">KTM</h5>
-                    <p class="font-OpenSans lg:w-[300px] ">Macina Kapoho 7972
+            <!-- prix velo -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">prix de Velo</p>
+                <input class="mx-auto flex justify-center" placeholder="Ici le prix" v-model="velo3.prixProduit" required />
+            </div>
+            <!-- type velo -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">type de Velo</p>
+                <input class="mx-auto flex justify-center" placeholder="Ici le type" v-model="velo3.typeProduit" required />
+            </div>
 
-                        Un VTTAE passe partout en 160mm de
-                        débattement.
-                        Que ça grimpe fort ou que ça descende vite,
-                        le plaisir sera au rendez-vous.</p>
+
+            <div>
+                <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-semibold text-black">image</p>
+                <div class="flex justify-center">
+                    <img class="preview img-fluid w-2/4" :src="imageData3" />
                 </div>
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/post_fb.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">POST 2</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
-                </div>
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/post_fb.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">POST 3</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
-                </div>
+            </div>
+            <div class="custom-file mt-2 flex justify-center">
+                <input type="file" class="custom-file-input" ref="file" id="file" @change="previewImage3" />
+                <label class="custom-file-label" for="file">Sélectionner l'image</label>
+            </div>
+
+
+            <div class="mt-2 flex justify-center gap-4 pb-16">
+                <button type="submit" class="bouton_liste">Créer</button>
+                <button @click="reloadPage">Annuler</button>
+            </div>
+        </form>
+
+        <!-- Filtrage par Nom en Input -->
+        <div class="flex gap-2 mt-4" v-if="Connected">
+            <div class="">
+                <span class="text-black">Filtrage</span>
+            </div>
+            <div class="flex justify-center gap-4">
+                <input type="text" class="" v-model="filter" />
+                <button class="bouton_liste" type="submit" title="Création">Filtrer</button>
+            </div>
+        </div>
+
+        <!--Liste des vélo modifiable / Supprimable  -->
+        <tbody class="" v-if="Connected">
+            <tr v-for="velo3 in filterByName3" :key="velo3.id">
+                <td>
+                    <form class="mt-8">
+                        <div class="flex gap-2 ">
+                            <div class="flex flex-col gap-1 justify-center">
+                                <div>
+                                    <p class="">Nom du velo</p>
+                                    <input type="text" class="" v-model="velo3.nomProduit" required />
+                                </div>
+
+                                <div>
+                                    <p class="">Prix du velo en €</p>
+                                    <input type="text" class="" v-model="velo3.prixProduit" required />
+                                </div>
+                                <div>
+                                    <p class="">Type du velo</p>
+                                    <input type="text" class="" v-model="velo3.typeProduit" required />
+                                </div>
+                            </div>
+
+                            <div class="mt-2 mb-2 flex justify-center w-[320px]">
+                                <img :src="velo3.imageProduit" alt="image du produit" />
+                            </div>
+                            <div class="flex justify-center gap-4 ">
+                                <button class="bouton_liste" type="submit" title="Création"
+                                    @click.prevent="updateVelo3(velo3)">MODIFIER</button>
+                                <button class="bouton_liste" type="submit" title="Suppression"
+                                    @click.prevent="deleteVelo3(velo3)">SUPPRIMER</button>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="">Description du velo</p>
+                            <textarea type="text" class="" v-model="velo3.descProduit" required cols="40"
+                                rows="4"> </textarea>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+
+        <!-- LISTE VELO / PRODUIT -->
+        <div class="mt-16  ">
+            <div class="mt-8" v-for="velo3 in filterByName3" :key="velo3.id">
+                <p class=" text-black">Le nom du produit est : {{ velo3.nomProduit }}</p>
+                <p class="text-black">La description du produit : {{ velo3.descProduit }}</p>
+                <p class="text-black">le prix du produit est : {{ velo3.prixProduit }}€</p>
+                <p class="text-black">le type du produit est : {{ velo3.typeProduit }}</p>
+                <img :src="velo3.imageProduit" class="w-[300px]" />
+
             </div>
         </div>
     </div>
 </template>
 
-<style>
-.bar-title {
-    background-image: linear-gradient(90deg, #D90429, #F8344C);
-    border-radius: 2px;
-}
 
-.btn-produit {
-    border: 2px solid #F8344C;
-    border-radius: 8px;
-    transition: .4s;
-}
-
-.btn-produit:hover {
-    background-color: #F8344C;
+<style scoped>
+.bouton_deco {
+    background-color: cyan;
+    border: none;
     color: white;
-
-}
-
-
-.btn-facebook {
-    border: 2px solid #8D99AE;
-    border-radius: 8px;
-    transition: .4s;
-}
-
-.btn-facebook:hover {
-    background-color: #8D99AE;
-    color: white;
-
-}
-
-
-/* SLIDER MARQUE */
-
-@-webkit-keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-250px * 7));
-    }
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-250px * 7));
-    }
-}
-
-.slider {
-    background: white;
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-    height: 100px;
-
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-}
-
-.slider::before,
-.slider::after {
-    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
-    content: "";
-    height: 100px;
-    position: absolute;
-    width: 35px;
-    z-index: 2;
-}
-
-.slider::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
-}
-
-.slider::before {
-    left: 0;
-    top: 0;
-}
-
-.slider .slide-track {
-    -webkit-animation: scroll 40s linear infinite;
-    animation: scroll 40s linear infinite;
-    display: flex;
-    width: calc(250px * 14);
-}
-
-.slider .slide {
-    height: 100px;
-    width: 250px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
 }
 </style>
