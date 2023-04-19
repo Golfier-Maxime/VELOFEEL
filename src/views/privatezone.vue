@@ -370,7 +370,7 @@ export default {
                             </div>
 
                             <div class="mt-2 mb-2 flex justify-center w-[320px]">
-                                <img :src="velo.imageProduit" alt="" />
+                                <img :src="velo.imageProduit" alt="image du produit" />
                             </div>
                             <div class="flex justify-center gap-4 ">
                                 <button class="bouton_liste" type="submit" title="Création"
@@ -390,7 +390,7 @@ export default {
         </tbody>
 
         <!-- LISTE VELO / PRODUIT -->
-        <div class="mt-16 flex gap-16">
+        <div class="mt-16  ">
             <div class="mt-8" v-for="velo in filterByName" :key="velo.id">
                 <p class=" text-black">Le nom du produit est : {{ velo.nomProduit }}</p>
                 <p class="text-black">La description du produit : {{ velo.descProduit }}</p>

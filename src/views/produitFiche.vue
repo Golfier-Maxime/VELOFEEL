@@ -424,7 +424,7 @@ export default {
 
 
 <template>
-    <div>
+    <div class="lg:mx-20 mx-4">
         <!-- titre -->
         <div>
             <h1
@@ -432,13 +432,27 @@ export default {
                 Vélofeel</h1>
             <h2
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
-                TEST Produit fiche </h2>
+                Votre produit</h2>
         </div>
-        <p class="text-xl text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.nomProduit }}</p>
-        <p class="text-xl text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.descProduit }}</p>
-        <p class="text-xl text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.typeProduit }}</p>
-        <p class="text-xl text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.prixProduit }}</p>
-        <img :src="img_Prod" class="w-[330px] h-[220px]" />
+        <!-- fleche rouge qui montre en bas -->
+        <div class="flex justify-center mt-10">
+            <img src="/images/Arrow_Down.svg" alt="">
+        </div>
+        <!-- fiche produit -->
+        <div class="mt-16 flex flex-col-reverse lg:flex-row justify-evenly">
+            <div class="flex flex-col justify-between">
+                <p class="text-[50px] font-overpass font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{
+                    velo.nomProduit }}
+                </p>
+                <p class="mb-2 text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.typeProduit }}</p>
+                <p class="mb-2 text-xl text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.descProduit }}</p>
+                <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.prixProduit }} €</p>
+            </div>
+            <img :src="img_Prod" class="lg:w-1/2" />
+        </div>
+
+
+
 
     </div>
 </template>
