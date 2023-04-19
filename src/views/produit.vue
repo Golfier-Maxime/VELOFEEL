@@ -460,7 +460,7 @@ export default {
 
         <!-- LISTE VELO / PRODUIT -->
         <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
-            <div class="mt-8 card_produit" v-for="velo in filterByName" :key="velo.id">
+            <div class="mt-8 card_produit " v-for="velo in filterByName" :key="velo.id">
                 <img :src="velo.imageProduit" class="w-[330px] h-[220px] rounded-t-lg" />
                 <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
                     <div class="flex justify-between">
@@ -489,6 +489,7 @@ export default {
 
 .card_produit:hover {
     scale: 1.05;
+
 }
 
 .btn-produit-p {
