@@ -3,7 +3,6 @@ import LogoFB from '@/components/logo/facebook.vue';
 </script>
 
 <script>
-
 // Bibliothèques Firebase  : import des fonctions
 //  signInWithEmailAndPassword : Authentification avec email et mot de passe
 //  getAuth : Fonction générale d'authentification
@@ -19,6 +18,7 @@ import {
     getFirestore, // Obtenir le Firestore
     collection, // Utiliser une collection de documents
     doc, // Obtenir un document par son id
+    getDoc,
     getDocs, // Obtenir la liste des documents d'une collection
     addDoc, // Ajouter un document à une collection
     updateDoc, // Mettre à jour un document dans une collection
@@ -42,7 +42,6 @@ import { emitter } from "../main";
 
 
 export default {
-    name: "ListeVelo",
     data() {
         // Données de la vue
         return {
@@ -61,6 +60,7 @@ export default {
                 descProduit: null,
                 prixProduit: null,
                 typeProduit: null,
+                imageProduit: null,
             },
             velo2: {
                 nomProduit: null,
@@ -71,6 +71,7 @@ export default {
             refVelo: null,
             message: null, // Message de connexion
             Connected: false,
+            img_Prod: null
         };
     },
 
@@ -87,6 +88,7 @@ export default {
         } else {
             this.message = "User non connecté : " + this.user.email;
         }
+        this.getVelo(this.$route.params.id)
     },
 
     methods: {
@@ -147,6 +149,28 @@ export default {
                     console.log("erreur deconnexion ", error);
                 });
         },
+        // avoir info pour le produit
+        async getVelo(id) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "velo", id);
+            this.refVelo = await getDoc(docRef);
+            if (this.refVelo.exists()) {
+                this.velo = this.refVelo.data();
+                this.img_Prod = this.velo.imageProduit;
+
+            }
+            else {
+                this.console.log("Velo Inexistant");
+            }
+            const storage = getStorage();
+            const spaceRef = ref(storage, 'VELOFEEL/' + this.velo.imageProduit);
+            getDownloadURL(spaceRef)
+                .then((url) => {
+                    this.img_Prod = url;
+                })
+
+        },
+
 
         async getVeloSynchro() {
             const firestore = getFirestore();
@@ -406,7 +430,6 @@ export default {
         },
     },
 };
-
 </script>
 
 <template>

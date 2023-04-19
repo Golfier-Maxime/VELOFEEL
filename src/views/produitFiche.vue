@@ -331,6 +331,10 @@ export default {
             const docRef = doc(firestore, "velo", velo.id);
             await updateDoc(docRef, {
                 nomProduit: velo.nomProduit,
+                descProduit: velo.descProduit,
+                prixProduit: velo.prixProduit,
+                typeProduit: velo.typeProduit,
+                imageProduit: velo.imageProduit,
             });
         },
         // velo2
@@ -339,6 +343,10 @@ export default {
             const docRef = doc(firestore, "velo2", velo2.id);
             await updateDoc(docRef, {
                 nomProduit: velo2.nomProduit,
+                descProduit: velo2.descProduit,
+                prixProduit: velo2.prixProduit,
+                typeProduit: velo2.typeProduit,
+                imageProduit: velo2.imageProduit,
             });
         },
 
