@@ -450,7 +450,7 @@ export default {
 </script>
 
 <template>
-    <div class="mt-16 mx-20 text-black">
+    <div class=" lg:mx-20 mx-4 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans">
         <!-- titre -->
         <div>
             <h1
@@ -458,10 +458,10 @@ export default {
                 Vélofeel</h1>
             <h2
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
-                Privatezone pour les produits mis en avant sur la page d'accueil</h2>
+                Privatezone pour le produits phare sur la page d'accueil - Limité à 3 produits</h2>
         </div>
         <!-- Connection / Déconection -->
-        <form @submit.prevent="onCnx" class="flex flex-col items-center mt-4" v-if="!Connected">
+        <form @submit.prevent="onCnx" class="flex flex-col items-center mt-16" v-if="!Connected">
             <div class="">
                 <div class="">
                     <button class="text-Grey-Velofeel dark:text-Dark-Grey ">Email</button>
@@ -470,47 +470,45 @@ export default {
             </div>
             <div class="">
                 <div class="">
-                    <button class="text-white">Mot de passe</button>
+                    <button class="text-Grey-Velofeel dark:text-Dark-Grey">Mot de passe</button>
                 </div>
                 <input class="text-black" type="password" v-model="user.password" required />
             </div>
-            <div class="flex justify-center">
+            <div class="flex justify-center font-bold">
                 <button class="bouton_deco mt-4" type="submit">Se connecter</button>
             </div>
         </form>
-        <button class="bouton_deco" @click="onDcnx" v-if="Connected">Se deconnecter</button>
-
+        <div class="flex justify-center mt-16">
+            <button class="bouton_deco" @click="onDcnx" v-if="Connected">Se deconnecter</button>
+        </div>
         <!-- Création Produit -->
         <form enctype="multipart/form-data" @submit.prevent="createVelo2" class="mb-32 mt-16" v-if="Connected">
             <div class="">
-                <h2 class="shadow_text text-center font-prompt text-[30px] font-semibold text-black">Création Velo</h2>
+                <h2 class="shadow_text text-center font-prompt text-[30px]  font-bold">Création Velo</h2>
                 <div class="line mx-auto"></div>
             </div>
-
             <!-- nom velo -->
             <div>
-                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">Nom de Velo</p>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Nom de Velo</p>
                 <input class="mx-auto flex justify-center" placeholder="Ici le nom" v-model="velo2.nomProduit" required />
             </div>
             <!-- desc velo -->
             <div>
-                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">desc de Velo</p>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Description de Velo</p>
                 <input class="mx-auto flex justify-center" placeholder="Ici le desc" v-model="velo2.descProduit" required />
             </div>
             <!-- prix velo -->
             <div>
-                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">prix de Velo</p>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Prix du Velo</p>
                 <input class="mx-auto flex justify-center" placeholder="Ici le prix" v-model="velo2.prixProduit" required />
             </div>
             <!-- type velo -->
             <div>
-                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-semibold text-black">type de Velo</p>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Type de Velo</p>
                 <input class="mx-auto flex justify-center" placeholder="Ici le type" v-model="velo2.typeProduit" required />
             </div>
-
-
             <div>
-                <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-semibold text-black">image</p>
+                <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-bold">Image</p>
                 <div class="flex justify-center">
                     <img class="preview img-fluid w-2/4" :src="imageData2" />
                 </div>
@@ -522,7 +520,7 @@ export default {
 
 
             <div class="mt-2 flex justify-center gap-4 pb-16">
-                <button type="submit" class="bouton_liste">Créer</button>
+                <button type="submit" class="bouton_liste2 font-bold">Créer</button>
                 <button @click="reloadPage">Annuler</button>
             </div>
         </form>
@@ -530,7 +528,7 @@ export default {
         <!-- Filtrage par Nom en Input -->
         <div class="flex gap-2 mt-4" v-if="Connected">
             <div class="">
-                <span class="text-black">Filtrage</span>
+                <span class="">Filtrage</span>
             </div>
             <div class="flex justify-center gap-4">
                 <input type="text" class="" v-model="filter" />
@@ -539,10 +537,10 @@ export default {
         </div>
 
         <!--Liste des vélo modifiable / Supprimable  -->
-        <tbody class="" v-if="Connected">
-            <tr v-for="velo2 in filterByName2" :key="velo2.id">
+        <tbody class="flex flex-wrap gap-8 justify-center" v-if="Connected">
+            <tr v-for="velo2 in filterByName2" :key="velo2.id" class="">
                 <td>
-                    <form class="mt-8">
+                    <form class="mt-8 ">
                         <div class="flex gap-2 ">
                             <div class="flex flex-col gap-1 justify-center">
                                 <div>
@@ -559,21 +557,21 @@ export default {
                                     <input type="text" class="" v-model="velo2.typeProduit" required />
                                 </div>
                             </div>
-
-                            <div class="mt-2 mb-2 flex justify-center w-[320px]">
-                                <img :src="velo2.imageProduit" alt="image du produit" />
-                            </div>
-                            <div class="flex justify-center gap-4 ">
-                                <button class="bouton_liste" type="submit" title="Création"
-                                    @click.prevent="updateVelo2(velo2)">MODIFIER</button>
-                                <button class="bouton_liste" type="submit" title="Suppression"
-                                    @click.prevent="deleteVelo2(velo2)">SUPPRIMER</button>
-                            </div>
                         </div>
+                        <div class="mt-2 mb-2 flex justify-center w-[320px]">
+                            <img :src="velo2.imageProduit" alt="image du produit" />
+                        </div>
+
                         <div>
                             <p class="">Description du velo</p>
                             <textarea type="text" class="" v-model="velo2.descProduit" required cols="40"
                                 rows="4"> </textarea>
+                        </div>
+                        <div class="flex justify-center gap-4 ">
+                            <button class="bouton_liste2 font-bold" type="submit" title="Création"
+                                @click.prevent="updateVelo2(velo2)">MODIFIER</button>
+                            <button class="bouton_liste font-bold" type="submit" title="Suppression"
+                                @click.prevent="deleteVelo2(velo2)">SUPPRIMER</button>
                         </div>
                     </form>
                 </td>
@@ -581,14 +579,13 @@ export default {
         </tbody>
 
         <!-- LISTE VELO / PRODUIT -->
-        <div class="mt-16  ">
-            <div class="mt-8" v-for="velo2 in filterByName2" :key="velo2.id">
+        <div class="mt-16 flex flex-wrap gap-8 justify-center">
+            <div class="mt-8 flex justify-center flex-col" v-for="velo2 in filterByName2" :key="velo2.id">
                 <p class=" text-black">Le nom du produit est : {{ velo2.nomProduit }}</p>
                 <p class="text-black">La description du produit : {{ velo2.descProduit }}</p>
                 <p class="text-black">le prix du produit est : {{ velo2.prixProduit }}€</p>
                 <p class="text-black">le type du produit est : {{ velo2.typeProduit }}</p>
                 <img :src="velo2.imageProduit" class="w-[300px]" />
-
             </div>
         </div>
     </div>
@@ -596,6 +593,30 @@ export default {
 
 
 <style scoped>
+.bouton_liste {
+    background-color: red;
+    border: none;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+}
+
+.bouton_liste2 {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+}
+
 .bouton_deco {
     background-color: cyan;
     border: none;
