@@ -710,7 +710,7 @@ export default {
             </div>
         </div>
         <!-- Présentation Facebook a metre en avant -->
-        <div class="lg:mx-20 mx-4 mt-16 text-Grey-Velofeel dark:text-Dark-Grey ">
+        <div class="lg:mx-[10%] mx-4 mt-16 text-Grey-Velofeel dark:text-Dark-Grey ">
             <h4 class="font-overpass lg:text-[50px] text-4xl  mt-4 lg:mt-0 font-bold">
                 Nous retrouver sur Facebook</h4>
             <div class="lg:mt-16 mt-4 flex flex-col lg:flex-row justify-center lg:gap-16 gap-4">
