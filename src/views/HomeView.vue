@@ -710,6 +710,9 @@ export default {
             </div>
         </div>
         <!-- Présentation Facebook a metre en avant -->
+        <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVELOFEEL&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+            width="340" height="331"></iframe>
         <div
             class="lg:mx-[10%] mx-4  mt-20 text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col-reverse justify-evenly ">
             <div>
