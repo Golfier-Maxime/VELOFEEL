@@ -678,7 +678,7 @@ export default {
                         </router-link>
                     </div>
                 </div>
-                <div class="lg:w-[500px] w-[350px]">
+                <div class="lg:w-[500px] w-[300px]">
                     <img :src="velo3.imageProduit" alt="">
                 </div>
             </div>
@@ -710,63 +710,32 @@ export default {
             </div>
         </div>
         <!-- Présentation Facebook a metre en avant -->
-        <iframe
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVELOFEEL&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-            width="340" height="331"></iframe>
-        <div
-            class="lg:mx-[10%] mx-4  mt-20 text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col-reverse justify-evenly ">
-            <div>
-                <h4 class="font-overpass lg:text-[50px] text-4xl  mt-4 lg:mt-0 font-bold">Evènement
-                    Facebook</h4>
-                <p class="font-OpenSans lg:mr-40">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus
-                    ultricies quam in magna
-                    congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non
-                    tristique
-                    mi volutpat quis. </p>
-                <div class="font-OpenSans mt-11 mb-11 lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
-                    <router-link to="/contact" class="flex justify-center gap-4">
-                        <LogoFB class=""></LogoFB>
-                        <p class="">
-                            Nous rejoindre
-                        </p>
-                    </router-link>
+        <div class="lg:mx-20 mx-4 mt-16 text-Grey-Velofeel dark:text-Dark-Grey ">
+            <h4 class="font-overpass lg:text-[50px] text-4xl  mt-4 lg:mt-0 font-bold">
+                Nous retrouver sur Facebook</h4>
+            <div class="lg:mt-16 mt-4 flex flex-col lg:flex-row justify-center lg:gap-16 gap-4">
+                <div class="flex justify-center">
+                    <iframe class="lg:w-[500px] lg:h-[500px] h-[300px] w-[300px]"
+                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVELOFEEL&tabs=timeline&width=500&height=500&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId"
+                        style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
+                <div class="">
+                    <p class="font-OpenSans lg:mr-40">Pour suivre toute les actualités du magasin Vélofeel, n'hésitez pas a
+                        venir nous voir sur notre page Facebook.</p>
+                    <div class=" font-OpenSans mt-8  lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
+                        <router-link to="/contact" class="flex justify-center gap-4">
+                            <LogoFB class=""></LogoFB>
+                            <p class="">
+                                Nous rejoindre
+                            </p>
+                        </router-link>
+                    </div>
                 </div>
             </div>
-            <div class="w-full ">
-                <img src="/images/PLACEHOLDER.jpg" alt="">
-            </div>
         </div>
-        <!-- last fb post -->
-        <div class="lg:mx-[10%] mx-4 lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
-            <div>
-                <h4 class="font-OpenSans font-bold text-lg">Nos derniers posts</h4>
-            </div>
-            <!-- ensemble post -->
-            <div class="flex flex-wrap justify-between">
-                <!-- post -->
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/post_fb.jpg" alt="" class="lg:w-[300px]">
-                    <h5 class="font-OpenSans font-bold text-center">KTM</h5>
-                    <p class="font-OpenSans lg:w-[300px] ">Macina Kapoho 7972
 
-                        Un VTTAE passe partout en 160mm de
-                        débattement.
-                        Que ça grimpe fort ou que ça descende vite,
-                        le plaisir sera au rendez-vous.</p>
-                </div>
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/post_fb.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">POST 2</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
-                </div>
-                <div class="flex flex-col gap-3 mt-6">
-                    <img src="/images/post_fb.jpg" alt="">
-                    <h5 class="font-OpenSans font-bold text-center">POST 3</h5>
-                    <p class="font-OpenSans font-bold text-center">6 800 €</p>
-                </div>
-            </div>
-        </div>
+
     </div>
 </template>
 

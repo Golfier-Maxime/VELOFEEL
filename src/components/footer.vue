@@ -60,8 +60,8 @@ import LogoInsta from './logo/insta.vue'
                 </div>
             </div>
         </div>
-        <div class="flex justify-center  pb-6 mt-6 ">
-            <p class="font-OpenSans font-light">@2023 Vélofeel. All rights reserved - Made by <span
+        <div class="lg:mx-20 mx-4 flex justify-center  pb-6 mt-6 ">
+            <p class="font-OpenSans font-light text-sm">@2023 Vélofeel. All rights reserved - Made by <span
                     class="text-Light-Red"><a href="https://www.portfolio.maximegolfier.fr/">Maxime
                         GOLFIER</a></span> </p>
         </div>
