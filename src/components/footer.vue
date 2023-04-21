@@ -19,13 +19,13 @@ import LogoInsta from './logo/insta.vue'
                 </div>
                 <div class="flex gap-3 items-center">
                     <LogoFB></LogoFB>
-                    <a href="https://www.facebook.com/VELOFEEL">
+                    <a href="https://www.facebook.com/VELOFEEL" target="_blank">
                         <p>Vélofeel</p>
                     </a>
                 </div>
                 <div class="flex gap-3 items-center">
                     <LogoInsta></LogoInsta>
-                    <a href="https://www.instagram.com/velofeel/">
+                    <a href="https://www.instagram.com/velofeel/" target="_blank">
                         <p class="">@velofeel</p>
                     </a>
                 </div>
@@ -62,7 +62,7 @@ import LogoInsta from './logo/insta.vue'
         </div>
         <div class="lg:mx-20 mx-4 flex justify-center  pb-6 mt-6 ">
             <p class="font-OpenSans font-light text-sm">@2023 Vélofeel. All rights reserved - Made by <span
-                    class="text-Light-Red"><a href="https://www.portfolio.maximegolfier.fr/">Maxime
+                    class="text-Light-Red"><a href="https://www.portfolio.maximegolfier.fr/" target="_blank">Maxime
                         GOLFIER</a></span> </p>
         </div>
     </footer>

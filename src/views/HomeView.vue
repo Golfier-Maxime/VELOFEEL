@@ -1,5 +1,6 @@
 <script setup>
 import LogoFB from '@/components/logo/facebook.vue';
+import LogoInsta from '@/components/logo/insta.vue';
 </script>
 
 <script>
@@ -712,7 +713,7 @@ export default {
         <!-- Présentation Facebook a metre en avant -->
         <div class="lg:mx-[10%] mx-4 mt-16 text-Grey-Velofeel dark:text-Dark-Grey ">
             <h4 class="font-overpass lg:text-[50px] text-4xl  mt-4 lg:mt-0 font-bold">
-                Nous retrouver sur Facebook</h4>
+                Nous retrouver sur nos réseaux</h4>
             <div class="lg:mt-16 mt-4 flex flex-col lg:flex-row justify-center lg:gap-16 gap-4">
                 <div class="flex justify-center">
                     <iframe class="lg:w-[500px] lg:h-[500px] h-[300px] w-[300px]"
@@ -720,16 +721,32 @@ export default {
                         style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
                         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
-                <div class="">
-                    <p class="font-OpenSans lg:mr-40">Pour suivre toute les actualités du magasin Vélofeel, n'hésitez pas a
-                        venir nous voir sur notre page Facebook.</p>
-                    <div class=" font-OpenSans mt-8  lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
-                        <router-link to="/contact" class="flex justify-center gap-4">
-                            <LogoFB class=""></LogoFB>
-                            <p class="">
-                                Nous rejoindre
-                            </p>
-                        </router-link>
+                <div>
+                    <div class="">
+                        <p class="font-OpenSans lg:mr-40">Pour suivre toute les actualités du magasin Vélofeel, n'hésitez
+                            pas a
+                            venir nous voir sur notre page Facebook.</p>
+                        <div class=" font-OpenSans mt-8  lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
+                            <a href="https://www.facebook.com/VELOFEEL" class="flex justify-center gap-4" target="_blank">
+                                <LogoFB class=""></LogoFB>
+                                <p class="">
+                                    Nous rejoindre
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mt-16   ">
+                        <p class="font-OpenSans lg:mr-40">Pour suivre plus en détail l'aventure Vélofeel, n'hésitez
+                            pas a
+                            venir nous voir sur notre Instagram</p>
+                        <div class=" font-OpenSans mt-8  lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
+                            <a href="https://www.instagram.com/velofeel/" class="flex justify-center gap-4" target="_blank">
+                                <LogoInsta class=""></LogoInsta>
+                                <p class="">
+                                    Nous rejoindre
+                                </p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
