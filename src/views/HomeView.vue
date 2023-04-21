@@ -701,7 +701,7 @@ export default {
                             <p class="mr-4 mt-3 text-sm font-light">{{ velo2.typeProduit }}</p>
                         </div>
                         <div class="flex justify-between items-center">
-                            <p class="ml-4  text-lg font-extrabold">{{ velo2.prixProduit }}€</p>
+                            <p class="ml-4  text-lg font-extrabold">{{ velo2.prixProduit }} €</p>
                             <router-link :to="`/produitFiche2/${velo2.id}`"
                                 class="mr-4 py-1 px-2 font-overpass font-sm btn-produit-p">Voir le
                                 produit</router-link>

@@ -1,12 +1,13 @@
 <template>
     <div class="lg:mx-20">
         <!-- titre -->
-        <div>
+        <div class="lg:mx-20 mx-4">
             <h1
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
-                Vélofeel</h1>
+                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-[50px] text-center font-overpass leading-tight">
+                Vélofeel
+            </h1>
             <h2
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-center font-overpass leading-tight">
+                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
                 Nos Partenaires</h2>
         </div>
         <div class="flex justify-center mt-10">
