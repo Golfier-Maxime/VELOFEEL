@@ -468,15 +468,30 @@ export default {
         </div>
         <!-- fiche produit -->
         <div class="mt-16 flex flex-col-reverse lg:flex-row justify-evenly">
-            <div class="flex flex-col gap-2">
-                <p class="text-[50px] font-overpass font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{
+            <div class="flex flex-col lg:gap-4 gap-2">
+                <p class="text-[40px] font-overpass font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{
                     velo2.nomProduit }}
                 </p>
                 <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.typeProduit }}</p>
-                <p class="mr-16 text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.descProduit }}</p>
+                <p class="lg:mr-16 text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.descProduit }}</p>
+                <!-- <a :href="{{ velo3.lienProduit }}"></a> -->
+                <div class="font-OpenSans mt-4 mb-11 lg:mb-0">
+                    <a href="">
+                        <p
+                            class="btn-produit items-center text-center py-3 w-72 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
+                            Fiche produit</p>
+                    </a>
+                </div>
                 <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.prixProduit }} €</p>
             </div>
-            <img :src="img_Prod" class="lg:w-1/2" />
+            <img :src="img_Prod" class="lg:h-[500px]" />
+        </div>
+        <div class="font-OpenSans mt-4 mb-11 lg:mb-0">
+            <router-link to="/contact" class="">
+                <p
+                    class="btn-produit items-center text-center py-3 w-72 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
+                    Nous contacter pour plus d'info</p>
+            </router-link>
         </div>
 
 
