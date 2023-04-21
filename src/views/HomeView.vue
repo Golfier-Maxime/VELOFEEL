@@ -661,14 +661,14 @@ export default {
             <img src="/images/Arrow_Down.svg" alt="">
         </div>
         <!-- Présentation produit a metre en avant -->
-        <div class="flex justify-center">
+        <div class="lg:mx-20 mx-4 flex justify-center">
             <div v-for="velo3 in filterByName3" :key="velo3.id"
-                class="mt-16 flex flex-col-reverse lg:flex-row justify-evenly">
+                class="mt-16 flex flex-col-reverse gap-4 lg:flex-row justify-evenly">
                 <div class="flex flex-col gap-2">
-                    <p class="text-[50px] font-overpass font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{
+                    <p class="text-[40px] font-overpass font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{
                         velo3.nomProduit }}
                     </p>
-                    <p class="w-[300px] text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.descProduit }}</p>
+                    <p class="lg:w-[600px] text-base text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.descProduit }}</p>
                     <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.typeProduit }}</p>
                     <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.prixProduit }} €</p>
                     <div class="font-OpenSans mt-8 mb-11 lg:mb-0">
@@ -679,8 +679,8 @@ export default {
                         </router-link>
                     </div>
                 </div>
-                <div class="lg:w-[500px] w-[300px]">
-                    <img :src="velo3.imageProduit" alt="">
+                <div class="lg:mt-4 lg:w-[600px] w-[340px]">
+                    <img :src="velo3.imageProduit" alt="" class="">
                 </div>
             </div>
         </div>
