@@ -629,11 +629,7 @@ export default {
                 <p class="mr-16 text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.descProduit }}</p>
                 <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.prixProduit }} €</p>
             </div>
-            <img :src="img_Prod" class="lg:w-1/2" />
+            <img :src="img_Prod" class="lg:h-[500px]" />
         </div>
-
-
-
-
     </div>
 </template>
