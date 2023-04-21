@@ -36,8 +36,13 @@ import LogoInsta from './logo/insta.vue'
                 <RouterLink to="/legal">
                     <p>Mentions légales</p>
                 </RouterLink>
-                <p>Politique de confidentialité</p>
-                <p>CGU - Condition gérénal d'utilisation</p>
+                <RouterLink to="/PC">
+                    <p>Politique de confidentialité</p>
+                </RouterLink>
+                <RouterLink to="/CGU">
+                    <p>CGU - Condition gérénal d'utilisation</p>
+                </RouterLink>
+
             </div>
             <!-- Info Contact -->
             <div class="flex flex-col lg:gap-6 gap-3">
