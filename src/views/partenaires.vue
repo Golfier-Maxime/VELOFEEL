@@ -17,7 +17,7 @@
             <div class=" flex flex-col  gap-10 mx-4">
                 <!-- Partenaire -->
                 <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_cannondale.png" alt="" class="w-[300px]">
+                    <img src="/images/logo_cannondale.png" alt="" class="lg:w-[15%]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.cannondale.com/fr-fr" target="_blank">Lien vers le site du partenaires en
                             cliquant
@@ -26,11 +26,11 @@
                     </div>
                 </div>
                 <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
+                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
                 <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_Giant.png" alt="" class="w-[300px]">
+                    <img src="/images/logo_Giant.png" alt="" class="lg:w-[15%]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.giant-bicycles.com/fr" target="_blank">Lien vers le site du partenaires en
                             cliquant
@@ -39,11 +39,11 @@
                     </div>
                 </div>
                 <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
+                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
                 <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_ktm2.jpg" alt="" class="w-[300px]">
+                    <img src="/images/logo_ktm2.jpg" alt="" class="lg:w-[15%]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.ktm-bikes.at/" target="_blank">Lien vers le site du partenaires en cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
@@ -51,11 +51,11 @@
                     </div>
                 </div>
                 <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
+                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
                 <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_Thule.png" alt="" class="w-[300px]">
+                    <img src="/images/logo_Thule.png" alt="" class="lg:w-[15%]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.thule.com/fr-fr/" target="_blank">Lien vers le site du partenaires en cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
@@ -63,11 +63,11 @@
                     </div>
                 </div>
                 <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
+                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
                 <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_peugeot.png" alt="" class="w-[300px]">
+                    <img src="/images/logo_peugeot.png" alt="" class="lg:w-[15%]">
                     <div class="flex flex-col gap-2">
                         <a href="https://cycles.peugeot.fr/" target="_blank">Lien vers le site du partenaires en cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
@@ -75,11 +75,23 @@
                     </div>
                 </div>
                 <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
+                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
+                <!-- Partenaire -->
+                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
+                    <img src="/images/logo_liv.png" alt="" class="lg:w-[15%] ">
+                    <div class="flex flex-col gap-2">
+                        <a href="https://www.liv-cycling.com/fr" target="_blank">Lien vers le site du partenaires en
+                            cliquant
+                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
+                        <p>Liv cycles est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                    </div>
+                </div>
+                <!-- barre de séparation -->
+                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
                 <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_shimano.png" alt="" class="w-[300px]">
+                    <img src="/images/logo_shimano.png" alt="" class="lg:w-[15%]">
                     <div class="flex flex-col gap-2">
                         <a href="https://bike.shimano.com/fr-FR/home.html" target="_blank">Lien vers le site du partenaires
                             en cliquant
@@ -88,11 +100,11 @@
                     </div>
                 </div>
                 <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
+                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
                 <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_pro.jpg" alt="" class="w-[300px]">
+                    <img src="/images/logo_pro.jpg" alt="" class="lg:w-[15%]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.pro-bikegear.com/fr/" target="_blank">Lien vers le site du partenaires en
                             cliquant
@@ -101,11 +113,11 @@
                     </div>
                 </div>
                 <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
+                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
                 <!-- Partenaire -->
                 <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_lazer.png" alt="" class="w-[300px]">
+                    <img src="/images/logo_lazer.png" alt="" class="lg:w-[15%]">
                     <div class="flex flex-col gap-2">
                         <a href="https://www.lazersport.com/fr/" target="_blank">Lien vers le site du partenaires en
                             cliquant
@@ -114,7 +126,7 @@
                     </div>
                 </div>
                 <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-8 lg:mx-20 w-[100hv]"></div>
+                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
                 <!--  -->
             </div>
         </div>
@@ -122,7 +134,7 @@
 </template>
 <style scoped>
 .partenaires {
-    background: white;
+    background-color: white;
     padding-top: 40px;
     margin-top: 64px;
     padding-bottom: 40px;
