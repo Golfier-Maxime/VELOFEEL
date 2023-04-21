@@ -674,7 +674,7 @@ export default {
                     <div class="font-OpenSans mt-8 mb-11 lg:mb-0">
                         <router-link :to="`/produitFiche3/${velo3.id}`" class="">
                             <p
-                                class="btn-produit text-center py-3 w-52 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
+                                class="btn-produit items-center text-center py-3 w-52 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
                                 Plus d'info</p>
                         </router-link>
                     </div>
@@ -691,7 +691,8 @@ export default {
                 <div class="bar-title h-1 mt-2 w-[265px]"></div>
             </div>
             <!-- enssemble produit velo2 limité a 6 ou 3 produit présenté-->
-            <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
+            <div
+                class="lg:mt-16 flex flex-wrap justify-center lg:gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
                 <div class="mt-8 card_produit" v-for="velo2 in filterByName2" :key="velo2.id">
                     <img :src="velo2.imageProduit" class="w-[330px] h-[220px] rounded-t-lg" />
                     <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
@@ -699,7 +700,7 @@ export default {
                             <p class="ml-4 mt-3 text-lg font-semibold">{{ velo2.nomProduit }}</p>
                             <p class="mr-4 mt-3 text-sm font-light">{{ velo2.typeProduit }}</p>
                         </div>
-                        <div class="flex justify-between">
+                        <div class="flex justify-between items-center">
                             <p class="ml-4  text-lg font-extrabold">{{ velo2.prixProduit }}€</p>
                             <router-link :to="`/produitFiche2/${velo2.id}`"
                                 class="mr-4 py-1 px-2 font-overpass font-sm btn-produit-p">Voir le
@@ -716,18 +717,18 @@ export default {
                 Nous retrouver sur nos réseaux</h4>
             <div class="lg:mt-16 mt-4 flex flex-col lg:flex-row justify-center lg:gap-16 gap-4">
                 <div class="flex justify-center">
-                    <iframe class="lg:w-[500px] lg:h-[500px] h-[300px] w-[300px]"
-                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVELOFEEL&tabs=timeline&width=500&height=500&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId"
-                        style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    <iframe class="lg:w-[500px] lg:h-[500px] h-[300px] w-[320px]"
+                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVELOFEEL&tabs=timeline&width=500&height=500&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId"></iframe>
                 </div>
                 <div>
                     <div class="">
                         <p class="font-OpenSans lg:mr-40">Pour suivre toute les actualités du magasin Vélofeel, n'hésitez
                             pas a
                             venir nous voir sur notre page Facebook.</p>
-                        <div class=" font-OpenSans mt-8  lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
-                            <a href="https://www.facebook.com/VELOFEEL" class="flex justify-center gap-4" target="_blank">
+                        <div
+                            class=" font-OpenSans lg:mt-8 mt-4  lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
+                            <a href="https://www.facebook.com/VELOFEEL" class="flex justify-center gap-4 items-center"
+                                target="_blank">
                                 <LogoFB class=""></LogoFB>
                                 <p class="">
                                     Nous rejoindre
@@ -735,12 +736,14 @@ export default {
                             </a>
                         </div>
                     </div>
-                    <div class="mt-16   ">
+                    <div class="lg:mt-16 mt-4  ">
                         <p class="font-OpenSans lg:mr-40">Pour suivre plus en détail l'aventure Vélofeel, n'hésitez
                             pas a
                             venir nous voir sur notre Instagram</p>
-                        <div class=" font-OpenSans mt-8  lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
-                            <a href="https://www.instagram.com/velofeel/" class="flex justify-center gap-4" target="_blank">
+                        <div
+                            class=" font-OpenSans lg:mt-8 mt-4  lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
+                            <a href="https://www.instagram.com/velofeel/" class="flex justify-center gap-4 items-center"
+                                target="_blank">
                                 <LogoInsta class=""></LogoInsta>
                                 <p class="">
                                     Nous rejoindre

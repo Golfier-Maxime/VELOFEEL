@@ -351,9 +351,14 @@ export default {
         },
 
         async deleteVelo(velo) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo", velo.id);
-            await deleteDoc(docRef);
+            let text = "Press a button!\nEither OK or Cancel.";
+            if (confirm(text) == true) {
+                const firestore = getFirestore();
+                const docRef = doc(firestore, "velo", velo.id);
+                await deleteDoc(docRef);
+            } else {
+
+            }
         },
         // velo2
         async deleteVelo2(velo2) {

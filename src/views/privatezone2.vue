@@ -377,9 +377,15 @@ export default {
         },
         // velo2
         async deleteVelo2(velo2) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo2", velo2.id);
-            await deleteDoc(docRef);
+            let text = "Press a button!\nEither OK or Cancel.";
+            if (confirm(text) == true) {
+                const firestore = getFirestore();
+                const docRef = doc(firestore, "velo2", velo2.id);
+                await deleteDoc(docRef);
+            } else {
+
+            }
+
         },
     },
 

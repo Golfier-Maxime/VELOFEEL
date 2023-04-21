@@ -13,7 +13,7 @@ import LogoInsta from './logo/insta.vue'
         <div class="bg-Light-Grey h-[2px] rounded-sm mx-[10%] mt-6"></div>
         <div class="mx-4 lg:mx-0 flex flex-col lg:flex-row justify-evenly gap-12 mt-6 font-OpenSans">
             <!-- Nos Réseaux -->
-            <div class="flex flex-col gap-6">
+            <div class="flex flex-col lg:gap-6 gap-3">
                 <div>
                     <h4 class="font-bold text-base">Réseaux sociaux</h4>
                 </div>
@@ -31,7 +31,7 @@ import LogoInsta from './logo/insta.vue'
                 </div>
             </div>
             <!-- Légal -->
-            <div class="flex flex-col gap-6">
+            <div class="flex flex-col lg:gap-6 gap-3">
                 <h4 class="font-bold text-base">Légal</h4>
                 <RouterLink to="/legal">
                     <p>Mentions légales</p>
@@ -40,7 +40,7 @@ import LogoInsta from './logo/insta.vue'
                 <p>CGU - Condition gérénal d'utilisation</p>
             </div>
             <!-- Info Contact -->
-            <div class="flex flex-col gap-6">
+            <div class="flex flex-col lg:gap-6 gap-3">
                 <div>
                     <h4 class="font-bold text-base">Nous contacter</h4>
                 </div>

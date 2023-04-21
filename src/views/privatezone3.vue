@@ -502,9 +502,14 @@ export default {
         },
         // velo3
         async deleteVelo3(velo3) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo3", velo3.id);
-            await deleteDoc(docRef);
+            let text = "Press a button!\nEither OK or Cancel.";
+            if (confirm(text) == true) {
+                const firestore = getFirestore();
+                const docRef = doc(firestore, "velo3", velo3.id);
+                await deleteDoc(docRef);
+            } else {
+
+            }
         },
     },
 
