@@ -479,7 +479,8 @@ export default {
             <!-- desc velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Description de Velo</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le desc" v-model="velo.descProduit" required />
+                <textarea type="text" class="mx-auto flex justify-center" v-model="velo.descProduit"
+                    placeholder="Ici le desc" required cols="40" rows="4"> </textarea>
             </div>
             <!-- prix velo -->
             <div>
