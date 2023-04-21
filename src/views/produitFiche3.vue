@@ -630,9 +630,8 @@ export default {
                 </p>
                 <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.typeProduit }}</p>
                 <p class="lg:mr-16 text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.descProduit }}</p>
-
                 <div class="font-OpenSans mt-4 mb-11 lg:mb-0">
-                    <a :href="velo3.lienProduit">
+                    <a :href="velo3.lienProduit" target="_blank">
                         <p
                             class="btn-facebook items-center text-center py-3 w-72 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
                             Fiche Technique</p>
