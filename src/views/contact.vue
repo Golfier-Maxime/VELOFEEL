@@ -158,32 +158,32 @@ export default {
         </div>
         <!-- TEST -->
         <!-- <div>
-                            <form @submit.prevent="submitForm">
-                                <div>
-                                    <label>Nom:</label>
-                                    <input type="text" v-model="nom" required>
-                                </div>
-                                <div>
-                                    <label>Prénom:</label>
-                                    <input type="text" v-model="prenom" required>
-                                </div>
-                                <div>
-                                    <label>Email:</label>
-                                    <input type="email" v-model="email" required>
-                                </div>
-                                <div>
-                                    <label>Objet:</label>
-                                    <input type="text" v-model="objet" required>
-                                </div>
-                                <div>
-                                    <label>Message:</label>
-                                    <textarea v-model="message" required></textarea>
-                                </div>
-                                <div>
-                                    <button type="submit">Envoyer</button>
-                                </div>
-                            </form>
-                        </div> -->
+                                        <form @submit.prevent="submitForm">
+                                            <div>
+                                                <label>Nom:</label>
+                                                <input type="text" v-model="nom" required>
+                                            </div>
+                                            <div>
+                                                <label>Prénom:</label>
+                                                <input type="text" v-model="prenom" required>
+                                            </div>
+                                            <div>
+                                                <label>Email:</label>
+                                                <input type="email" v-model="email" required>
+                                            </div>
+                                            <div>
+                                                <label>Objet:</label>
+                                                <input type="text" v-model="objet" required>
+                                            </div>
+                                            <div>
+                                                <label>Message:</label>
+                                                <textarea v-model="message" required></textarea>
+                                            </div>
+                                            <div>
+                                                <button type="submit">Envoyer</button>
+                                            </div>
+                                        </form>
+                                    </div> -->
 
     </div>
 </template>
