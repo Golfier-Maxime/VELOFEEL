@@ -627,9 +627,17 @@ export default {
                 </p>
                 <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.typeProduit }}</p>
                 <p class="lg:mr-16 text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.descProduit }}</p>
+                <!-- <a :href="{{ velo3.lienProduit }}"></a> -->
                 <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.prixProduit }} €</p>
             </div>
             <img :src="img_Prod" class="lg:h-[500px]" />
+        </div>
+        <div class="font-OpenSans mt-8 mb-11 lg:mb-0">
+            <router-link to="/contact" class="">
+                <p
+                    class="btn-produit items-center text-center py-3 w-72 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
+                    Nous contacter pour plus d'info</p>
+            </router-link>
         </div>
     </div>
 </template>
