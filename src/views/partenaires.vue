@@ -23,7 +23,7 @@
                         <a href="https://www.cannondale.com/fr-fr" target="_blank">Lien vers le site du partenaires en
                             cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>Cannondale est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <p>Cannondale est grande entreprise américaines. Tout vélo.</p>
                     </div>
                 </div>
                 <!-- barre de séparation -->
@@ -36,7 +36,7 @@
                         <a href="https://www.giant-bicycles.com/fr" target="_blank">Lien vers le site du partenaires en
                             cliquant
                             <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>Giant est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <p>Giant est tawainais et est un grand généraliste dans le monde du vélo.</p>
                     </div>
                 </div>
                 <!-- barre de séparation -->
