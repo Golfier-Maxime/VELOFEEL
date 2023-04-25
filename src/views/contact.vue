@@ -1,7 +1,9 @@
 <script >
+
 import axios from 'axios';
 
 export default {
+
     data() {
         return {
             nom: '',
@@ -29,7 +31,7 @@ export default {
             }, {
                 headers: {
                     'Content-Type': 'application/json',
-                    // 'api-key': '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'
+                    'api-key': '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'
                 }
             }).then(response => {
                 console.log(response);
@@ -111,8 +113,8 @@ export default {
             </div>
 
         </div>
-        <!-- google maps -->
-        <div class="flex lg:gap-16 gap-4 flex-col lg:flex-row ">
+    <!-- google maps -->
+    <div class="flex lg:gap-16 gap-4 flex-col lg:flex-row ">
         <div>
             <h4
                 class="mb-8 mt-11 lg:mt-0 text-Grey-Velofeel dark:text-Dark-Grey font-overpass font-extrabold lg:text-5xl text-2xl">
@@ -137,8 +139,8 @@ export default {
                 </div>
                 <div>
                     <label for="subject"
-                        class="block mb-2 mt-4  font-OpenSans font-bold   text-Grey-Velofeel dark:text-Dark-Grey duration-700">Sujet
-                        du mail</label>
+                            class="block mb-2 mt-4  font-OpenSans font-bold   text-Grey-Velofeel dark:text-Dark-Grey duration-700">Sujet
+                            du mail</label>
                         <input type="text" id="subject"
                             class="block p-3 w-full mt-4 text-sm font-OpenSans bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                             placeholder="Quelle est votre demande ?" required>
@@ -158,32 +160,32 @@ export default {
         </div>
         <!-- TEST -->
         <!-- <div>
-                                        <form @submit.prevent="submitForm">
-                                            <div>
-                                                <label>Nom:</label>
-                                                <input type="text" v-model="nom" required>
-                                            </div>
-                                            <div>
-                                                <label>Prénom:</label>
-                                                <input type="text" v-model="prenom" required>
-                                            </div>
-                                            <div>
-                                                <label>Email:</label>
-                                                <input type="email" v-model="email" required>
-                                            </div>
-                                            <div>
-                                                <label>Objet:</label>
-                                                <input type="text" v-model="objet" required>
-                                            </div>
-                                            <div>
-                                                <label>Message:</label>
-                                                <textarea v-model="message" required></textarea>
-                                            </div>
-                                            <div>
-                                                <button type="submit">Envoyer</button>
-                                            </div>
-                                        </form>
-                                    </div> -->
+                    <form @submit.prevent="submitForm">
+                        <div>
+                            <label>Nom:</label>
+                            <input type="text" v-model="nom" required>
+                        </div>
+                        <div>
+                            <label>Prénom:</label>
+                            <input type="text" v-model="prenom" required>
+                        </div>
+                        <div>
+                            <label>Email:</label>
+                            <input type="email" v-model="email" required>
+                        </div>
+                        <div>
+                            <label>Objet:</label>
+                            <input type="text" v-model="objet" required>
+                        </div>
+                        <div>
+                            <label>Message:</label>
+                            <textarea v-model="message" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit">Envoyer</button>
+                        </div>
+                    </form>
+                </div> -->
 
     </div>
 </template>

@@ -61,7 +61,7 @@ import LogoInsta from './logo/insta.vue'
                 </div>
                 <div>
                     <p></p>
-                    <p>Espace Lumière2, Boulevard Moïse Foglia 25400 Audincourt</p>
+                    <p>2 Boulevard Moïse Foglia 25400 Audincourt</p>
                 </div>
             </div>
         </div>
