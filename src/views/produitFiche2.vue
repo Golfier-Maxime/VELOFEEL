@@ -480,7 +480,11 @@ export default {
                 <p class="text-[40px] font-overpass font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{
                     velo2.nomProduit }}
                 </p>
-                <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.typeProduit }}</p>
+                <div class="flex gap-4">
+                    <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">Type : {{ velo2.typeProduit }}</p>
+                    <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">Tailles : {{ velo2.tailleProduit }}
+                    </p>
+                </div>
                 <p class="lg:mr-16 text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.descProduit }}</p>
                 <div class="font-OpenSans mt-4 mb-11 lg:mb-0">
                     <a :href="velo2.lienProduit" target="_blank">

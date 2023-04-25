@@ -72,6 +72,7 @@ export default {
                 prixProduit: null,
                 typeProduit: null,
                 lienProduit: null,
+                tailleProduit: null,
             },
             refVelo: null,
             message: null, // Message de connexion
@@ -451,6 +452,7 @@ export default {
                 typeProduit: this.typeProduit,
                 imageProduit: this.imageProduit,
                 lienProduit: this.lienProduit,
+                tailleProduit: this.tailleProduit,
             });
             console.log("document créé avec le id : ", docRef.id);
         },
@@ -464,6 +466,7 @@ export default {
                 prixProduit: velo.prixProduit,
                 typeProduit: velo.typeProduit,
                 imageProduit: velo.imageProduit,
+
             });
         },
         // velo2
@@ -489,6 +492,7 @@ export default {
                 typeProduit: velo3.typeProduit,
                 imageProduit: velo3.imageProduit,
                 lienProduit: velo3.lienProduit,
+                tailleProduit: velo3.tailleProduit,
             });
         },
 
@@ -673,6 +677,12 @@ export default {
                 <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le lien" v-model="velo3.lienProduit"
                     required />
             </div>
+            <!-- Taille velo -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">taille du velo</p>
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le lien" v-model="velo3.tailleProduit"
+                    required />
+            </div>
             <!-- type velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Type de Velo</p>
@@ -732,6 +742,10 @@ export default {
                                     <p class="">Lien du velo</p>
                                     <input type="text" class="w-[320px]" v-model="velo3.lienProduit" required />
                                 </div>
+                                <div>
+                                    <p class="">Taille du velo</p>
+                                    <input type="text" class="w-[320px]" v-model="velo3.tailleProduit" required />
+                                </div>
                             </div>
                         </div>
                         <div class="mt-2 mb-2 flex justify-center w-[320px]">
@@ -754,17 +768,7 @@ export default {
             </tr>
         </tbody>
 
-        <!-- LISTE VELO / PRODUIT -->
-        <div class="mt-16 flex flex-wrap gap-8 justify-center">
-            <div class="mt-8 flex justify-center flex-col" v-for="velo3 in filterByName3" :key="velo3.id">
-                <p class=" text-black">Le nom du produit est : {{ velo3.nomProduit }}</p>
-                <p class="text-black">La description du produit : {{ velo3.descProduit }}</p>
-                <p class="text-black">le prix du produit est : {{ velo3.prixProduit }}€</p>
-                <p class="text-black">le type du produit est : {{ velo3.typeProduit }}</p>
-                <p class="text-black">le lien du produit est : {{ velo3.lienProduit }}</p>
-                <img :src="velo3.imageProduit" class="w-[300px]" />
-            </div>
-        </div>
+
     </div>
 </template>
 

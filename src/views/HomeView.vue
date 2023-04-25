@@ -669,7 +669,13 @@ export default {
                         velo3.nomProduit }}
                     </p>
                     <p class="lg:w-[600px] text-base text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.descProduit }}</p>
-                    <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.typeProduit }}</p>
+                    <div class="flex gap-4">
+                        <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">Type : {{ velo3.typeProduit }}
+                        </p>
+                        <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">Tailles : {{
+                            velo3.tailleProduit
+                        }}</p>
+                    </div>
                     <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.prixProduit }} €</p>
                     <div class="font-OpenSans mt-8 mb-11 lg:mb-0">
                         <router-link :to="`/produitFiche3/${velo3.id}`" class="">
@@ -698,7 +704,10 @@ export default {
                     <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
                         <div class="flex justify-between">
                             <p class="ml-4 w-[220px] mt-3 text-lg font-semibold">{{ velo2.nomProduit }}</p>
-                            <p class="mr-4  mt-3 text-sm font-light">{{ velo2.typeProduit }}</p>
+                            <div class="flex">
+                                <p class="mr-4  mt-3 text-sm font-light">{{ velo2.typeProduit }}</p>
+                                <p class="mr-4  mt-3 text-sm font-light">{{ velo2.tailleProduit }}</p>
+                            </div>
                         </div>
                         <div class="flex justify-between items-center">
                             <p class="ml-4  text-lg font-extrabold">{{ velo2.prixProduit }} €</p>

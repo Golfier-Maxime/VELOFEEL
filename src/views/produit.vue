@@ -465,7 +465,11 @@ export default {
                 <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
                     <div class="flex justify-between">
                         <p class="ml-4 w-[220px] mt-3 text-lg font-semibold">{{ velo.nomProduit }}</p>
-                        <p class="mr-4 mt-3 text-sm font-light">{{ velo.typeProduit }}</p>
+                        <div class="flex">
+                            <p class="mr-4  mt-3 text-sm font-light">{{ velo.typeProduit }}</p>
+                            <p class="mr-4  mt-3 text-sm font-light">{{ velo.tailleProduit }}</p>
+                        </div>
+
                     </div>
                     <div class="flex justify-between">
                         <p class="ml-4  text-lg font-extrabold">{{ velo.prixProduit }} €</p>
