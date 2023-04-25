@@ -64,6 +64,7 @@ export default {
                 descProduit: null,
                 prixProduit: null,
                 typeProduit: null,
+                lienProduit: null,
             },
             refVelo: null,
             message: null, // Message de connexion
@@ -342,6 +343,7 @@ export default {
                 prixProduit: this.prixProduit,
                 typeProduit: this.typeProduit,
                 imageProduit: this.imageProduit,
+                lienProduit: this.lienProduit,
             });
             console.log("document créé avec le id : ", docRef.id);
         },
@@ -367,6 +369,7 @@ export default {
                 prixProduit: velo2.prixProduit,
                 typeProduit: velo2.typeProduit,
                 imageProduit: velo2.imageProduit,
+                lienProduit: velo2.lienProduit,
             });
         },
 
@@ -509,6 +512,11 @@ export default {
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Prix du Velo</p>
                 <input class="mx-auto flex justify-center" placeholder="Ici le prix" v-model="velo2.prixProduit" required />
             </div>
+            <!-- Lien velo -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">lien de la fiche technique</p>
+                <input class="mx-auto flex justify-center" placeholder="Ici le lien" v-model="velo2.lienProduit" required />
+            </div>
             <!-- type velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Type de Velo</p>
@@ -563,6 +571,10 @@ export default {
                                     <p class="">Type du velo</p>
                                     <input type="text" class="" v-model="velo2.typeProduit" required />
                                 </div>
+                                <div>
+                                    <p class="">Lien du velo</p>
+                                    <input type="text" class="" v-model="velo2.lienProduit" required />
+                                </div>
                             </div>
                         </div>
                         <div class="mt-2 mb-2 flex justify-center w-[320px]">
@@ -592,6 +604,7 @@ export default {
                 <p class="text-black">La description du produit : {{ velo2.descProduit }}</p>
                 <p class="text-black">le prix du produit est : {{ velo2.prixProduit }}€</p>
                 <p class="text-black">le type du produit est : {{ velo2.typeProduit }}</p>
+                <p class="text-black">le lien du produit est : {{ velo2.lienProduit }}</p>
                 <img :src="velo2.imageProduit" class="w-[300px]" />
             </div>
         </div>

@@ -64,6 +64,7 @@ export default {
                 descProduit: null,
                 prixProduit: null,
                 typeProduit: null,
+                lienProduit: null,
             },
             refVelo: null,
             message: null, // Message de connexion
@@ -342,6 +343,7 @@ export default {
                 prixProduit: this.prixProduit,
                 typeProduit: this.typeProduit,
                 imageProduit: this.imageProduit,
+                lienProduit: this.lienProduit,
             });
             console.log("document créé avec le id : ", docRef.id);
         },
@@ -367,6 +369,7 @@ export default {
                 prixProduit: velo2.prixProduit,
                 typeProduit: velo2.typeProduit,
                 imageProduit: velo2.imageProduit,
+                lienProduit: velo2.lienProduit,
             });
         },
 
@@ -377,9 +380,15 @@ export default {
         },
         // velo2
         async deleteVelo2(velo2) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo2", velo2.id);
-            await deleteDoc(docRef);
+            let text = "Press a button!\nEither OK or Cancel.";
+            if (confirm(text) == true) {
+                const firestore = getFirestore();
+                const docRef = doc(firestore, "velo2", velo2.id);
+                await deleteDoc(docRef);
+            } else {
+
+            }
+
         },
     },
 
@@ -447,7 +456,6 @@ export default {
         },
     },
 };
-
 </script>
 
 
@@ -474,19 +482,18 @@ export default {
                 </p>
                 <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.typeProduit }}</p>
                 <p class="lg:mr-16 text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.descProduit }}</p>
-                <!-- <a :href="{{ velo3.lienProduit }}"></a> -->
                 <div class="font-OpenSans mt-4 mb-11 lg:mb-0">
-                    <a href="">
+                    <a :href="velo2.lienProduit" target="_blank">
                         <p
-                            class="btn-produit items-center text-center py-3 w-72 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
-                            Fiche produit</p>
+                            class="btn-facebook items-center text-center py-3 w-72 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
+                            Fiche Technique</p>
                     </a>
                 </div>
-                <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.prixProduit }} €</p>
+                <p class="text-4xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo2.prixProduit }} €</p>
             </div>
             <img :src="img_Prod" class="lg:h-[500px]" />
         </div>
-        <div class="font-OpenSans mt-4 mb-11 lg:mb-0">
+        <div class="font-OpenSans mt-16 mb-11 lg:mb-0">
             <router-link to="/contact" class="">
                 <p
                     class="btn-produit items-center text-center py-3 w-72 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">

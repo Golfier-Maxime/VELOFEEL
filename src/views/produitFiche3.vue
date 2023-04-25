@@ -637,7 +637,7 @@ export default {
                             Fiche Technique</p>
                     </a>
                 </div>
-                <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.prixProduit }} €</p>
+                <p class="text-4xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo3.prixProduit }} €</p>
             </div>
             <img :src="img_Prod" class="lg:h-[500px]" />
         </div>
