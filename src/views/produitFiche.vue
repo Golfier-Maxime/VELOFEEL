@@ -1,4 +1,4 @@
-<script>
+<script >
 
 // Bibliothèques Firebase  : import des fonctions
 //  signInWithEmailAndPassword : Authentification avec email et mot de passe
@@ -58,6 +58,7 @@ export default {
                 prixProduit: null,
                 typeProduit: null,
                 imageProduit: null,
+                lienProduit: null,
             },
             velo2: {
                 nomProduit: null,
@@ -298,6 +299,7 @@ export default {
                 prixProduit: this.prixProduit,
                 typeProduit: this.typeProduit,
                 imageProduit: this.imageProduit,
+                lienProduit: this.lienProduit,
             });
             console.log("document créé avec le id : ", docRef.id);
         },
@@ -335,6 +337,7 @@ export default {
                 prixProduit: velo.prixProduit,
                 typeProduit: velo.typeProduit,
                 imageProduit: velo.imageProduit,
+                lienProduit: velo.lienProduit,
             });
         },
         // velo2
@@ -351,9 +354,14 @@ export default {
         },
 
         async deleteVelo(velo) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo", velo.id);
-            await deleteDoc(docRef);
+            let text = "Press a button!\nEither OK or Cancel.";
+            if (confirm(text) == true) {
+                const firestore = getFirestore();
+                const docRef = doc(firestore, "velo", velo.id);
+                await deleteDoc(docRef);
+            } else {
+
+            }
         },
         // velo2
         async deleteVelo2(velo2) {
@@ -427,7 +435,6 @@ export default {
         },
     },
 };
-
 </script>
 
 
@@ -454,15 +461,14 @@ export default {
                 </p>
                 <p class="text-xl font-light text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.typeProduit }}</p>
                 <p class="lg:mr-16 text-lg text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.descProduit }}</p>
-                <!-- <a :href="{{ velo3.lienProduit }}"></a> -->
                 <div class="font-OpenSans mt-4 mb-11 lg:mb-0">
-                    <a href="">
+                    <a :href="velo.lienProduit" target="_blank">
                         <p
-                            class="btn-produit items-center text-center py-3 w-72 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
-                            Fiche Produit</p>
+                            class="btn-ficheTech items-center text-center py-2 w-44 text-base text-Grey-Velofeel dark:text-Dark-Grey">
+                            Fiche Technique</p>
                     </a>
                 </div>
-                <p class="text-3xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.prixProduit }} €</p>
+                <p class="text-4xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{ velo.prixProduit }} €</p>
             </div>
             <img :src="img_Prod" class="lg:h-[500px]" />
         </div>
@@ -479,3 +485,17 @@ export default {
 
     </div>
 </template>
+
+<style>
+.btn-ficheTech {
+    border: 1px solid #8D99AE;
+    border-radius: 8px;
+    transition: .4s;
+}
+
+.btn-ficheTech:hover {
+    background-color: #8D99AE;
+    color: white;
+
+}
+</style>

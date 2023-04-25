@@ -628,13 +628,13 @@ export default {
                 <div class="">
                     <button class="text-Grey-Velofeel dark:text-Dark-Grey ">Email</button>
                 </div>
-                <input class="text-black" type="text" v-model="user.email" required />
+                <input class="text-black w-[320px]" type="text" v-model="user.email" required />
             </div>
             <div class="">
                 <div class="">
                     <button class="text-Grey-Velofeel dark:text-Dark-Grey">Mot de passe</button>
                 </div>
-                <input class="text-black" type="password" v-model="user.password" required />
+                <input class="text-black w-[320px]" type="password" v-model="user.password" required />
             </div>
             <div class="flex justify-center font-bold">
                 <button class="bouton_deco mt-4" type="submit">Se connecter</button>
@@ -652,7 +652,8 @@ export default {
             <!-- nom velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Nom de Velo</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le nom" v-model="velo3.nomProduit" required />
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le nom" v-model="velo3.nomProduit"
+                    required />
             </div>
             <!-- desc velo -->
             <div>
@@ -663,17 +664,20 @@ export default {
             <!-- prix velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Prix du Velo</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le prix" v-model="velo3.prixProduit" required />
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le prix" v-model="velo3.prixProduit"
+                    required />
             </div>
             <!-- Lien velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">lien de la fiche technique</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le lien" v-model="velo3.lienProduit" required />
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le lien" v-model="velo3.lienProduit"
+                    required />
             </div>
             <!-- type velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Type de Velo</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le type" v-model="velo3.typeProduit" required />
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le type" v-model="velo3.typeProduit"
+                    required />
             </div>
             <div>
                 <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-bold">Image</p>
@@ -713,20 +717,20 @@ export default {
                             <div class="flex flex-col gap-1 justify-center">
                                 <div>
                                     <p class="">Nom du velo</p>
-                                    <input type="text" class="" v-model="velo3.nomProduit" required />
+                                    <input type="text" class="w-[320px]" v-model="velo3.nomProduit" required />
                                 </div>
 
                                 <div>
                                     <p class="">Prix du velo en €</p>
-                                    <input type="text" class="" v-model="velo3.prixProduit" required />
+                                    <input type="text" class="w-[320px]" v-model="velo3.prixProduit" required />
                                 </div>
                                 <div>
                                     <p class="">Type du velo</p>
-                                    <input type="text" class="" v-model="velo3.typeProduit" required />
+                                    <input type="text" class="w-[320px]" v-model="velo3.typeProduit" required />
                                 </div>
                                 <div>
                                     <p class="">Lien du velo</p>
-                                    <input type="text" class="" v-model="velo3.lienProduit" required />
+                                    <input type="text" class="w-[320px]" v-model="velo3.lienProduit" required />
                                 </div>
                             </div>
                         </div>

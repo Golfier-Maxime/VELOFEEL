@@ -58,6 +58,7 @@ export default {
                 prixProduit: null,
                 typeProduit: null,
                 imageProduit: null,
+                lienProduit: null,
             },
             velo2: {
                 nomProduit: null,
@@ -298,6 +299,7 @@ export default {
                 prixProduit: this.prixProduit,
                 typeProduit: this.typeProduit,
                 imageProduit: this.imageProduit,
+                lienProduit: this.lienProduit,
             });
             console.log("document créé avec le id : ", docRef.id);
         },
@@ -335,6 +337,7 @@ export default {
                 prixProduit: velo.prixProduit,
                 typeProduit: velo.typeProduit,
                 imageProduit: velo.imageProduit,
+                lienProduit: velo.lienProduit,
             });
         },
         // velo2
@@ -450,13 +453,13 @@ export default {
                 <div class="">
                     <button class="text-Grey-Velofeel dark:text-Dark-Grey ">Email</button>
                 </div>
-                <input class="text-black" type="text" v-model="user.email" required />
+                <input class="text-black w-[320px]" type="text" v-model="user.email" required />
             </div>
             <div class="">
                 <div class="">
                     <button class="text-Grey-Velofeel dark:text-Dark-Grey">Mot de passe</button>
                 </div>
-                <input class="text-black" type="password" v-model="user.password" required />
+                <input class="text-black w-[320px]" type="password" v-model="user.password" required />
             </div>
             <div class="flex justify-center font-bold">
                 <button class="bouton_deco mt-4" type="submit">Se connecter</button>
@@ -474,7 +477,8 @@ export default {
             <!-- nom velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Nom de Velo</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le nom" v-model="velo.nomProduit" required />
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le nom" v-model="velo.nomProduit"
+                    required />
             </div>
             <!-- desc velo -->
             <div>
@@ -485,12 +489,20 @@ export default {
             <!-- prix velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Prix du Velo</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le prix" v-model="velo.prixProduit" required />
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le prix" v-model="velo.prixProduit"
+                    required />
+            </div>
+            <!-- Lien velo -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">lien de la fiche technique</p>
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le lien" v-model="velo.lienProduit"
+                    required />
             </div>
             <!-- type velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Type de Velo</p>
-                <input class="mx-auto flex justify-center" placeholder="Ici le type" v-model="velo.typeProduit" required />
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le type" v-model="velo.typeProduit"
+                    required />
             </div>
             <div>
                 <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-bold">Image</p>
@@ -530,16 +542,20 @@ export default {
                             <div class="flex flex-col gap-1 justify-center">
                                 <div>
                                     <p class="">Nom du velo</p>
-                                    <input type="text" class="" v-model="velo.nomProduit" required />
+                                    <input type="text" class="w-[320px]" v-model="velo.nomProduit" required />
                                 </div>
 
                                 <div>
                                     <p class="">Prix du velo en €</p>
-                                    <input type="text" class="" v-model="velo.prixProduit" required />
+                                    <input type="text" class="w-[320px]" v-model="velo.prixProduit" required />
                                 </div>
                                 <div>
                                     <p class="">Type du velo</p>
-                                    <input type="text" class="" v-model="velo.typeProduit" required />
+                                    <input type="text" class="w-[320px]" v-model="velo.typeProduit" required />
+                                </div>
+                                <div>
+                                    <p class="">Lien du velo</p>
+                                    <input type="text" class="w-[320px]" v-model="velo.lienProduit" required />
                                 </div>
                             </div>
                         </div>
@@ -567,9 +583,10 @@ export default {
         <div class="mt-16 flex flex-wrap gap-8 justify-center">
             <div class="mt-8 flex justify-center flex-col" v-for="velo in filterByName" :key="velo.id">
                 <p class=" text-black">Le nom du produit est : {{ velo.nomProduit }}</p>
-                <p class="text-black">La description du produit : {{ velo.descProduit }}</p>
+                <p class="text-black w-[320px]">La description du produit : {{ velo.descProduit }}</p>
                 <p class="text-black">le prix du produit est : {{ velo.prixProduit }}€</p>
                 <p class="text-black">le type du produit est : {{ velo.typeProduit }}</p>
+                <p class="text-black">le lien du produit est : {{ velo.lienProduit }}</p>
                 <img :src="velo.imageProduit" class="w-[300px]" />
             </div>
         </div>

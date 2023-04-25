@@ -485,7 +485,7 @@ export default {
                 <div class="font-OpenSans mt-4 mb-11 lg:mb-0">
                     <a :href="velo2.lienProduit" target="_blank">
                         <p
-                            class="btn-facebook items-center text-center py-3 w-72 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
+                            class="btn-ficheTech items-center text-center py-2 w-44 text-base text-Grey-Velofeel dark:text-Dark-Grey">
                             Fiche Technique</p>
                     </a>
                 </div>
