@@ -488,9 +488,9 @@ export default {
         </div>
         <!-- Slider automatic et infini de quelque marque associé -->
         <div class="slider mt-10">
-            <div class="slide-track flex gap-5 ml-40">
+            <div class="slide-track flex my-auto  gap-5 ml-40">
                 <div class="slide" v-for="partenaire in filterByName" :key="partenaire.id">
-                    <img :src="partenaire.imagePartenaire" alt="image partenaire" class="" />
+                    <img :src="partenaire.imagePartenaire" alt="image partenaire" class="h-[90%] my-2" />
                 </div>
             </div>
         </div>
