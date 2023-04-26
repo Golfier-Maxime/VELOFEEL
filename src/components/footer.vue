@@ -65,11 +65,11 @@ import LogoInsta from './logo/insta.vue'
                 </div>
             </div>
         </div>
-        <div class="lg:mx-20 mx-4 flex justify-center  pb-6 mt-6 ">
+        <div class="lg:mx-20 mx-4 flex lg:flex-row flex-col justify-center  pb-6 mt-6 gap-4">
             <p class="font-OpenSans font-light text-sm">@2023 Vélofeel. All rights reserved - Made by <span
                     class="text-Light-Red"><a href="https://www.portfolio.maximegolfier.fr/" target="_blank">Maxime
                         GOLFIER</a></span> </p>
-            <router-link to="/acceszone">acces zone</router-link>
+            <router-link to="/acceszone" class="font-OpenSans font-light text-sm">Accès Zone</router-link>
         </div>
     </footer>
 </template>
