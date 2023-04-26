@@ -13,7 +13,7 @@
         </div>
         <!-- flehe rouge -->
         <div class="flex justify-center mt-10">
-            <img src="/images/Arrow_Down.svg" alt="">
+            <img src="/images/Arrow_Down.svg" alt="arrow down">
         </div>
         <!-- présentation velofeel -->
         <div class="mt-11 flex lg:flex-row flex-col-reverse gap-9">
@@ -26,7 +26,7 @@
                     tristique mi volutpat quis. </p>
             </div>
             <div>
-                <img src="/images/logo_velofeel.png" alt="" class="w-[600px]">
+                <img src="/images/logo_velofeel.png" alt="logo de velofeel" class="w-[600px]">
             </div>
         </div>
         <!-- barre de séparation -->
@@ -42,7 +42,7 @@
                     tristique mi volutpat quis. </p>
             </div>
             <div>
-                <img src="/images/logo_velofeel.png" alt="" class="w-[600px]">
+                <img src="/images/logo_velofeel.png" alt="logo de velofeel" class="w-[600px]">
             </div>
         </div>
     </div>

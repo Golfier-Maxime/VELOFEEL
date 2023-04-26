@@ -31,9 +31,6 @@ import footerVue from "@/components/footer.vue";
               stroke-width="66.6667" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
-
-        <!-- <img src="/images/sun2.svg" alt="" class="w-14 h-14 -mt-12  dark:hidden"> -->
-
       </div>
 
       <RouterView />

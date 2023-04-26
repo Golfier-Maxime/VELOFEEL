@@ -490,12 +490,12 @@ export default {
         <div class="slider mt-10">
             <div class="slide-track flex gap-5 ml-40">
                 <div class="slide" v-for="partenaire in filterByName" :key="partenaire.id">
-                    <img :src="partenaire.imagePartenaire" alt="" class="" />
+                    <img :src="partenaire.imagePartenaire" alt="image partenaire" class="" />
                 </div>
             </div>
         </div>
         <div class="lg:mx-20 mx-4 flex justify-center mt-10">
-            <img src="/images/Arrow_Down.svg" alt="">
+            <img src="/images/Arrow_Down.svg" alt="arrow down">
         </div>
         <!-- Présentation produit a metre en avant -->
         <div class="lg:mx-20 mx-4 flex justify-center">
@@ -523,7 +523,7 @@ export default {
                     </div>
                 </div>
                 <div class="lg:mt-4 lg:w-[600px] w-[340px]">
-                    <img :src="velo3.imageProduit" alt="" class="">
+                    <img :src="velo3.imageProduit" alt="image d'un produit" class="">
                 </div>
             </div>
         </div>

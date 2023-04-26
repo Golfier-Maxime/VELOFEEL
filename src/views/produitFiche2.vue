@@ -472,7 +472,7 @@ export default {
         </div>
         <!-- fleche rouge qui montre en bas -->
         <div class="flex justify-center mt-10">
-            <img src="/images/Arrow_Down.svg" alt="">
+            <img src="/images/Arrow_Down.svg" alt="arrow down">
         </div>
         <!-- fiche produit -->
         <div class="mt-16 flex flex-col-reverse lg:flex-row justify-evenly">

@@ -58,7 +58,7 @@ export default {
         </div>
         <!-- fleche rouge -->
         <div class="flex justify-center mt-10">
-            <img src="/images/Arrow_Down.svg" alt="">
+            <img src="/images/Arrow_Down.svg" alt="arrow down">
         </div>
         <!-- sous titre -->
         <div class="lg:mt-14 mt-11">
@@ -160,32 +160,32 @@ export default {
         </div>
         <!-- TEST -->
         <!-- <div>
-                            <form @submit.prevent="submitForm">
-                                <div>
-                                    <label>Nom:</label>
-                                    <input type="text" v-model="nom" required>
-                                </div>
-                                <div>
-                                    <label>Prénom:</label>
-                                    <input type="text" v-model="prenom" required>
-                                </div>
-                                <div>
-                                    <label>Email:</label>
-                                    <input type="email" v-model="email" required>
-                                </div>
-                                <div>
-                                    <label>Objet:</label>
-                                    <input type="text" v-model="objet" required>
-                                </div>
-                                <div>
-                                    <label>Message:</label>
-                                    <textarea v-model="message" required></textarea>
-                                </div>
-                                <div>
-                                    <button type="submit">Envoyer</button>
-                                </div>
-                            </form>
-                        </div> -->
+                                <form @submit.prevent="submitForm">
+                                    <div>
+                                        <label>Nom:</label>
+                                        <input type="text" v-model="nom" required>
+                                    </div>
+                                    <div>
+                                        <label>Prénom:</label>
+                                        <input type="text" v-model="prenom" required>
+                                    </div>
+                                    <div>
+                                        <label>Email:</label>
+                                        <input type="email" v-model="email" required>
+                                    </div>
+                                    <div>
+                                        <label>Objet:</label>
+                                        <input type="text" v-model="objet" required>
+                                    </div>
+                                    <div>
+                                        <label>Message:</label>
+                                        <textarea v-model="message" required></textarea>
+                                    </div>
+                                    <div>
+                                        <button type="submit">Envoyer</button>
+                                    </div>
+                                </form>
+                            </div> -->
 
     </div>
 </template>

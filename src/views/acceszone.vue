@@ -13,7 +13,7 @@
         </div>
         <!-- flehe rouge -->
         <div class="flex justify-center mt-10">
-            <img src="/images/Arrow_Down.svg" alt="">
+            <img src="/images/Arrow_Down.svg" alt="arrow down">
         </div>
         <div class="text-Grey-Velofeel dark:text-Dark-Grey flex lg:flex-row flex-col justify-center gap-4 mt-16">
             <router-link to="/privatezone" class="text-xl btn-ficheTech py-2 px-2">zone 1</router-link>

@@ -443,7 +443,7 @@ export default {
 
         <!-- fleche rouge qui montre en bas -->
         <div class="flex justify-center mt-10">
-            <img src="/images/Arrow_Down.svg" alt="">
+            <img src="/images/Arrow_Down.svg" alt="arrow down">
         </div>
         <!-- Filtrage par Nom en Input -->
         <div class="w-[280px] lg:ml-32  mt-16 text-Grey-Velofeel dark:text-Dark-Grey ">
