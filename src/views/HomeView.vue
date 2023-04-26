@@ -54,6 +54,7 @@ export default {
             listeVeloSynchro: [],
             listeVelo2Synchro: [],
             listeVelo3Synchro: [],
+            listePartenaireSynchro: [],
             user: {
                 // user se connectant
                 email: null,
@@ -77,7 +78,13 @@ export default {
                 prixProduit: null,
                 typeProduit: null,
             },
+            partenaire: {
+                nomPartenaire: null,
+                lienPartenaire: null,
+                imagePartenaire: null,
+            },
             refVelo: null,
+            refPartenaire: null,
             message: null, // Message de connexion
             Connected: false,
             img_Prod: null
@@ -85,6 +92,7 @@ export default {
     },
 
     mounted() {
+        this.getPartenaireSynchro();
         this.getVeloSynchro();
         this.getVelo2Synchro();
         this.getVelo3Synchro();
@@ -101,6 +109,7 @@ export default {
         this.getVelo(this.$route.params.id)
         this.getVelo2(this.$route.params.id)
         this.getVelo3(this.$route.params.id)
+        this.getPartenaire(this.$route.params.id)
     },
 
     methods: {
@@ -221,7 +230,26 @@ export default {
                     this.img_Prod = url;
                 })
         },
+        // avoir info pour partenaire
+        async getPartenaire(id) {
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "partenaire", id);
+            this.refPartenaire = await getDoc(docRef);
+            if (this.refPartenaire.exists()) {
+                this.partenaire = this.refPartenaire.data();
+                this.img_Prod = this.partenaire.imagePartenaire;
 
+            }
+            else {
+                this.console.log("Partenaire Inexistant");
+            }
+            const storage = getStorage();
+            const spaceRef = ref(storage, 'VELOFEEL/' + this.partenaire.imagePartenaire);
+            getDownloadURL(spaceRef)
+                .then((url) => {
+                    this.img_Prod = url;
+                })
+        },
 
         async getVeloSynchro() {
             const firestore = getFirestore();
@@ -309,6 +337,35 @@ export default {
             });
 
         },
+        // partenaire 
+        async getPartenaireSynchro() {
+            const firestore = getFirestore();
+            const dbPartenaire = collection(firestore, "partenaire");
+            const query = await onSnapshot(dbPartenaire, (snapshot) => {
+                this.listePartenaireSynchro = snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }
+                ))
+                // récupération des images des produit/velo
+                // parcours de la liste 
+                this.listePartenaireSynchro.forEach(function (partenaire) {
+                    const storage = getStorage();
+                    //récup des l'image par son nom de fichier
+                    const spaceRef = ref(storage, 'VELOFEEL/' + partenaire.imagePartenaire);
+                    //recup de l'url de l'image
+                    getDownloadURL(spaceRef).then((url) => {
+                        //on remplace le nom du fichier
+                        // par l'url complete de l'image
+                        partenaire.imagePartenaire = url;
+                    })
+                        .catch((error) => {
+                            console.log('erreur downloadUrl', error);
+                        })
+                })
+            });
+
+        },
 
 
 
@@ -320,7 +377,7 @@ export default {
         // Tri des pays par nom en ordre croissant
         orderByName: function () {
             // Parcours et tri des pays 2 à 2
-            return this.listeVeloSynchro.sort(function (a, b) {
+            return this.listePartenaireSynchro.sort(function (a, b) {
                 // Si le nom du pays est avant on retourne -1
                 if (a.nom < b.nom) return -1;
                 // Si le nom du pays est après on retourne 1
@@ -359,10 +416,10 @@ export default {
                 // On récupère le filtre saisi en minuscule (on évite les majuscules)
                 let filter = this.filter.toLowerCase();
                 // Filtrage de la propriété calculée de tri
-                return this.orderByName.filter(function (velo) {
+                return this.orderByName.filter(function (partenaire) {
                     // On ne renvoie que les pays dont le nom contient
                     // la chaine de caractère du filtre
-                    return velo.nomProduit.toLowerCase().includes(filter);
+                    return partenaire.nomPartenaire.toLowerCase().includes(filter);
                 });
             } else {
                 // Si le filtre n'est pas saisi
@@ -432,29 +489,8 @@ export default {
         <!-- Slider automatic et infini de quelque marque associé -->
         <div class="slider mt-10">
             <div class="slide-track flex gap-5 ml-40">
-                <div class="slide">
-                    <img src="/images/logo_cannondale.png" height="100" width="250" alt="" class="mt-8" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_Giant.png" height="100" width="250" alt="" class="mt-7" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_ktm2.jpg" height="100" width="150" alt="" class="mt-2" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_Thule.png" height="100" width="200" alt="" class="ml-[-80px] mt-[-10px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_peugeot.png" height="100" width="300" alt="" class="mt-4 ml-[-80px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_shimano.png" height="100" width="300" alt="" class="mt-7 ml-[-60px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_pro.jpg" height="100" width="150" alt="" class="mt-4 ml-[-30px]" />
-                </div>
-                <div class="slide">
-                    <img src="/images/logo_lazer.png" height="100" width="250" alt="" class="mt-[-20px] ml-[-100px]" />
+                <div class="slide" v-for="partenaire in filterByName" :key="partenaire.id">
+                    <img :src="partenaire.imagePartenaire" alt="" class="" />
                 </div>
             </div>
         </div>
