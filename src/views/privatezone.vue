@@ -448,7 +448,7 @@ export default {
                 Vélofeel</h1>
             <h2
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
-                Privatezone pour le produits phare sur la page d'accueil - Limité à 3 produits</h2>
+                Privatezone pour les produits</h2>
         </div>
         <!-- Connection / Déconection -->
         <form @submit.prevent="onCnx" class="flex flex-col items-center mt-16" v-if="!Connected">

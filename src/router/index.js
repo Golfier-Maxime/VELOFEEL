@@ -11,6 +11,7 @@ import PrivateZone3View from '../views/privatezone3.vue'
 import ProduitFicheView from '../views/produitFiche.vue'
 import ProduitFiche2View from '../views/produitFiche2.vue'
 import ProduitFiche3View from '../views/produitFiche3.vue'
+import AccesZoneView from '../views/acceszone.vue'
 import CGUView from '../views/CGU.vue'
 import PCView from '../views/PC.vue'
 
@@ -76,6 +77,11 @@ const router = createRouter({
       path: '/privatezone3',
       name: 'PrivateZone3',
       component: PrivateZone3View
+    },
+    {
+      path: '/acceszone',
+      name: 'AccesZone',
+      component: AccesZoneView
     },
     {
       path: '/CGU',

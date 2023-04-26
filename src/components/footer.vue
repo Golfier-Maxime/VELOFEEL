@@ -69,6 +69,7 @@ import LogoInsta from './logo/insta.vue'
             <p class="font-OpenSans font-light text-sm">@2023 Vélofeel. All rights reserved - Made by <span
                     class="text-Light-Red"><a href="https://www.portfolio.maximegolfier.fr/" target="_blank">Maxime
                         GOLFIER</a></span> </p>
+            <router-link to="/acceszone">acces zone</router-link>
         </div>
     </footer>
 </template>
