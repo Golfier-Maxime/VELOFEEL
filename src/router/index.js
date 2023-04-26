@@ -8,6 +8,7 @@ import ProduitView from '../views/produit.vue'
 import PrivateZoneView from '../views/privatezone.vue'
 import PrivateZone2View from '../views/privatezone2.vue'
 import PrivateZone3View from '../views/privatezone3.vue'
+import PrivateZonePartenaireView from '../views/privatezonepartenaire.vue'
 import ProduitFicheView from '../views/produitFiche.vue'
 import ProduitFiche2View from '../views/produitFiche2.vue'
 import ProduitFiche3View from '../views/produitFiche3.vue'
@@ -77,6 +78,11 @@ const router = createRouter({
       path: '/privatezone3',
       name: 'PrivateZone3',
       component: PrivateZone3View
+    },
+    {
+      path: '/privatezonepartenaire',
+      name: 'PrivateZonePartenaire',
+      component: PrivateZonePartenaireView
     },
     {
       path: '/acceszone',

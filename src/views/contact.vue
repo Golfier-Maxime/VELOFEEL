@@ -84,7 +84,7 @@ export default {
                 </div>
                 <div>
                     <p></p>
-                    <p>Lieu : Espace Lumière 2, Boulevard Moïse Foglia 25400 Audincourt</p>
+                    <p>Lieu : 2 Boulevard Moïse Foglia 25400 Audincourt</p>
                 </div>
             </div>
             <!-- Horraires -->
@@ -114,7 +114,7 @@ export default {
 
         </div>
     <!-- google maps -->
-    <div class="flex lg:gap-16 gap-4 flex-col lg:flex-row ">
+    <div class="flex lg:gap-16 gap-4 flex-col lg:flex-row mt-16">
         <div>
             <h4
                 class="mb-8 mt-11 lg:mt-0 text-Grey-Velofeel dark:text-Dark-Grey font-overpass font-extrabold lg:text-5xl text-2xl">
@@ -160,32 +160,32 @@ export default {
         </div>
         <!-- TEST -->
         <!-- <div>
-                    <form @submit.prevent="submitForm">
-                        <div>
-                            <label>Nom:</label>
-                            <input type="text" v-model="nom" required>
-                        </div>
-                        <div>
-                            <label>Prénom:</label>
-                            <input type="text" v-model="prenom" required>
-                        </div>
-                        <div>
-                            <label>Email:</label>
-                            <input type="email" v-model="email" required>
-                        </div>
-                        <div>
-                            <label>Objet:</label>
-                            <input type="text" v-model="objet" required>
-                        </div>
-                        <div>
-                            <label>Message:</label>
-                            <textarea v-model="message" required></textarea>
-                        </div>
-                        <div>
-                            <button type="submit">Envoyer</button>
-                        </div>
-                    </form>
-                </div> -->
+                            <form @submit.prevent="submitForm">
+                                <div>
+                                    <label>Nom:</label>
+                                    <input type="text" v-model="nom" required>
+                                </div>
+                                <div>
+                                    <label>Prénom:</label>
+                                    <input type="text" v-model="prenom" required>
+                                </div>
+                                <div>
+                                    <label>Email:</label>
+                                    <input type="email" v-model="email" required>
+                                </div>
+                                <div>
+                                    <label>Objet:</label>
+                                    <input type="text" v-model="objet" required>
+                                </div>
+                                <div>
+                                    <label>Message:</label>
+                                    <textarea v-model="message" required></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit">Envoyer</button>
+                                </div>
+                            </form>
+                        </div> -->
 
     </div>
 </template>

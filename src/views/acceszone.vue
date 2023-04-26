@@ -19,6 +19,7 @@
             <router-link to="/privatezone" class="text-xl">zone 1</router-link>
             <router-link to="/privatezone2" class="text-xl">zone 2</router-link>
             <router-link to="/privatezone3" class="text-xl">zone 3</router-link>
+            <router-link to="/privatezonepartenaire" class="text-xl">zone partenaire</router-link>
         </div>
     </div>
 </template>

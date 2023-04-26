@@ -294,142 +294,157 @@ export default {
 </script>
 
 
+
+
 <template>
-    <div class="lg:mx-20">
+    <div class=" lg:mx-20 mx-4 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans">
         <!-- titre -->
-        <div class="lg:mx-20 mx-4">
+        <div>
             <h1
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-[50px] text-center font-overpass leading-tight">
-                Vélofeel
-            </h1>
+                class="text-Grey-Velofeel dark:text-Dark-Grey lg:text-[100px] text-[50px] font-extrabold  text-center font-overpass leading-tight">
+                Vélofeel</h1>
             <h2
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
-                Nos Partenaires</h2>
+                Privatezone pour les partenaires</h2>
         </div>
-        <div class="flex justify-center mt-10">
-            <img src="/images/Arrow_Down.svg" alt="">
+        <!-- Connection / Déconection -->
+        <form @submit.prevent="onCnx" class="flex flex-col items-center mt-16" v-if="!Connected">
+            <div class="">
+                <div class="">
+                    <button class="text-Grey-Velofeel dark:text-Dark-Grey ">Email</button>
+                </div>
+                <input class="text-black w-[320px]" type="text" v-model="user.email" required />
+            </div>
+            <div class="">
+                <div class="">
+                    <button class="text-Grey-Velofeel dark:text-Dark-Grey">Mot de passe</button>
+                </div>
+                <input class="text-black w-[320px]" type="password" v-model="user.password" required />
+            </div>
+            <div class="flex justify-center font-bold">
+                <button class="bouton_deco mt-4" type="submit">Se connecter</button>
+            </div>
+        </form>
+        <div class="flex justify-center mt-16">
+            <button class="bouton_deco" @click="onDcnx" v-if="Connected">Se deconnecter</button>
         </div>
-        <!-- présentation des partenaires -->
-        <!-- LISTE partenaire -->
-        <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
-            <div class="mt-8 card_produit " v-for="partenaire in filterByName" :key="partenaire.id">
-                <img :src="partenaire.imagePartenaire" class="w-[330px] rounded-t-lg bg-white py-4 px-4" />
-                <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
-                    <div class="flex justify-between">
-                        <p class="ml-4 w-[220px] mt-3 text-lg font-semibold">{{ partenaire.nomPartenaire }}</p>
-                    </div>
-                    <div class="flex justify-end">
-                        <a :href="partenaire.lienPartenaire" target="_blank"
-                            class="mr-4 py-1 px-2 font-overpass font-sm btn-produit-p">
-                            Voir le site</a>
-                    </div>
+        <!-- Création Produit -->
+        <form enctype="multipart/form-data" @submit.prevent="createPartenaire" class="mb-32 mt-16" v-if="Connected">
+            <div class="">
+                <h2 class="shadow_text text-center font-prompt text-[30px]  font-bold">Création Partenaire</h2>
+                <div class="line mx-auto"></div>
+            </div>
+            <!-- nom Partenaire -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Nom du Partenaire</p>
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le nom"
+                    v-model="partenaire.nomPartenaire" required />
+            </div>
+            <!-- Lien partenaire -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">lien du site partenaire</p>
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le lien"
+                    v-model="partenaire.lienPartenaire" required />
+            </div>
+            <div>
+                <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-bold">Image</p>
+                <div class="flex justify-center">
+                    <img class="preview img-fluid w-2/4" :src="imageData" />
                 </div>
             </div>
-        </div>
-        <!--  -->
-        <div class="partenaires rounded-lg shadow-md text-Dark-Grey font-OpenSans">
-            <div class=" flex flex-col  gap-10 mx-4">
+            <div class="custom-file mt-2 flex justify-center">
+                <input type="file" class="custom-file-input" ref="file" id="file" @change="previewImage" />
+                <label class="custom-file-label" for="file">Sélectionner l'image</label>
+            </div>
 
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_ktm2.jpg" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://www.ktm-bikes.at/" target="_blank">Lien vers le site du partenaires en cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>KTM est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_Thule.png" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://www.thule.com/fr-fr/" target="_blank">Lien vers le site du partenaires en cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>THULE est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_peugeot.png" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://cycles.peugeot.fr/" target="_blank">Lien vers le site du partenaires en cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>Peugeot cycles est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_liv.png" alt="" class="lg:w-[15%] ">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://www.liv-cycling.com/fr" target="_blank">Lien vers le site du partenaires en
-                            cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>Liv cycles est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_shimano.png" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://bike.shimano.com/fr-FR/home.html" target="_blank">Lien vers le site du partenaires
-                            en cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>SHIMANO est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_pro.jpg" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://www.pro-bikegear.com/fr/" target="_blank">Lien vers le site du partenaires en
-                            cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>PRO est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_lazer.png" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://www.lazersport.com/fr/" target="_blank">Lien vers le site du partenaires en
-                            cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>LAZER est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
+
+            <div class="mt-2 flex justify-center gap-4 pb-16">
+                <button type="submit" class="bouton_liste2 font-bold">Créer</button>
+                <button @click="reloadPage">Annuler</button>
             </div>
-            <!-- bryton -->
+        </form>
+
+        <!-- Filtrage par Nom en Input -->
+        <div class="flex gap-2 mt-4" v-if="Connected">
+            <div class="">
+                <span class="">Filtrage</span>
+            </div>
+            <div class="flex justify-center gap-4">
+                <input type="text" class="" v-model="filter" />
+                <button class="bouton_liste" type="submit" title="Création">Filtrer</button>
+            </div>
         </div>
+
+        <!--Liste des vélo modifiable / Supprimable  -->
+        <tbody class="flex flex-wrap gap-8 justify-center" v-if="Connected">
+            <tr v-for="partenaire in filterByName" :key="partenaire.id" class="">
+                <td>
+                    <form class="mt-8 ">
+                        <div class="flex gap-2 ">
+                            <div class="flex flex-col gap-1 justify-center">
+                                <div>
+                                    <p class="">Nom du partenaire</p>
+                                    <input type="text" class="w-[320px]" v-model="partenaire.nomPartenaire" required />
+                                </div>
+                                <div>
+                                    <p class="">Lien du partenaire</p>
+                                    <input type="text" class="w-[320px]" v-model="partenaire.lienPartenaire" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-2 mb-2 flex justify-center w-[320px]">
+                            <img :src="partenaire.imagePartenaire" alt="image du produit" />
+                        </div>
+                        <div class="flex justify-center gap-4 ">
+                            <button class="bouton_liste2 font-bold" type="submit" title="Création"
+                                @click.prevent="updatePartenaire(partenaire)">MODIFIER</button>
+                            <button class="bouton_liste font-bold" type="submit" title="Suppression"
+                                @click.prevent="deletePartenaire(partenaire)">SUPPRIMER</button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+
+
     </div>
 </template>
+
+
 <style scoped>
-.partenaires {
-    background-color: white;
-    padding-top: 40px;
-    margin-top: 64px;
-    padding-bottom: 40px;
+.bouton_liste {
+    background-color: red;
+    border: none;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+}
 
+.bouton_liste2 {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+}
 
-
+.bouton_deco {
+    background-color: cyan;
+    border: none;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
 }
 </style>
