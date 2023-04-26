@@ -313,7 +313,8 @@ export default {
         <!-- LISTE partenaire -->
         <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
             <div class="mt-8 card_produit " v-for="partenaire in filterByName" :key="partenaire.id">
-                <img :src="partenaire.imagePartenaire" class="w-[330px] rounded-t-lg bg-white py-4 px-4" />
+
+                <img :src="partenaire.imagePartenaire" class="w-[330px]  rounded-t-lg bg-white py-4 px-4" />
                 <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
                     <div class="flex justify-between">
                         <p class="ml-4 w-[220px] mt-3 text-lg font-semibold">{{ partenaire.nomPartenaire }}</p>
@@ -325,100 +326,6 @@ export default {
                     </div>
                 </div>
             </div>
-        </div>
-        <!--  -->
-        <div class="partenaires rounded-lg shadow-md text-Dark-Grey font-OpenSans">
-            <div class=" flex flex-col  gap-10 mx-4">
-
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_ktm2.jpg" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://www.ktm-bikes.at/" target="_blank">Lien vers le site du partenaires en cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>KTM est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_Thule.png" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://www.thule.com/fr-fr/" target="_blank">Lien vers le site du partenaires en cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>THULE est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_peugeot.png" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://cycles.peugeot.fr/" target="_blank">Lien vers le site du partenaires en cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>Peugeot cycles est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_liv.png" alt="" class="lg:w-[15%] ">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://www.liv-cycling.com/fr" target="_blank">Lien vers le site du partenaires en
-                            cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>Liv cycles est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_shimano.png" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://bike.shimano.com/fr-FR/home.html" target="_blank">Lien vers le site du partenaires
-                            en cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>SHIMANO est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_pro.jpg" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://www.pro-bikegear.com/fr/" target="_blank">Lien vers le site du partenaires en
-                            cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>PRO est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
-                <!-- Partenaire -->
-                <div class="flex gap-10 flex-col lg:flex-row  justify-center">
-                    <img src="/images/logo_lazer.png" alt="" class="lg:w-[15%]">
-                    <div class="flex flex-col gap-2">
-                        <a href="https://www.lazersport.com/fr/" target="_blank">Lien vers le site du partenaires en
-                            cliquant
-                            <span class="font-bold text-Red-Velofeel">ICI</span>.</a>
-                        <p>LAZER est ... Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    </div>
-                </div>
-                <!-- barre de séparation -->
-                <div class="mb-8 lg:mb-0 bg-Dark-Grey rounded-sm h-[2px] mt-8 lg:mx-20 w-[100hv]"></div>
-                <!--  -->
-            </div>
-            <!-- bryton -->
         </div>
     </div>
 </template>

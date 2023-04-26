@@ -495,6 +495,7 @@ export default {
     border: 1px solid #8D99AE;
     border-radius: 8px;
     transition: .4s;
+
 }
 
 .btn-ficheTech:hover {
