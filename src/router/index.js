@@ -15,6 +15,7 @@ import ProduitFiche3View from '../views/produitFiche3.vue'
 import AccesZoneView from '../views/acceszone.vue'
 import CGUView from '../views/CGU.vue'
 import PCView from '../views/PC.vue'
+import Page404View from '../views/Page404View.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -99,10 +100,18 @@ const router = createRouter({
       name: 'PC',
       component: PCView
     },
+    //page 404
+    {
+      path: "/:catchAll(.*)",
+      name: "Page404View",
+      component: Page404View,
+    },
   ],
   scrollBehavior() {
+    document.getElementById('app').scrollIntoView({ behavior: 'smooth' });
     return { top: 0 }
   }
+
 })
 
 export default router
