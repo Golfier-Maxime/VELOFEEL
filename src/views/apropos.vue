@@ -30,7 +30,7 @@
             </div>
         </div>
         <!-- barre de séparation -->
-        <div class="mb-11 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-1 mt-16 lg:mx-20 w-[100hv]"></div>
+        <div class="mb-11 lg:mb-0 bg-Grey-Velofeel dark:bg-Dark-Grey rounded-sm h-[1px] mt-16 lg:mx-20 w-[100hv]"></div>
         <!-- autre -->
         <div class="flex lg:flex-row flex-col-reverse gap-9 lg:mt-11">
             <div class="text-Grey-Velofeel dark:text-Dark-Grey">

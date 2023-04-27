@@ -17,9 +17,28 @@
     rel="stylesheet">
 </head>
 
-<body>
-  <div id="app"></div>
+<body onload="myFunction()">
+
+  <div id="loader"></div>
+  <div style="display:none;" id="myDiv" class="animate-bottom">
+    <div id="app"></div>
+  </div>
   <script type="module" src="/src/main.js"></script>
+
+  <script>
+    var myVar;
+
+    function myFunction() {
+      myVar = setTimeout(showPage, 2000);
+    }
+
+    function showPage() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("myDiv").style.display = "block";
+    }
+  </script>
+
+
 </body>
 
 </html>
