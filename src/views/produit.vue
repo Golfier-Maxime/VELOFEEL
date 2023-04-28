@@ -233,7 +233,7 @@ export default {
             <!--  -->
             <div class="w-[280px] lg:ml-32  mt-16  font-OpenSans">
                 <label for="typeProduit" class="text-Grey-Velofeel dark:text-Dark-Grey">Filtrer par type : </label>
-                <select id="typeProduit" v-model="selectedType" class="text-black ml-2">
+                <select id="typeProduit" v-model="selectedType" class="text-black ml-2 rounded-md">
                     <option value="" class="text-black">Tous</option>
                     <option v-for="type in types" :value='type' class="text-black">{{ type }}</option>
                 </select>
