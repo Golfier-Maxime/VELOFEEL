@@ -237,10 +237,11 @@ export default {
                     <option value="" class="text-black">Tous</option>
                     <option v-for="type in types" :value='type' class="text-black">{{ type }}</option>
                 </select>
-
             </div>
         </div>
+
         <!-- LISTE VELO / PRODUIT -->
+
         <div class='mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans'>
             <div class="mt-8 card_produit" v-for="velo in filterByName" :key="velo.id">
                 <img :src="velo.imageProduit" class="w-[330px] h-[220px] rounded-t-lg" />
