@@ -42,6 +42,8 @@ export default {
     data() {
         // Données de la vue
         return {
+            selectedType: "",
+            types: ["VTT", "ROUTE", "GRAVEL", "VTC", "VAE"],
             imageData: null,
             filter: "",
             // liste
@@ -63,11 +65,11 @@ export default {
             Connected: false,
             img_Prod: null
         };
+
     },
 
     mounted() {
         this.getVeloSynchro();
-
         this.getUserConnect();
         // Montage de la vue
         // Rechercher si un user est déjà connecté
@@ -103,7 +105,6 @@ export default {
                 console.log(user);
             });
         },
-
         // avoir info pour le produit
         async getVelo(id) {
             const firestore = getFirestore();
@@ -125,8 +126,6 @@ export default {
                 })
 
         },
-
-
         async getVeloSynchro() {
             const firestore = getFirestore();
             const dbVelo = collection(firestore, "velo");
@@ -155,11 +154,7 @@ export default {
             });
 
         },
-
-
     },
-
-
 
     computed: {
         // Tri des pays par nom en ordre croissant
@@ -175,23 +170,31 @@ export default {
             });
         },
 
-
-        // Filtrage de la propriété calculée de tri
         filterByName: function () {
-            // On effectue le fitrage seulement si le filtre est rnseigné
+            // On effectue le filtrage seulement si le filtre est renseigné
             if (this.filter.length > 0) {
                 // On récupère le filtre saisi en minuscule (on évite les majuscules)
                 let filter = this.filter.toLowerCase();
                 // Filtrage de la propriété calculée de tri
-                return this.orderByName.filter(function (velo) {
+                let filteredList = this.orderByName.filter(function (velo) {
                     // On ne renvoie que les pays dont le nom contient
                     // la chaine de caractère du filtre
                     return velo.nomProduit.toLowerCase().includes(filter);
                 });
+                // Nouvelle condition pour le filtrage par type de produit
+                if (this.selectedType === "") {
+                    return filteredList;
+                } else {
+                    return filteredList.filter((velo) => velo.typeProduit === this.selectedType);
+                }
             } else {
                 // Si le filtre n'est pas saisi
-                // On renvoie l'intégralité de la liste triée
-                return this.orderByName;
+                // On renvoie la liste filtrée par type de produit si un type est sélectionné
+                if (this.selectedType === "") {
+                    return this.orderByName;
+                } else {
+                    return this.orderByName.filter((velo) => velo.typeProduit === this.selectedType);
+                }
             }
         },
 
@@ -227,10 +230,19 @@ export default {
                     </button>
                 </div>
             </div>
+            <!--  -->
+            <div class="w-[280px] lg:ml-32  mt-16  font-OpenSans">
+                <label for="typeProduit" class="text-Grey-Velofeel dark:text-Dark-Grey">Filtrer par type : </label>
+                <select id="typeProduit" v-model="selectedType" class="text-black ml-2">
+                    <option value="" class="text-black">Tous</option>
+                    <option v-for="type in types" :value='type' class="text-black">{{ type }}</option>
+                </select>
+
+            </div>
         </div>
         <!-- LISTE VELO / PRODUIT -->
-        <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
-            <div class="mt-8 card_produit " v-for="velo in filterByName" :key="velo.id">
+        <div class='mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans'>
+            <div class="mt-8 card_produit" v-for="velo in filterByName" :key="velo.id">
                 <img :src="velo.imageProduit" class="w-[330px] h-[220px] rounded-t-lg" />
                 <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
                     <div class="flex justify-between">

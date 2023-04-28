@@ -124,7 +124,7 @@ export default {
             </h4>
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5392.320575227619!2d6.8393929802201265!3d47.48679074281933!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47921750511bcc73%3A0x43fdf31f4bee52c!2sCycles+Thierry+Denis!5e0!3m2!1sfr!2sfr!4v1414766931647"
-                frameborder="0" class="lg:w-[500px] w-[280px] h-[500px]"></iframe>
+                frameborder="0" class="lg:w-[500px] w-[280px] h-[400px]"></iframe>
         </div>
         <div class="lg:w-[50%]">
             <!-- CONTACT FORM HERE -->
@@ -160,32 +160,32 @@ export default {
         </div>
         <!-- TEST -->
         <!-- <div>
-                                <form @submit.prevent="submitForm">
-                                    <div>
-                                        <label>Nom:</label>
-                                        <input type="text" v-model="nom" required>
-                                    </div>
-                                    <div>
-                                        <label>Prénom:</label>
-                                        <input type="text" v-model="prenom" required>
-                                    </div>
-                                    <div>
-                                        <label>Email:</label>
-                                        <input type="email" v-model="email" required>
-                                    </div>
-                                    <div>
-                                        <label>Objet:</label>
-                                        <input type="text" v-model="objet" required>
-                                    </div>
-                                    <div>
-                                        <label>Message:</label>
-                                        <textarea v-model="message" required></textarea>
-                                    </div>
-                                    <div>
-                                        <button type="submit">Envoyer</button>
-                                    </div>
-                                </form>
-                            </div> -->
+                                    <form @submit.prevent="submitForm">
+                                        <div>
+                                            <label>Nom:</label>
+                                            <input type="text" v-model="nom" required>
+                                        </div>
+                                        <div>
+                                            <label>Prénom:</label>
+                                            <input type="text" v-model="prenom" required>
+                                        </div>
+                                        <div>
+                                            <label>Email:</label>
+                                            <input type="email" v-model="email" required>
+                                        </div>
+                                        <div>
+                                            <label>Objet:</label>
+                                            <input type="text" v-model="objet" required>
+                                        </div>
+                                        <div>
+                                            <label>Message:</label>
+                                            <textarea v-model="message" required></textarea>
+                                        </div>
+                                        <div>
+                                            <button type="submit">Envoyer</button>
+                                        </div>
+                                    </form>
+                                </div> -->
 
     </div>
 </template>
