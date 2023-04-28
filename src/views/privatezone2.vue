@@ -42,22 +42,14 @@ export default {
     data() {
         // Données de la vue
         return {
-            imageData: null,
             imageData2: null,
             filter: "",
             // liste
-            listeVeloSynchro: [],
             listeVelo2Synchro: [],
             user: {
                 // user se connectant
                 email: null,
                 password: null,
-            },
-            velo: {
-                nomProduit: null,
-                descProduit: null,
-                prixProduit: null,
-                typeProduit: null,
             },
             velo2: {
                 nomProduit: null,
@@ -75,7 +67,6 @@ export default {
     },
 
     mounted() {
-        this.getVeloSynchro();
         this.getVelo2Synchro();
         this.getUserConnect();
         // Montage de la vue
@@ -87,7 +78,6 @@ export default {
         } else {
             this.message = "User non connecté : " + this.user.email;
         }
-        this.getVelo(this.$route.params.id)
         this.getVelo2(this.$route.params.id)
     },
 
@@ -149,26 +139,7 @@ export default {
                     console.log("erreur deconnexion ", error);
                 });
         },
-        // avoir info pour le produit
-        async getVelo(id) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo", id);
-            this.refVelo = await getDoc(docRef);
-            if (this.refVelo.exists()) {
-                this.velo = this.refVelo.data();
-                this.img_Prod = this.velo.imageProduit;
 
-            }
-            else {
-                this.console.log("Velo Inexistant");
-            }
-            const storage = getStorage();
-            const spaceRef = ref(storage, 'VELOFEEL/' + this.velo.imageProduit);
-            getDownloadURL(spaceRef)
-                .then((url) => {
-                    this.img_Prod = url;
-                })
-        },
         // avoir info pour le produit
         async getVelo2(id) {
             const firestore = getFirestore();
@@ -191,34 +162,6 @@ export default {
         },
 
 
-        async getVeloSynchro() {
-            const firestore = getFirestore();
-            const dbVelo = collection(firestore, "velo");
-            const query = await onSnapshot(dbVelo, (snapshot) => {
-                this.listeVeloSynchro = snapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }
-                ))
-                // récupération des images des produit/velo
-                // parcours de la liste 
-                this.listeVeloSynchro.forEach(function (velo) {
-                    const storage = getStorage();
-                    //récup des l'image par son nom de fichier
-                    const spaceRef = ref(storage, 'VELOFEEL/' + velo.imageProduit);
-                    //recup de l'url de l'image
-                    getDownloadURL(spaceRef).then((url) => {
-                        //on remplace le nom du fichier
-                        // par l'url complete de l'image
-                        velo.imageProduit = url;
-                    })
-                        .catch((error) => {
-                            console.log('erreur downloadUrl', error);
-                        })
-                })
-            });
-
-        },
         // velo2
         async getVelo2Synchro() {
             const firestore = getFirestore();
@@ -249,30 +192,7 @@ export default {
 
         },
 
-        previewImage: function (event) {
-            // Mise à jour de la photo du Produit
-            this.file = this.$refs.file.files[0];
-            // Récupérer le nom du fichier pour la photo du Produit
-            this.velo.imageProduit = this.file.name;
-            // Reference to the DOM input element
-            // Reference du fichier à prévisualiser
-            var input = event.target;
-            // On s'assure que l'on a au moins un fichier à lire
-            if (input.files && input.files[0]) {
-                // Creation d'un filereader
-                // Pour lire l'image et la convertir en base 64
-                var reader = new FileReader();
-                // fonction callback appellée lors que le fichier a été chargé
-                reader.onload = (e) => {
-                    // Read image as base64 and set to imageData
-                    // lecture du fichier pour mettre à jour
-                    // la prévisualisation
-                    this.imageData = e.target.result;
-                };
-                // Demarrage du reader pour la transformer en data URL (format base 64)
-                reader.readAsDataURL(input.files[0]);
-            }
-        },
+
         // velo2
         previewImage2: function (event) {
             // Mise à jour de la photo du Produit
@@ -300,29 +220,6 @@ export default {
         },
 
 
-        async createVelo() {
-            // Obtenir storage Firebase
-            const storage = getStorage();
-            const firestore = getFirestore()
-            // Référence de l'image à uploader
-            const refStorage = ref(storage, "VELOFEEL/" + this.velo.imageProduit);
-            // Upload de l'image sur le Cloud Storage
-            await uploadString(refStorage, this.imageData, "data_url").then((snapshot) => {
-                console.log("Uploaded a base64 string");
-                // Création du velo sur le Firestore
-                const db = getFirestore();
-                const docRef = addDoc(collection(db, "velo"), this.velo);
-            });
-            const dbVelo = collection(firestore, "velo");
-            const docRef = await addDoc(dbVelo, {
-                nomProduit: this.nomProduit,
-                descProduit: this.descProduit,
-                prixProduit: this.prixProduit,
-                typeProduit: this.typeProduit,
-                imageProduit: this.imageProduit,
-            });
-            console.log("document créé avec le id : ", docRef.id);
-        },
         // velo2
         async createVelo2() {
             // Obtenir storage Firebase
@@ -350,17 +247,7 @@ export default {
             console.log("document créé avec le id : ", docRef.id);
         },
 
-        async updateVelo(velo) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo", velo.id);
-            await updateDoc(docRef, {
-                nomProduit: velo.nomProduit,
-                descProduit: velo.descProduit,
-                prixProduit: velo.prixProduit,
-                typeProduit: velo.typeProduit,
-                imageProduit: velo.imageProduit,
-            });
-        },
+
         // velo2
         async updateVelo2(velo2) {
             const firestore = getFirestore();
@@ -376,11 +263,6 @@ export default {
             });
         },
 
-        async deleteVelo(velo) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo", velo.id);
-            await deleteDoc(docRef);
-        },
         // velo2
         async deleteVelo2(velo2) {
             let text = "Press a button!\nEither OK or Cancel.";
@@ -399,17 +281,7 @@ export default {
 
     computed: {
         // Tri des pays par nom en ordre croissant
-        orderByName: function () {
-            // Parcours et tri des pays 2 à 2
-            return this.listeVeloSynchro.sort(function (a, b) {
-                // Si le nom du pays est avant on retourne -1
-                if (a.nom < b.nom) return -1;
-                // Si le nom du pays est après on retourne 1
-                if (a.nom > b.nom) return 1;
-                // Sinon ni avant ni après (homonyme) on retourne 0
-                return 0;
-            });
-        },
+
         orderByName2: function () {
             // Parcours et tri des pays 2 à 2
             return this.listeVelo2Synchro.sort(function (a, b) {
@@ -423,23 +295,7 @@ export default {
         },
 
         // Filtrage de la propriété calculée de tri
-        filterByName: function () {
-            // On effectue le fitrage seulement si le filtre est rnseigné
-            if (this.filter.length > 0) {
-                // On récupère le filtre saisi en minuscule (on évite les majuscules)
-                let filter = this.filter.toLowerCase();
-                // Filtrage de la propriété calculée de tri
-                return this.orderByName.filter(function (velo) {
-                    // On ne renvoie que les pays dont le nom contient
-                    // la chaine de caractère du filtre
-                    return velo.nomProduit.toLowerCase().includes(filter);
-                });
-            } else {
-                // Si le filtre n'est pas saisi
-                // On renvoie l'intégralité de la liste triée
-                return this.orderByName;
-            }
-        },
+
         filterByName2: function () {
             // On effectue le fitrage seulement si le filtre est rnseigné
             if (this.filter.length > 0) {

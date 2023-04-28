@@ -1,4 +1,4 @@
-<script >
+<script>
 
 // Bibliothèques Firebase  : import des fonctions
 //  signInWithEmailAndPassword : Authentification avec email et mot de passe
@@ -46,7 +46,6 @@ export default {
             filter: "",
             // liste
             listeVeloSynchro: [],
-            listeVelo2Synchro: [],
             user: {
                 // user se connectant
                 email: null,
@@ -59,12 +58,6 @@ export default {
                 typeProduit: null,
                 imageProduit: null,
             },
-            velo2: {
-                nomProduit: null,
-                descProduit: null,
-                prixProduit: null,
-                typeProduit: null,
-            },
             refVelo: null,
             message: null, // Message de connexion
             Connected: false,
@@ -74,7 +67,7 @@ export default {
 
     mounted() {
         this.getVeloSynchro();
-        this.getVelo2Synchro();
+
         this.getUserConnect();
         // Montage de la vue
         // Rechercher si un user est déjà connecté
@@ -110,42 +103,7 @@ export default {
                 console.log(user);
             });
         },
-        onCnx() {
-            // Se connecter avec user email et mot de passe
-            signInWithEmailAndPassword(getAuth(), this.user.email, this.user.password)
-                .then((response) => {
-                    // Connexion OK
-                    console.log("user connecté", response.user);
-                    emitter.emit("connectUser", { user: this.user });
-                    this.user = response.user;
-                    this.message = "User connecté : " + this.user.email;
-                    this.getUserInfo();
-                    this.Connected = true;
-                })
-                .catch((error) => {
-                    // Erreur de connexion
-                    console.log("Erreur connexion", error);
-                    this.message = "Erreur d'authentification";
-                });
-        },
-        onDcnx() {
-            // Se déconnecter
-            signOut(getAuth())
-                .then((response) => {
-                    this.user = getAuth().currentUser;
-                    this.user = {
-                        email: null,
-                        password: null,
-                    };
-                    emitter.emit("deConnectUser", { user: this.user });
-                    console.log("user deconnecté ", this.user);
-                    this.message = "user non connecté";
-                    this.Connected = false;
-                })
-                .catch((error) => {
-                    console.log("erreur deconnexion ", error);
-                });
-        },
+
         // avoir info pour le produit
         async getVelo(id) {
             const firestore = getFirestore();
@@ -197,170 +155,8 @@ export default {
             });
 
         },
-        // velo2
-        async getVelo2Synchro() {
-            const firestore = getFirestore();
-            const dbVelo2 = collection(firestore, "velo2");
-            const query = await onSnapshot(dbVelo2, (snapshot) => {
-                this.listeVelo2Synchro = snapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }
-                ))
-                // récupération des images des produit/velo
-                // parcours de la liste 
-                this.listeVelo2Synchro.forEach(function (velo2) {
-                    const storage = getStorage();
-                    //récup des l'image par son nom de fichier
-                    const spaceRef = ref(storage, 'VELOFEEL/' + velo2.imageProduit);
-                    //recup de l'url de l'image
-                    getDownloadURL(spaceRef).then((url) => {
-                        //on remplace le nom du fichier
-                        // par l'url complete de l'image
-                        velo2.imageProduit = url;
-                    })
-                        .catch((error) => {
-                            console.log('erreur downloadUrl', error);
-                        })
-                })
-            });
-
-        },
-
-        previewImage: function (event) {
-            // Mise à jour de la photo du Produit
-            this.file = this.$refs.file.files[0];
-            // Récupérer le nom du fichier pour la photo du Produit
-            this.velo.imageProduit = this.file.name;
-            // Reference to the DOM input element
-            // Reference du fichier à prévisualiser
-            var input = event.target;
-            // On s'assure que l'on a au moins un fichier à lire
-            if (input.files && input.files[0]) {
-                // Creation d'un filereader
-                // Pour lire l'image et la convertir en base 64
-                var reader = new FileReader();
-                // fonction callback appellée lors que le fichier a été chargé
-                reader.onload = (e) => {
-                    // Read image as base64 and set to imageData
-                    // lecture du fichier pour mettre à jour
-                    // la prévisualisation
-                    this.imageData = e.target.result;
-                };
-                // Demarrage du reader pour la transformer en data URL (format base 64)
-                reader.readAsDataURL(input.files[0]);
-            }
-        },
-        // velo2
-        previewImage2: function (event) {
-            // Mise à jour de la photo du Produit
-            this.file = this.$refs.file.files[0];
-            // Récupérer le nom du fichier pour la photo du Produit
-            this.velo2.imageProduit = this.file.name;
-            // Reference to the DOM input element
-            // Reference du fichier à prévisualiser
-            var input = event.target;
-            // On s'assure que l'on a au moins un fichier à lire
-            if (input.files && input.files[0]) {
-                // Creation d'un filereader
-                // Pour lire l'image et la convertir en base 64
-                var reader = new FileReader();
-                // fonction callback appellée lors que le fichier a été chargé
-                reader.onload = (e) => {
-                    // Read image as base64 and set to imageData
-                    // lecture du fichier pour mettre à jour
-                    // la prévisualisation
-                    this.imageData = e.target.result;
-                };
-                // Demarrage du reader pour la transformer en data URL (format base 64)
-                reader.readAsDataURL(input.files[0]);
-            }
-        },
 
 
-        async createVelo() {
-            // Obtenir storage Firebase
-            const storage = getStorage();
-            const firestore = getFirestore()
-            // Référence de l'image à uploader
-            const refStorage = ref(storage, "VELOFEEL/" + this.velo.imageProduit);
-            // Upload de l'image sur le Cloud Storage
-            await uploadString(refStorage, this.imageData, "data_url").then((snapshot) => {
-                console.log("Uploaded a base64 string");
-                // Création du velo sur le Firestore
-                const db = getFirestore();
-                const docRef = addDoc(collection(db, "velo"), this.velo);
-            });
-            const dbVelo = collection(firestore, "velo");
-            const docRef = await addDoc(dbVelo, {
-                nomProduit: this.nomProduit,
-                descProduit: this.descProduit,
-                prixProduit: this.prixProduit,
-                typeProduit: this.typeProduit,
-                imageProduit: this.imageProduit,
-            });
-            console.log("document créé avec le id : ", docRef.id);
-        },
-        // velo2
-        async createVelo2() {
-            // Obtenir storage Firebase
-            const storage = getStorage();
-            const firestore = getFirestore()
-            // Référence de l'image à uploader
-            const refStorage = ref(storage, "VELOFEEL/" + this.velo2.imageProduit);
-            // Upload de l'image sur le Cloud Storage
-            await uploadString(refStorage, this.imageData, "data_url").then((snapshot) => {
-                console.log("Uploaded a base64 string");
-                // Création du velo sur le Firestore
-                const db = getFirestore();
-                const docRef = addDoc(collection(db, "velo2"), this.velo2);
-            });
-            const dbVelo2 = collection(firestore, "velo2");
-            const docRef = await addDoc(dbVelo2, {
-                nomProduit: this.nomProduit,
-                descProduit: this.descProduit,
-                prixProduit: this.prixProduit,
-                typeProduit: this.typeProduit,
-                imageProduit: this.imageProduit,
-            });
-            console.log("document créé avec le id : ", docRef.id);
-        },
-
-        async updateVelo(velo) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo", velo.id);
-            await updateDoc(docRef, {
-                nomProduit: velo.nomProduit,
-                descProduit: velo.descProduit,
-                prixProduit: velo.prixProduit,
-                typeProduit: velo.typeProduit,
-                imageProduit: velo.imageProduit,
-            });
-        },
-        // velo2
-        async updateVelo2(velo2) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo2", velo2.id);
-            await updateDoc(docRef, {
-                nomProduit: velo2.nomProduit,
-                descProduit: velo2.descProduit,
-                prixProduit: velo2.prixProduit,
-                typeProduit: velo2.typeProduit,
-                imageProduit: velo2.imageProduit,
-            });
-        },
-
-        async deleteVelo(velo) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo", velo.id);
-            await deleteDoc(docRef);
-        },
-        // velo2
-        async deleteVelo2(velo2) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo2", velo2.id);
-            await deleteDoc(docRef);
-        },
     },
 
 
@@ -378,17 +174,7 @@ export default {
                 return 0;
             });
         },
-        orderByName2: function () {
-            // Parcours et tri des pays 2 à 2
-            return this.listeVelo2Synchro.sort(function (a, b) {
-                // Si le nom du pays est avant on retourne -1
-                if (a.nom < b.nom) return -1;
-                // Si le nom du pays est après on retourne 1
-                if (a.nom > b.nom) return 1;
-                // Sinon ni avant ni après (homonyme) on retourne 0
-                return 0;
-            });
-        },
+
 
         // Filtrage de la propriété calculée de tri
         filterByName: function () {
@@ -408,23 +194,7 @@ export default {
                 return this.orderByName;
             }
         },
-        filterByName2: function () {
-            // On effectue le fitrage seulement si le filtre est rnseigné
-            if (this.filter.length > 0) {
-                // On récupère le filtre saisi en minuscule (on évite les majuscules)
-                let filter = this.filter.toLowerCase();
-                // Filtrage de la propriété calculée de tri
-                return this.orderByName2.filter(function (velo2) {
-                    // On ne renvoie que les pays dont le nom contient
-                    // la chaine de caractère du filtre
-                    return velo2.nomProduit.toLowerCase().includes(filter);
-                });
-            } else {
-                // Si le filtre n'est pas saisi
-                // On renvoie l'intégralité de la liste triée
-                return this.orderByName2;
-            }
-        },
+
     },
 };
 </script>
