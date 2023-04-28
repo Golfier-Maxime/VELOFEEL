@@ -215,19 +215,19 @@ export default {
         <div class="flex justify-center mt-10">
             <img src="/images/Arrow_Down.svg" alt="arrow down">
         </div>
-        <!-- Filtrage par Nom en Input -->
-        <div class="w-[280px] lg:ml-32  mt-16 text-Grey-Velofeel dark:text-Dark-Grey ">
-            <div class="search text-Dark-Grey">
-                <input type="text" class="searchTerm border-3 border-Dark-Grey" placeholder="Filtrez par nom"
-                    v-model="filter">
-
-                <button type="submit"
-                    class="searchButton text-Dark-Grey dark:text-Grey-Velofeel dark:bg-Dark-Grey bg-Grey-Velofeel border-2 dark:border-Dark-Grey border-Grey-Velofeel">
-                    <i class="fa fa-search"></i>
-                </button>
+        <div class="flex lg:flex-row flex-col">
+            <!-- Filtrage par Nom en Input -->
+            <div class="w-[280px] lg:ml-32  mt-16 text-Grey-Velofeel dark:text-Dark-Grey ">
+                <div class="search text-Dark-Grey">
+                    <input type="text" class="searchTerm border-3 border-Dark-Grey" placeholder="Filtrez par nom"
+                        v-model="filter">
+                    <button type="submit"
+                        class="searchButton text-Dark-Grey dark:text-Grey-Velofeel dark:bg-Dark-Grey bg-Grey-Velofeel border-2 dark:border-Dark-Grey border-Grey-Velofeel">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
             </div>
         </div>
-
         <!-- LISTE VELO / PRODUIT -->
         <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
             <div class="mt-8 card_produit " v-for="velo in filterByName" :key="velo.id">
