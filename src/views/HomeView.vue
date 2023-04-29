@@ -484,7 +484,7 @@ export default {
             <p
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[24px]  text-center font-overpass leading-tight">
                 Du Mardi au
-                Samedi de 9:30-12:00 à 14:00-19:00</p>
+                Samedi de 9:30 à 12:00 et de 14:00-19:00</p>
         </div>
         <!-- Slider automatic et infini de quelque marque associé -->
         <div class="slider mt-10">
