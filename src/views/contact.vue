@@ -31,7 +31,7 @@ export default {
             }
         },
         async myFunction() {
-            alert("Adding Succesful!");
+            alert("Votre message a été envoyé");
         },
     },
 };
