@@ -21,6 +21,8 @@ const firebaseConfig = {
 const appFirebase = initializeApp(firebaseConfig);
 
 
+
+
 const app = createApp(App)
 
 export const emitter = mitt();
