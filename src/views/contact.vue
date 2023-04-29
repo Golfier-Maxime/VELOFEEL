@@ -46,7 +46,7 @@ export default {
                 Vélofeel</h1>
             <h2
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-4xl text-center font-overpass leading-tight">
-                Nous contactez</h2>
+                Nous contacter</h2>
         </div>
         <!-- fleche rouge -->
         <div class="flex justify-center mt-10">
@@ -55,7 +55,7 @@ export default {
         <!-- sous titre -->
         <div class="lg:mt-14 mt-11">
             <h3 class="text-Grey-Velofeel dark:text-Dark-Grey font-overpass font-extrabold lg:text-5xl text-2xl">Nous
-                contactez avec
+                contacter avec
                 nos
                 adresses
             </h3>

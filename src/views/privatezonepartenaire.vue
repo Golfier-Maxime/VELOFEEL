@@ -259,8 +259,6 @@ export default {
 
     },
 
-
-
     computed: {
         // Tri des pays par nom en ordre croissant
         orderByName: function () {
