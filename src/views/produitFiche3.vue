@@ -643,7 +643,7 @@ export default {
                 </div>
                 <p class="text-4xl font-extrabold text-Grey-Velofeel dark:text-Dark-Grey ">{{ velo3.prixProduit }} €</p>
             </div>
-            <img :src="img_Prod" class="lg:h-[500px]" />
+            <img :src="img_Prod" class="lg:h-[500px]" alt="image du velo" />
         </div>
         <div class="font-OpenSans mt-4 mb-11 lg:mb-0">
             <router-link to="/contact" class="">

@@ -498,7 +498,9 @@ export default {
             <img src="/images/Arrow_Down.svg" alt="arrow down">
         </div>
         <!-- Présentation produit a metre en avant -->
+
         <div class="lg:mx-20 mx-4 flex justify-center">
+            <meta name="description" content="Présentation du produit phare du magasin">
             <div v-for="velo3 in filterByName3" :key="velo3.id"
                 class="mt-16 flex flex-col-reverse gap-4 lg:flex-row justify-evenly">
                 <div class="flex flex-col gap-2">
@@ -529,6 +531,7 @@ export default {
         </div>
         <!-- quelques produits -->
         <div class="lg:mx-[10%] mx-4 lg:mt-24 text-Grey-Velofeel dark:text-Dark-Grey">
+            <meta name="description" content="Présentation de quelques produits du magasin">
             <div>
                 <h4 class="font-OpenSans font-bold text-2xl">Nos Produits en avant</h4>
                 <div class="bar-title h-1 mt-2 w-[265px]"></div>
@@ -559,11 +562,12 @@ export default {
         </div>
         <!-- Présentation Facebook a metre en avant -->
         <div class="lg:mx-[10%] mx-4 mt-16 text-Grey-Velofeel dark:text-Dark-Grey ">
+            <meta name="description" content="Présentation de nos réseaux sociaux, facebook et instagram">
             <h4 class="font-overpass lg:text-[50px] text-4xl  mt-4 lg:mt-0 font-bold">
                 Nous retrouver sur nos réseaux</h4>
             <div class="lg:mt-16 mt-4 flex flex-col lg:flex-row justify-center lg:gap-16 gap-4">
                 <div class="flex justify-center">
-                    <iframe class="lg:w-[500px] lg:h-[500px] h-[300px] w-[320px]"
+                    <iframe class="lg:w-[500px] lg:h-[500px] h-[300px] w-[320px]" title="Facebook"
                         src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVELOFEEL&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true&appId"></iframe>
                 </div>
                 <div>
