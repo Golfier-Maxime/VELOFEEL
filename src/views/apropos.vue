@@ -19,11 +19,9 @@
         <div class="mt-11 flex lg:flex-row flex-col-reverse gap-9">
             <div class="text-Grey-Velofeel dark:text-Dark-Grey">
                 <h3 class="font-overpass font-bold lg:text-[50px] text-4xl mb-4 lg-mb-0">Vélofeel c'est quoi ?</h3>
-                <p class="font-OpenSans lg:mr-28">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus
-                    ultricies quam in magna
-                    congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non
-                    tristique mi volutpat quis. </p>
+                <p class="font-OpenSans lg:mr-28">Vélofeel c'est votre expert du vélo. De la vente de vélo ou d'accessoire,
+                    de conseil ou d'aide et de la réparation à l'entretien de votre vélo. Vélofeel seras vous servire avec
+                    un personnel qualifié et à votre écoute.</p>
             </div>
             <div>
                 <img src="/images/logo_velofeel.png" alt="logo de velofeel" class="w-[600px]">
@@ -34,15 +32,9 @@
         <!-- autre -->
         <div class="flex lg:flex-row flex-col-reverse gap-9 lg:mt-11">
             <div class="text-Grey-Velofeel dark:text-Dark-Grey">
-                <h3 class="font-overpass font-bold lg:text-[50px] text-4xl mb-4 lg-mb-0">Vélofeel c'est quoi ?</h3>
-                <p class="font-OpenSans lg:mr-28">Descrption : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus
-                    ultricies quam in magna
-                    congue vestibulum. Donec malesuada luctus dolor eu viverra. Nulla tincidunt facilisis sapien, non
-                    tristique mi volutpat quis. </p>
-            </div>
-            <div>
-                <img src="/images/logo_velofeel.png" alt="logo de velofeel" class="w-[600px]">
+                <h3 class="font-overpass font-bold lg:text-[50px] text-4xl mb-4 lg-mb-0">Notre histoire</h3>
+                <p class="font-OpenSans lg:mr-28">Anciennement Thierry, depuis 2014 Vélofeel est présent, passionné, le vélo
+                    est omniprésent. </p>
             </div>
         </div>
     </div>

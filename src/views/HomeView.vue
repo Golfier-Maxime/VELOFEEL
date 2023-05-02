@@ -477,14 +477,14 @@ export default {
             <h2
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
                 L'expert du vélo pour tous </h2>
-            <h2
+            <h3
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl text-center font-overpass leading-tight">
                 à
-                Audincourt</h2>
+                Audincourt</h3>
             <p
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[24px]  text-center font-overpass leading-tight">
                 Du Mardi au
-                Samedi de 9:30 à 12:00 et de 14:00-19:00</p>
+                Samedi de 9:30 à 12:00 et 14:00 à 19:00</p>
         </div>
         <!-- Slider automatic et infini de quelque marque associé -->
         <div class="slider mt-10">
