@@ -211,46 +211,6 @@ export default {
             }
         },
 
-
-        async createPartenaire() {
-            // Obtenir storage Firebase
-            const storage = getStorage();
-            const firestore = getFirestore()
-            // Référence de l'image à uploader
-            const refStorage = ref(storage, "VELOFEEL/" + this.partenaire.imagePartenaire);
-            // Upload de l'image sur le Cloud Storage
-            await uploadString(refStorage, this.imageData, "data_url").then((snapshot) => {
-                console.log("Uploaded a base64 string");
-                // Création du velo sur le Firestore
-                const db = getFirestore();
-                const docRef = addDoc(collection(db, "partenaire"), this.partenaire);
-            });
-            const dbPartenaire = collection(firestore, "partenaire");
-            const docRef = await addDoc(dbPartenaire, {
-                nomPartenaire: this.nomPartenaire,
-                lienPartenaire: this.lienPartenaire,
-                imagePartenaire: this.imagePartenaire,
-            });
-            console.log("document créé avec le id : ", docRef.id);
-        },
-
-        async updatePartenaire(partenaire) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "partenaire", partenaire.id);
-            await updateDoc(docRef, {
-                nomPartenaire: partenaire.nomPartenaire,
-                lienPartenaire: partenaire.lienPartenaire,
-                imagePartenaire: partenaire.imagePartenaire,
-
-            });
-        },
-
-
-        async deletePartenaire(partenaire) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "partenaire", partenaire.id);
-            await deleteDoc(docRef);
-        },
     },
 
 
