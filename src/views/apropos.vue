@@ -23,8 +23,8 @@
                     de conseil ou d'aide et de la réparation à l'entretien de votre vélo. Vélofeel seras vous servire avec
                     un personnel qualifié et à votre écoute.</p>
             </div>
-            <div>
-                <img src="/images/logo_velofeel.png" alt="logo de velofeel" class="w-[600px]">
+            <div class="mx-auto">
+                <img src="/images/logo_velofeel.png" alt="logo de velofeel" class="lg:w-[600px]">
             </div>
         </div>
         <!-- barre de séparation -->

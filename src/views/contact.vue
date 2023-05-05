@@ -54,14 +54,14 @@ export default {
         </div>
         <!-- sous titre -->
         <div class="lg:mt-14 mt-11">
-            <h3 class="text-Grey-Velofeel dark:text-Dark-Grey font-overpass font-extrabold lg:text-5xl text-2xl">Nous
+            <h3 class="text-Grey-Velofeel dark:text-Dark-Grey font-overpass font-extrabold md:text-5xl text-2xl">Nous
                 contacter avec
                 nos
                 adresses
             </h3>
         </div>
         <!-- info -->
-        <div class="flex lg:flex-row flex-col justify-evenly mt-11 font-OpenSans">
+        <div class="flex md:flex-row flex-col justify-evenly mt-11 font-OpenSans">
             <!--Info Contact -->
             <div class="flex flex-col gap-3">
                 <div>
@@ -81,7 +81,7 @@ export default {
             </div>
             <!-- Horraires -->
             <div>
-                <p class="font-bold text-[20px] mt-11 lg:mt-0">Horaires</p>
+                <p class="font-bold text-[20px] mt-11 md:mt-0">Horaires</p>
                 <div class="flex gap-4 ">
                     <div class="mt-4 lg:mt-0">
                         <p>Lundi :</p>
@@ -106,19 +106,20 @@ export default {
 
         </div>
         <!-- google maps -->
-        <div class="flex lg:gap-16 gap-4 flex-col lg:flex-row mt-16">
+        <h4
+            class="mb-8 mt-11 lg:mt-0 text-Grey-Velofeel dark:text-Dark-Grey font-overpass font-extrabold md:text-5xl text-2xl">
+            Nous
+            sommes ici
+            !
+        </h4>
+        <div class="flex justify-center items-center lg:gap-16 md:gap-8 gap-4 flex-col md:flex-row mt-16">
             <div>
-                <h4
-                    class="mb-8 mt-11 lg:mt-0 text-Grey-Velofeel dark:text-Dark-Grey font-overpass font-extrabold lg:text-5xl text-2xl">
-                    Nous
-                    sommes ici
-                    !
-                </h4>
+
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5392.320575227619!2d6.8393929802201265!3d47.48679074281933!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47921750511bcc73%3A0x43fdf31f4bee52c!2sCycles+Thierry+Denis!5e0!3m2!1sfr!2sfr!4v1414766931647"
                     frameborder="0" class="lg:w-[500px] w-[280px] h-[400px]"></iframe>
             </div>
-            <div class="lg:w-[50%]">
+            <div class="lg:w-[500px] w-[300px]">
                 <!-- CONTACT FORM HERE -->
                 <form @submit.prevent="submitForm">
                     <div>

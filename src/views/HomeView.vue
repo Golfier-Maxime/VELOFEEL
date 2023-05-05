@@ -524,7 +524,7 @@ export default {
                         </router-link>
                     </div>
                 </div>
-                <div class="lg:mt-4 lg:w-[600px] w-[340px]">
+                <div class="lg:mt-4 lg:w-[600px] w-[340px] mx-auto">
                     <img :src="velo3.imageProduit" alt="image d'un produit" class="">
                 </div>
             </div>
@@ -536,9 +536,9 @@ export default {
                 <h4 class="font-OpenSans font-bold text-2xl">Nos Produits en avant</h4>
                 <div class="bar-title h-1 mt-2 w-[265px]"></div>
             </div>
-            <!-- enssemble produit velo2 limité a 6 ou 3 produit présenté-->
+            <!-- enssemble produit velo2 limité a  3 produit présenté-->
             <div
-                class="lg:mt-16 flex flex-wrap justify-center lg:gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
+                class="lg:mt-16 flex flex-wrap justify-center md:gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">
                 <div class="mt-8 card_produit" v-for="velo2 in filterByName2" :key="velo2.id">
                     <img :src="velo2.imageProduit" class="w-[340px] h-[260px] rounded-t-lg" alt="photo du velo" />
                     <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
@@ -563,7 +563,7 @@ export default {
         <!-- Présentation Facebook a metre en avant -->
         <div class="lg:mx-[10%] mx-4 mt-16 text-Grey-Velofeel dark:text-Dark-Grey ">
             <meta name="description" content="Présentation de nos réseaux sociaux, facebook et instagram">
-            <h4 class="font-overpass lg:text-[50px] text-4xl  mt-4 lg:mt-0 font-bold">
+            <h4 class="font-overpass md:text-[50px] text-4xl  mt-4 lg:mt-0 font-bold">
                 Nous retrouver sur nos réseaux</h4>
             <div class="lg:mt-16 mt-4 flex flex-col lg:flex-row justify-center lg:gap-16 gap-4">
                 <div class="flex justify-center">

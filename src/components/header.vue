@@ -62,7 +62,7 @@ window.onclick = function (event) {
                     :class="menuOpen && ` -rotate-45 absolute w-full`, !menuOpen && `w-2/3`"></span>
             </div>
             <!-- contenue nav bar -->
-            <ul class="fixed z-40 flex flex-col justify-center top-0 bottom-0 left-0 right-0 bg-Dark-Grey md:bg-transparent translate-x-full transition-all md:translate-x-0 md:flex-row md:relative gap-10 items-center dark:bg-Grey-Velofeel  dark:lg:bg-transparent "
+            <ul class="fixed z-40 flex flex-col justify-center top-0 bottom-0 left-0 right-0 bg-Dark-Grey md:bg-transparent translate-x-full transition-all md:translate-x-0 md:flex-row md:relative gap-10 items-center dark:bg-Grey-Velofeel  dark:md:bg-transparent "
                 :class="menuOpen && `translate-x-0 md:translate-x-0`">
                 <li class="md:hidden">
                     <RouterLink @click="switchMenu" to="/" class=" 2xl:text-[24px] lg:text-[18px]">Accueil
