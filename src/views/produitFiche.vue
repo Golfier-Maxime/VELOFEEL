@@ -302,7 +302,7 @@ export default {
             </div>
             <img :src="img_Prod" class="lg:h-[500px]" alt="image du velo" />
         </div>
-        <div class="font-OpenSans mt-4 mb-11 lg:mb-0">
+        <div class="font-OpenSans mt-4 ">
             <router-link to="/contact" class="">
                 <p
                     class="btn-produit items-center text-center py-3 w-72 text-base font-bold text-Grey-Velofeel dark:text-Dark-Grey">
