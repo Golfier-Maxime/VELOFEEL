@@ -225,7 +225,6 @@ export default {
                 <router-link to="/partenaires" class="underline underline-offset-4">produits partenaires</router-link>
                 ou de nous <router-link to="/contact" class="underline underline-offset-4">contacter</router-link>.
             </p>
-            <!-- echaitillion offre, le reste sur le site de nos partenaires, la suite en magasin -->
         </div>
 
         <div class="flex lg:flex-row flex-col">
@@ -262,7 +261,6 @@ export default {
                             <p class="mr-4  mt-3 text-sm font-light">{{ velo.typeProduit }}</p>
                             <p class="mr-4  mt-3 text-sm font-light">{{ velo.tailleProduit }}</p>
                         </div>
-
                     </div>
                     <div class="flex justify-between">
                         <p class="ml-4  text-lg font-extrabold">{{ velo.prixProduit }} €</p>
@@ -270,7 +268,6 @@ export default {
                             class="mr-4 py-1 px-2 font-overpass font-sm btn-produit-p">Voir le
                             produit</router-link>
                     </div>
-                    <!-- <p class="text-center text-lg">{{ velo.descProduit }}</p> -->
                 </div>
             </div>
         </div>

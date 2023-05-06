@@ -494,6 +494,7 @@ export default {
                 </div>
             </div>
         </div>
+
         <div class="lg:mx-20 mx-4 flex justify-center mt-10">
             <img src="/images/Arrow_Down.svg" alt="arrow down">
         </div>
@@ -555,7 +556,6 @@ export default {
                                 class="mr-4 py-1 px-2 font-overpass font-sm btn-produit-p">Voir le
                                 produit</router-link>
                         </div>
-                        <!-- <p class="text-center text-lg">{{ velo.descProduit }}</p> -->
                     </div>
                 </div>
             </div>

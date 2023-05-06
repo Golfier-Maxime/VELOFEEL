@@ -94,61 +94,6 @@ window.onclick = function (event) {
 </template>
 
 <style>
-.rotate-180deg {
-    transform: rotate(180deg);
-
-}
-
-.transi-rota {
-    transition: .2s;
-}
-
-/* menu dropdown */
-
-
-.dropbtn {
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-
-}
-
-.dropdown-content {
-    margin-top: 26px;
-    display: none;
-    position: absolute;
-
-
-    overflow: auto;
-}
-
-
-.show {
-    display: block;
-
-}
-
-/* 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 100%;
-    padding: 12px 16px;
-    z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-} */
-
-/*  */
-
-
 .btn_header_red:hover {
     color: #F8344C;
 }
@@ -189,32 +134,6 @@ window.onclick = function (event) {
 .btn_header:hover:after {
     width: 50%;
 
-}
-
-.bg-topbar {
-    background-image: linear-gradient(90deg, #d946ef, #dc2626, #fb923c);
-}
-
-nav .chevron {
-    transition: rotate .4s ease;
-}
-
-nav .liste_container:hover .chevron {
-    rotate: 180deg;
-}
-
-nav .liste {
-    visibility: hidden;
-    opacity: 0;
-    top: 0%;
-    transition: .4s ease-in-out;
-}
-
-nav .liste_container:hover .liste {
-    visibility: visible;
-    opacity: 1;
-    top: 100%;
-    transition: .4s ease-in-out;
 }
 </style>
 

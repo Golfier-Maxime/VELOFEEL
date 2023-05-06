@@ -66,22 +66,12 @@ import LogoInsta from './logo/insta.vue'
             </div>
         </div>
         <div class="lg:mx-20 mx-4 flex lg:flex-row flex-col justify-center  pb-6 mt-6 gap-4">
-            <p class="font-OpenSans font-light text-sm">@2023 Vélofeel. All rights reserved - Made by <span
+            <p class="font-OpenSans font-light text-xs">@2023 Vélofeel. All rights reserved - Made by <span
                     class="text-Light-Red"><a href="https://www.portfolio.maximegolfier.fr/" target="_blank">Maxime
                         GOLFIER</a></span> </p>
-            <router-link to="/acceszone" class="font-OpenSans font-light text-sm">Accès Zone</router-link>
+            <router-link to="/acceszone" class="font-OpenSans font-light text-xs">Accès Zone</router-link>
         </div>
     </footer>
 </template>
 
-<style scoped>
-.bar-footer {
-    background-image: linear-gradient(90deg, #d946ef, #dc2626, #fb923c);
-    border-radius: 2px;
-}
-
-.res:hover {
-    scale: 1.2;
-    transition: 0.3s;
-}
-</style>
+<style scoped></style>
