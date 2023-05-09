@@ -282,7 +282,7 @@ export default {
         <!-- fiche produit -->
         <div class="mt-16 flex flex-col-reverse lg:flex-row justify-evenly">
             <div class="flex flex-col lg:gap-4 gap-2">
-                <p class="text-[40px] font-overpass font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{
+                <p class="text-[40px] mt-2 font-overpass font-extrabold text-Grey-Velofeel dark:text-Dark-Grey">{{
                     velo.nomProduit }}
                 </p>
                 <div class="flex gap-4">
