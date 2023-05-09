@@ -231,8 +231,8 @@ export default {
             <!-- Filtrage par Nom en Input -->
             <div class="w-[280px] lg:ml-32  mt-16 text-Grey-Velofeel dark:text-Dark-Grey ">
                 <div class="search text-Dark-Grey">
-                    <input type="text" class="searchTerm border-3 border-Dark-Grey" placeholder="Filtrez par nom"
-                        v-model="filter">
+                    <input type="text" class="searchTerm border-3 border-Dark-Grey"
+                        placeholder="Filtrez par marque ou modèle" v-model="filter">
                     <button type="submit"
                         class="searchButton text-Dark-Grey dark:text-Grey-Velofeel dark:bg-Dark-Grey bg-Grey-Velofeel border-2 dark:border-Dark-Grey border-Grey-Velofeel">
                         <i class="fa fa-search"></i>
