@@ -55,9 +55,9 @@ window.onclick = function (event) {
         <nav class=" relative right-4 md:right-9 lg:right-0 ">
             <!-- convertion menu pc vers mobile -->
             <div class="flex  z-50 md:hidden w-8 h-3 flex-col justify-between"
-                :class="menuOpen && `fixed right-10`, !menuOpen && `relative`" @click="switchMenu">
+                :class="menuOpen && `fixed right-10`, !menuOpen && `relative -mr-2`" @click="switchMenu">
                 <span class="w-full h-[3px] bg-Grey-Velofeel transition-all dark:bg-Dark-Grey"
-                    :class="menuOpen && `rotate-45`"></span>
+                    :class="menuOpen && `rotate-45 `"></span>
                 <span class="h-[3px] bg-Grey-Velofeel self-end transition-all dark:bg-Dark-Grey"
                     :class="menuOpen && ` -rotate-45 absolute w-full`, !menuOpen && `w-2/3`"></span>
             </div>

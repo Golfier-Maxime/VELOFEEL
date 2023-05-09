@@ -568,7 +568,7 @@ export default {
             <div class="lg:mt-16 mt-4 flex flex-col lg:flex-row justify-center lg:gap-16 gap-4">
                 <div class="flex justify-center">
                     <iframe class="lg:w-[500px] lg:h-[500px] h-[300px] w-[320px]" title="Facebook"
-                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVELOFEEL&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true&appId"></iframe>
+                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVELOFEEL&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"></iframe>
                 </div>
                 <div>
                     <div class="">

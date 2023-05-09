@@ -286,6 +286,14 @@ export default {
 
 }
 
+@media screen and (max-width: 1024px) {
+    .card_produit:hover {
+        scale: 1;
+    }
+}
+
+
+
 .btn-produit-p {
     border: 2px solid #F8344C;
     border-radius: 8px;
