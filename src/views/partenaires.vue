@@ -255,7 +255,7 @@ export default {
 
 
 <template>
-    <div class="lg:mx-20">
+    <div class="lg:mx-20 mx-4">
         <!-- titre -->
         <div class="lg:mx-20 mx-4">
             <h1
