@@ -16,7 +16,7 @@
         </div>
         <!-- flehe rouge -->
         <div class="flex justify-center mt-10">
-            <img src="/images/Arrow_Down.svg" alt="arrow down">
+            <img src="/images/Arrow_Down.svg" alt="arrow down" class="w-16">
         </div>
 
     </div>

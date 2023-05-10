@@ -10,7 +10,7 @@
                 Politique de confidentialité</h2>
         </div>
         <div class=" flex justify-center mt-10">
-            <img src="/images/Arrow_Down.svg" alt="arrow down">
+            <img src="/images/Arrow_Down.svg" alt="arrow down" class="w-16">
         </div>
         <div class="mt-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans">
 

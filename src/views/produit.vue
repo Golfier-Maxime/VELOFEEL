@@ -216,7 +216,7 @@ export default {
 
         <!-- fleche rouge qui montre en bas -->
         <div class="flex justify-center mt-10">
-            <img src="/images/Arrow_Down.svg" alt="arrow down">
+            <img src="/images/Arrow_Down.svg" alt="arrow down" class="w-16">
         </div>
 
         <div class="text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans md:text-2xl text-lg mt-16 ">

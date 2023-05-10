@@ -8,7 +8,7 @@ import LogoInsta from './logo/insta.vue'
     <footer
         class="text-Grey-Velofeel dark:text-Dark-Grey bg-Dark-Grey dark:bg-Grey-Velofeel duration-700 tracking-wide pt-24">
         <div class="flex justify-center">
-            <img src="/images/logo_velofeel.png" alt="Logo de vélofeel" class="">
+            <img src="/images/logo_velofeel.png" alt="Logo de vélofeel" class="w-48">
         </div>
         <div class="bg-Light-Grey h-[2px] rounded-sm mx-[10%] mt-6"></div>
         <div class="mx-4 lg:mx-0 flex flex-col lg:flex-row justify-evenly gap-12 mt-6 font-OpenSans">
