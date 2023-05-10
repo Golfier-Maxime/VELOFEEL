@@ -269,6 +269,14 @@ export default {
         <div class="flex justify-center mt-10">
             <img src="/images/Arrow_Down.svg" alt="arrow down" class="w-16">
         </div>
+
+        <div class="text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans md:text-xl text-lg mt-16 ">
+            <p>Ici vous avez accès à toutes les marques partenaires de Vélofeel, n'hésitez pas à visiter leurs site ainsi
+                que leurs catalogues. </p>
+            <p class="mt-2">Si vous voulez plus d'information nous vous invitons à nous <router-link to="/contact"
+                    class="underline underline-offset-4">contacter</router-link>.
+            </p>
+        </div>
         <!-- présentation des partenaires -->
         <!-- LISTE partenaire -->
         <div class="mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans  ">

@@ -219,7 +219,7 @@ export default {
             <img src="/images/Arrow_Down.svg" alt="arrow down" class="w-16">
         </div>
 
-        <div class="text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans md:text-2xl text-lg mt-16 ">
+        <div class="text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans md:text-xl text-lg mt-16 ">
             <p>Ici vous avez un échantillon des produits proposés, la suite est en magasin. </p>
             <p class="mt-2">Si vous voulez plus d'information nous vous invitons à vous renseigner sur la liste des
                 <router-link to="/partenaires" class="underline underline-offset-4">produits partenaires</router-link>

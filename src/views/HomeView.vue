@@ -494,7 +494,6 @@ export default {
                 </div>
             </div>
         </div>
-
         <div class="lg:mx-20 mx-4 flex justify-center mt-10">
             <img src="/images/Arrow_Down.svg" alt="arrow down" class="w-16">
         </div>
