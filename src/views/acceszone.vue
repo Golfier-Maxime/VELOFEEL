@@ -8,7 +8,7 @@
                 class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-[50px] text-center font-overpass leading-tight">
                 Vélofeel</h1>
             <h2
-                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[100px] text-4xl text-center font-overpass leading-tight">
+                class="text-Grey-Velofeel dark:text-Dark-Grey font-extrabold lg:text-[80px] text-4xl  text-center font-overpass leading-tight">
                 Accès Zone</h2>
         </div>
         <!-- flehe rouge -->
