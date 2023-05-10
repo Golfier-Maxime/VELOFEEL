@@ -74,7 +74,7 @@ export default {
         } else {
             this.message = "User non connecté : " + this.user.email;
         }
-        this.getPartenaire(this.$route.params.id)
+
     },
 
     methods: {

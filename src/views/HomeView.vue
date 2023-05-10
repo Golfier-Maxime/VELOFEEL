@@ -106,10 +106,7 @@ export default {
         } else {
             this.message = "User non connecté : " + this.user.email;
         }
-        this.getVelo(this.$route.params.id)
-        this.getVelo2(this.$route.params.id)
-        this.getVelo3(this.$route.params.id)
-        this.getPartenaire(this.$route.params.id)
+
     },
 
     methods: {
