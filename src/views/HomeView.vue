@@ -46,12 +46,10 @@ export default {
     data() {
         // Données de la vue
         return {
-            imageData: null,
             imageData2: null,
             imageData3: null,
             filter: "",
             // liste
-            listeVeloSynchro: [],
             listeVelo2Synchro: [],
             listeVelo3Synchro: [],
             listePartenaireSynchro: [],
@@ -60,12 +58,7 @@ export default {
                 email: null,
                 password: null,
             },
-            velo: {
-                nomProduit: null,
-                descProduit: null,
-                prixProduit: null,
-                typeProduit: null,
-            },
+
             velo2: {
                 nomProduit: null,
                 descProduit: null,
@@ -93,7 +86,7 @@ export default {
 
     mounted() {
         this.getPartenaireSynchro();
-        this.getVeloSynchro();
+
         this.getVelo2Synchro();
         this.getVelo3Synchro();
         this.getUserConnect();
@@ -167,26 +160,7 @@ export default {
                     console.log("erreur deconnexion ", error);
                 });
         },
-        // avoir info pour le produit
-        async getVelo(id) {
-            const firestore = getFirestore();
-            const docRef = doc(firestore, "velo", id);
-            this.refVelo = await getDoc(docRef);
-            if (this.refVelo.exists()) {
-                this.velo = this.refVelo.data();
-                this.img_Prod = this.velo.imageProduit;
 
-            }
-            else {
-                this.console.log("Velo Inexistant");
-            }
-            const storage = getStorage();
-            const spaceRef = ref(storage, 'VELOFEEL/' + this.velo.imageProduit);
-            getDownloadURL(spaceRef)
-                .then((url) => {
-                    this.img_Prod = url;
-                })
-        },
         // avoir info pour le produit velo2
         async getVelo2(id) {
             const firestore = getFirestore();
@@ -248,34 +222,7 @@ export default {
                 })
         },
 
-        async getVeloSynchro() {
-            const firestore = getFirestore();
-            const dbVelo = collection(firestore, "velo");
-            const query = await onSnapshot(dbVelo, (snapshot) => {
-                this.listeVeloSynchro = snapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }
-                ))
-                // récupération des images des produit/velo
-                // parcours de la liste 
-                this.listeVeloSynchro.forEach(function (velo) {
-                    const storage = getStorage();
-                    //récup des l'image par son nom de fichier
-                    const spaceRef = ref(storage, 'VELOFEEL/' + velo.imageProduit);
-                    //recup de l'url de l'image
-                    getDownloadURL(spaceRef).then((url) => {
-                        //on remplace le nom du fichier
-                        // par l'url complete de l'image
-                        velo.imageProduit = url;
-                    })
-                        .catch((error) => {
-                            console.log('erreur downloadUrl', error);
-                        })
-                })
-            });
 
-        },
         // velo2
         async getVelo2Synchro() {
             const firestore = getFirestore();
