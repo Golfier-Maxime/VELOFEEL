@@ -80,7 +80,6 @@ export default {
         } else {
             this.message = "User non connecté : " + this.user.email;
         }
-
     },
 
     methods: {

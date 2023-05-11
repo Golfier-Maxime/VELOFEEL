@@ -58,7 +58,6 @@ export default {
                 email: null,
                 password: null,
             },
-
             velo2: {
                 nomProduit: null,
                 descProduit: null,
