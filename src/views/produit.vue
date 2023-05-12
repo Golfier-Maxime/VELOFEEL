@@ -218,7 +218,7 @@ export default {
             <img src="/images/Arrow_Down.svg" alt="arrow down" class="w-16">
         </div>
 
-        <div class="text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans md:text-xl text-lg mt-16 ">
+        <div class="text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans md:text-xl text-lg mt-16 lg:mx-20">
             <p>Nous vous présentons ici un échantillon des produits immédiatement disponibles en magasin. Pour l'offre
                 complète en stock, rendez-vous en magasin ou dans la rubrique nous <router-link to="/contact"
                     class="underline underline-offset-4">contacter</router-link>.</p>

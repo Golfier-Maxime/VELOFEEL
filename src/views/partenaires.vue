@@ -270,7 +270,7 @@ export default {
             <img src="/images/Arrow_Down.svg" alt="arrow down" class="w-16">
         </div>
 
-        <div class="text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans md:text-xl text-lg mt-16 ">
+        <div class="text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans md:text-xl text-lg mt-16 lg:mx-20 ">
             <p>Ici vous pourrez accéder par un simple clic aux sites et aux catalogues de nos principaux partenaires, et à
                 l'exhaustivité des produits que nous sommes en mesure de vous proposer. Ce qui n'est pas en magasin, nous
                 pouvons vous le fournir, n'hésitez pas à nous <router-link to="/contact"
