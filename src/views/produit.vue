@@ -224,7 +224,8 @@ export default {
                     class="underline underline-offset-4">contacter</router-link>.</p>
             <p class="mt-4">Pour connaître l'exhaustivité de nos produits, consultez la rubrique <router-link
                     to="/partenaires" class="underline underline-offset-4">Nos Partenaires</router-link> et/ou
-                contactez-nous.</p>
+                <router-link to="/contact" class="underline underline-offset-4">Contactez-nous</router-link>.
+            </p>
             <p class="mt-4">Mais notre offre, c'est aussi l'Etude Posturale personnalisée, le diagnostic et la maintenance
                 des systèmes
                 électriques SHIMANO, BOSH, GIANT. A bientôt !</p>

@@ -276,7 +276,7 @@ export default {
                 pouvons vous le fournir, n'hésitez pas à nous <router-link to="/contact"
                     class="underline underline-offset-4">contacter</router-link> même s'il s'agit d'une marque ne faisant
                 pas partie
-                ce cette liste.
+                de cette liste.
             </p>
         </div>
         <!-- présentation des partenaires -->
