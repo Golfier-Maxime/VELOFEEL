@@ -531,7 +531,7 @@ export default {
                     <div class="lg:mt-16 mt-4  ">
                         <p class="font-OpenSans lg:mr-40">Pour suivre plus en détail l'aventure Vélofeel, n'hésitez
                             pas a
-                            venir nous voir sur notre Instagram</p>
+                            venir nous voir sur notre Instagram.</p>
                         <div
                             class=" font-OpenSans lg:mt-8 mt-4  lg:mb-0 btn-facebook text-center py-3 w-52 text-base font-bold ">
                             <a href="https://www.instagram.com/velofeel/" class="flex justify-center gap-4 items-center"

@@ -18,10 +18,13 @@
         <!-- présentation velofeel -->
         <div class="mt-11 flex lg:flex-row flex-col-reverse gap-9">
             <div class="text-Grey-Velofeel dark:text-Dark-Grey">
-                <h3 class="font-overpass font-bold lg:text-[50px] text-4xl mb-4 lg-mb-0">Vélofeel c'est quoi ?</h3>
-                <p class="font-OpenSans lg:mr-28">Vélofeel c'est votre expert du vélo. De la vente de vélo ou d'accessoire,
-                    de conseil ou d'aide et de la réparation à l'entretien de votre vélo. Vélofeel seras vous servire avec
-                    un personnel qualifié et à votre écoute.</p>
+                <h3 class="font-overpass font-bold lg:text-[50px] text-4xl mb-4 lg-mb-0">Qui sommes-nous ?</h3>
+                <p class="font-OpenSans lg:mr-28">Vélofeel, c'est votre spécialiste du vélo dans le Nord-Franche Comté. Une
+                    équipe de conseillers expérimentés à votre écoute pour l'achat, le diagnostic, l'entretien et la
+                    réparation des vélos de toutes marques. Nos valeurs : l'expertise, le professionnalisme, être un
+                    spécialiste sachant parler aussi aux non-spécialistes du vélo !
+
+                </p>
             </div>
             <div class="mx-auto">
                 <img src="/images/logo_velofeel.png" alt="logo de velofeel" class="lg:w-[600px]">
@@ -33,8 +36,10 @@
         <div class="flex lg:flex-row flex-col-reverse gap-9 lg:mt-11">
             <div class="text-Grey-Velofeel dark:text-Dark-Grey">
                 <h3 class="font-overpass font-bold lg:text-[50px] text-4xl mb-4 lg-mb-0">Notre histoire</h3>
-                <p class="font-OpenSans lg:mr-28">Anciennement Thierry, depuis 2014 Vélofeel est présent, passionné, le vélo
-                    est omniprésent. </p>
+                <p class="font-OpenSans lg:mr-28">Après plusieurs décennies d'une success story, Cycles Thierry passe la
+                    main à Vélofeel en 2014. Depuis, nous sommes animés de la même envie de partager notre passion du vélo
+                    et de nous adresser à tous les cyclistes, en ne reniant rien des valeurs historiques de Cycles Thierry.
+                </p>
             </div>
         </div>
     </div>

@@ -271,10 +271,12 @@ export default {
         </div>
 
         <div class="text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans md:text-xl text-lg mt-16 ">
-            <p>Ici vous avez accès à toutes les marques partenaires de Vélofeel, n'hésitez pas à visiter leurs site ainsi
-                que leurs catalogues. </p>
-            <p class="mt-2">Si vous voulez plus d'information nous vous invitons à nous <router-link to="/contact"
-                    class="underline underline-offset-4">contacter</router-link>.
+            <p>Ici vous pourrez accéder par un simple clic aux sites et aux catalogues de nos principaux partenaires, et à
+                l'exhaustivité des produits que nous sommes en mesure de vous proposer. Ce qui n'est pas en magasin, nous
+                pouvons vous le fournir, n'hésitez pas à nous <router-link to="/contact"
+                    class="underline underline-offset-4">contacter</router-link> même s'il s'agit d'une marque ne faisant
+                pas partie
+                ce cette liste.
             </p>
         </div>
         <!-- présentation des partenaires -->

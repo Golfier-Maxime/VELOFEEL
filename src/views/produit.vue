@@ -219,11 +219,15 @@ export default {
         </div>
 
         <div class="text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans md:text-xl text-lg mt-16 ">
-            <p>Ici vous avez un échantillon des produits proposés, la suite est en magasin. </p>
-            <p class="mt-2">Si vous voulez plus d'information nous vous invitons à vous renseigner sur la liste des
-                <router-link to="/partenaires" class="underline underline-offset-4">produits partenaires</router-link>
-                ou de nous <router-link to="/contact" class="underline underline-offset-4">contacter</router-link>.
-            </p>
+            <p>Nous vous présentons ici un échantillon des produits immédiatement disponibles en magasin. Pour l'offre
+                complète en stock, rendez-vous en magasin ou dans la rubrique nous <router-link to="/contact"
+                    class="underline underline-offset-4">contacter</router-link>.</p>
+            <p class="mt-4">Pour connaître l'exhaustivité de nos produits, consultez la rubrique <router-link
+                    to="/partenaires" class="underline underline-offset-4">Nos Partenaires</router-link> et/ou
+                contactez-nous.</p>
+            <p class="mt-4">Mais notre offre, c'est aussi l'Etude Posturale personnalisée, le diagnostic et la maintenance
+                des systèmes
+                électriques SHIMANO, BOSH, GIANT. A bientôt !</p>
         </div>
 
         <div class="flex lg:flex-row flex-col">
