@@ -257,7 +257,7 @@ export default {
 
         <div class='mt-16 flex flex-wrap justify-center gap-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans'>
             <div class="mt-8 card_produit" v-for="velo in filterByName" :key="velo.id">
-                <img :src="velo.imageProduit" class="w-[420px] h-[280px] rounded-t-lg" alt="image du velo" />
+                <img :src="velo.imageProduit" class="w-[420px] h-[315px] rounded-t-lg" alt="image du velo" />
                 <div class="border-t-0 border-[1px] pb-2 rounded-b-lg  border-gray-300">
                     <div class="flex justify-between">
                         <p class="ml-4 w-[220px] mt-3 text-lg font-semibold">{{ velo.nomProduit }}</p>
