@@ -59,6 +59,7 @@ export default {
                 imageProduit: null,
                 lienProduit: null,
                 tailleProduit: null,
+                marqueProduit: null,
             },
             refVelo: null,
             message: null, // Message de connexion
@@ -243,6 +244,7 @@ export default {
                 imageProduit: this.imageProduit,
                 lienProduit: this.lienProduit,
                 tailleProduit: this.tailleProduit,
+                marqueProduit: this.marqueProduit,
             });
             console.log("document créé avec le id : ", docRef.id);
         },
@@ -259,6 +261,7 @@ export default {
                 imageProduit: velo.imageProduit,
                 lienProduit: velo.lienProduit,
                 tailleProduit: velo.tailleProduit,
+                marqueProduit: velo.marqueProduit,
             });
         },
 
@@ -388,6 +391,12 @@ export default {
                 <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le type" v-model="velo.typeProduit"
                     required />
             </div>
+            <!-- marque velo -->
+            <div>
+                <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Marque de Velo</p>
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le type" v-model="velo.marqueProduit"
+                    required />
+            </div>
             <div>
                 <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-bold">Image</p>
                 <div class="flex justify-center">
@@ -444,6 +453,10 @@ export default {
                                 <div>
                                     <p class="">Taille du velo</p>
                                     <input type="text" class="w-[320px]" v-model="velo.tailleProduit" required />
+                                </div>
+                                <div>
+                                    <p class="">Marque du velo</p>
+                                    <input type="text" class="w-[320px]" v-model="velo.marqueProduit" required />
                                 </div>
                             </div>
                         </div>

@@ -59,6 +59,7 @@ export default {
                 typeProduit: null,
                 imageProduit: null,
                 lienProduit: null,
+                marqueProduit: null,
             },
             refVelo: null,
             message: null, // Message de connexion

@@ -44,6 +44,8 @@ export default {
         return {
             selectedType: "",
             types: ["VTT", "ROUTE", "GRAVEL", "VTC", "VAE"],
+            selectedMarque: "",
+            marques: ["GIANT", "KTM", "PEUGEOT", "CANNONDALE", "GITANE", "LIV"],
             imageData: null,
             filter: "",
             // liste
@@ -59,6 +61,7 @@ export default {
                 prixProduit: null,
                 typeProduit: null,
                 imageProduit: null,
+                marqueProduit: null,
             },
             refVelo: null,
             message: null, // Message de connexion
@@ -181,18 +184,19 @@ export default {
                     return velo.nomProduit.toLowerCase().includes(filter);
                 });
                 // Nouvelle condition pour le filtrage par type de produit
-                if (this.selectedType === "") {
+                if (this.selectedType === "" || this.selectedMarque === "") {
                     return filteredList;
                 } else {
-                    return filteredList.filter((velo) => velo.typeProduit === this.selectedType);
+                    return filteredList.filter((velo) => velo.typeProduit === this.selectedType && velo.marqueProduit === this.selectedMarque);
                 }
+
             } else {
                 // Si le filtre n'est pas saisi
                 // On renvoie la liste filtrée par type de produit si un type est sélectionné
-                if (this.selectedType === "") {
+                if (this.selectedType === "" || this.selectedMarque === "") {
                     return this.orderByName;
                 } else {
-                    return this.orderByName.filter((velo) => velo.typeProduit === this.selectedType);
+                    return this.orderByName.filter((velo) => velo.typeProduit === this.selectedType && velo.marqueProduit === this.selectedMarque);
                 }
             }
         },
@@ -249,6 +253,14 @@ export default {
                 <select id="typeProduit" v-model="selectedType" class="text-black ml-2 rounded-md">
                     <option value="" class="text-black">Tous</option>
                     <option v-for="type in types" :value='type' class="text-black">{{ type }}</option>
+                </select>
+            </div>
+            <!--  -->
+            <div class="w-[280px] lg:ml-32  mt-16  font-OpenSans">
+                <label for="marqueProduit" class="text-Grey-Velofeel dark:text-Dark-Grey">Filtrer par marque : </label>
+                <select id="marqueProduit" v-model="selectedMarque" class="text-black ml-2 rounded-md">
+                    <option value="" class="text-black">Tous</option>
+                    <option v-for="marque in marques" :value='marque' class="text-black">{{ marque }}</option>
                 </select>
             </div>
         </div>
