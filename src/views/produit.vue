@@ -184,19 +184,19 @@ export default {
                     return velo.nomProduit.toLowerCase().includes(filter);
                 });
                 // Nouvelle condition pour le filtrage par type de produit
-                if (this.selectedType === "" || this.selectedMarque === "") {
+                if (this.selectedType === "" && this.selectedMarque === "") {
                     return filteredList;
                 } else {
-                    return filteredList.filter((velo) => velo.typeProduit === this.selectedType && velo.marqueProduit === this.selectedMarque);
+                    return filteredList.filter((velo) => velo.typeProduit === this.selectedType || velo.marqueProduit === this.selectedMarque);
                 }
 
             } else {
                 // Si le filtre n'est pas saisi
                 // On renvoie la liste filtrée par type de produit si un type est sélectionné
-                if (this.selectedType === "" || this.selectedMarque === "") {
+                if (this.selectedType === "" && this.selectedMarque === "") {
                     return this.orderByName;
                 } else {
-                    return this.orderByName.filter((velo) => velo.typeProduit === this.selectedType && velo.marqueProduit === this.selectedMarque);
+                    return this.orderByName.filter((velo) => velo.typeProduit === this.selectedType || velo.marqueProduit === this.selectedMarque);
                 }
             }
         },
