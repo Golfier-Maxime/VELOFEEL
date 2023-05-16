@@ -174,32 +174,32 @@ export default {
 
         filterByName: function () {
             // On effectue le filtrage seulement si le filtre est renseigné
-            if (this.filter.length > 0) {
+            if (this.filter.length > 0 || this.selectedType !== "" || this.selectedMarque !== "") {
                 // On récupère le filtre saisi en minuscule (on évite les majuscules)
                 let filter = this.filter.toLowerCase();
                 // Filtrage de la propriété calculée de tri
                 let filteredList = this.orderByName.filter(function (velo) {
-                    // On ne renvoie que les pays dont le nom contient
-                    // la chaine de caractère du filtre
+                    // On ne renvoie que les vélos dont le nom contient
+                    // la chaîne de caractères du filtre
                     return velo.nomProduit.toLowerCase().includes(filter);
                 });
-                // Nouvelle condition pour le filtrage par type de produit
-                if (this.selectedType === "" && this.selectedMarque === "") {
-                    return filteredList;
-                } else {
-                    return filteredList.filter((velo) => velo.typeProduit === this.selectedType || velo.marqueProduit === this.selectedMarque);
-                }
-
+                // Filtrage par type de produit et marque de produit
+                filteredList = filteredList.filter((velo) => {
+                    if (this.selectedType !== "" && this.selectedMarque !== "") {
+                        return velo.typeProduit === this.selectedType && velo.marqueProduit === this.selectedMarque;
+                    } else if (this.selectedType !== "") {
+                        return velo.typeProduit === this.selectedType;
+                    } else if (this.selectedMarque !== "") {
+                        return velo.marqueProduit === this.selectedMarque;
+                    } else {
+                        return true; // Retourne tous les vélos si aucun filtre n'est sélectionné
+                    }
+                });
+                return filteredList;
             } else {
-                // Si le filtre n'est pas saisi
-                // On renvoie la liste filtrée par type de produit si un type est sélectionné
-                if (this.selectedType === "" && this.selectedMarque === "") {
-                    return this.orderByName;
-                } else {
-                    return this.orderByName.filter((velo) => velo.typeProduit === this.selectedType || velo.marqueProduit === this.selectedMarque);
-                }
+                return this.orderByName;
             }
-        },
+        }
 
     },
 };
@@ -248,7 +248,7 @@ export default {
                 </div>
             </div>
             <!--  -->
-            <div class="w-[280px] lg:ml-32  mt-16  font-OpenSans">
+            <div class="w-[320px] lg:ml-32  md:mt-16 mt-4  font-OpenSans">
                 <label for="typeProduit" class="text-Grey-Velofeel dark:text-Dark-Grey">Filtrer par type : </label>
                 <select id="typeProduit" v-model="selectedType" class="text-black ml-2 rounded-md">
                     <option value="" class="text-black">Tous</option>
@@ -256,7 +256,7 @@ export default {
                 </select>
             </div>
             <!--  -->
-            <div class="w-[280px] lg:ml-32  mt-16  font-OpenSans">
+            <div class="w-[320px] lg:ml-32  md:mt-16 mt-4 font-OpenSans">
                 <label for="marqueProduit" class="text-Grey-Velofeel dark:text-Dark-Grey">Filtrer par marque : </label>
                 <select id="marqueProduit" v-model="selectedMarque" class="text-black ml-2 rounded-md">
                     <option value="" class="text-black">Tous</option>
