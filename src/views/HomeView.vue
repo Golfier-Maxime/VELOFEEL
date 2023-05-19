@@ -441,7 +441,6 @@ export default {
             <img src="/images/Arrow_Down.svg" alt="arrow down" class="w-16">
         </div>
         <!-- Présentation produit a metre en avant -->
-
         <div class="lg:mx-20 mx-4 flex justify-center">
             <meta name="description" content="Présentation du produit phare du magasin">
             <div v-for="velo3 in filterByName3" :key="velo3.id"
@@ -488,8 +487,8 @@ export default {
                         <div class="flex justify-between">
                             <p class="ml-4 w-[220px] mt-3 text-lg font-semibold">{{ velo2.nomProduit }}</p>
                             <div class="flex">
-                                <p class="mr-4  mt-3 text-sm font-light">{{ velo2.typeProduit }}</p>
-                                <p class="mr-4  mt-3 text-sm font-light">{{ velo2.tailleProduit }}</p>
+                                <p class="mr-4  mt-3 text-sm font-light tracking-wide">{{ velo2.typeProduit }}</p>
+                                <p class="mr-4  mt-3 text-sm font-light ">{{ velo2.tailleProduit }}</p>
                             </div>
                         </div>
                         <div class="flex justify-between items-center">

@@ -274,7 +274,7 @@ export default {
                     <div class="flex justify-between">
                         <p class="ml-4 w-[220px] mt-3 text-lg font-semibold">{{ velo.nomProduit }}</p>
                         <div class="flex">
-                            <p class="mr-4  mt-3 text-sm font-light">{{ velo.typeProduit }}</p>
+                            <p class="mr-4  mt-3 text-sm font-light tracking-wide">{{ velo.typeProduit }}</p>
                             <p class="mr-4  mt-3 text-sm font-light">{{ velo.tailleProduit }}</p>
                         </div>
                     </div>
