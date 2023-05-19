@@ -13,7 +13,7 @@ import footerVue from "@/components/footer.vue";
       <!-- Rajouter une transition duration pour une transition de DarkMode à LightMode + douce -->
       <div class="lg:ml-4 ml-2 -mt-4 lg:mt-0   fixed" checked @click="isDark = !isDark">
         <div class="invisible dark:visible">
-          <svg class=" svg_darkmode" width="56px" height="56px" viewBox="0 0 24 24" fill="none"
+          <svg class="svg_darkmode" width="56px" height="56px" viewBox="0 0 24 24" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <g id="Environment / Moon">
               <path id="Vector"
@@ -31,11 +31,9 @@ import footerVue from "@/components/footer.vue";
           </svg>
         </div>
       </div>
-
       <RouterView />
     </div>
     <footerVue></footerVue>
-
   </div>
 </template>
 

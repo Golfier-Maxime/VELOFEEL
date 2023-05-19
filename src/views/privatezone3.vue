@@ -496,7 +496,7 @@ export default {
 }
 
 .bouton_deco {
-    background-color: red;
+    background-color: blue;
     border: none;
     color: white;
     padding-top: 5px;
