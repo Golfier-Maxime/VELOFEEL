@@ -13,12 +13,8 @@
             <img src="/images/Arrow_Down.svg" alt="arrow down" class="w-16">
         </div>
         <div class="mt-16 text-Grey-Velofeel dark:text-Dark-Grey font-OpenSans">
-
             <h2 class="mt-16">Données récoltées</h2>
             <p class="mt-2">Vélofeel ne possedant aucun cookies ne récupere nullement les données.</p>
-
-
-
         </div>
     </div>
 </template>

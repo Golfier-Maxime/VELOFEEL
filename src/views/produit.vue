@@ -254,7 +254,7 @@ export default {
                 </select>
             </div>
             <!--  -->
-            <div class="w-[320px] lg:ml-32  md:mt-16 mt-4 font-OpenSans">
+            <div class="w-[320px] lg:ml-16  md:mt-16 mt-4 font-OpenSans">
                 <label for="marqueProduit" class="text-Grey-Velofeel dark:text-Dark-Grey">Filtrer par marque : </label>
                 <select id="marqueProduit" v-model="selectedMarque" class="text-black ml-2 rounded-md">
                     <option value="" class="text-black">Tous</option>
