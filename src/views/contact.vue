@@ -123,6 +123,9 @@ export default {
                 <!-- CONTACT FORM HERE -->
                 <form @submit.prevent="submitForm">
                     <div>
+                        <p class="text-red-600">Formulaire de contact en maintenance.</p>
+                    </div>
+                    <div>
                         <label for="email"
                             class="block mb-2 mt-4 font-OpenSans font-bold text-Grey-Velofeel dark:text-Dark-Grey  duration-700">E-Mail</label>
                         <input type="email" name="email" v-model="email"
