@@ -1,5 +1,5 @@
 <script >
-const WEB3FORMS_ACCESS_KEY = "";
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_VUE_APP_WEB3FORMS_ACCESS_KEY;
 
 export default {
     data() {
@@ -122,9 +122,6 @@ export default {
             <div class="lg:w-[500px] w-[300px]">
                 <!-- CONTACT FORM HERE -->
                 <form @submit.prevent="submitForm">
-                    <div>
-                        <p class="text-red-600">Formulaire de contact en maintenance.</p>
-                    </div>
                     <div>
                         <label for="email"
                             class="block mb-2 mt-4 font-OpenSans font-bold text-Grey-Velofeel dark:text-Dark-Grey  duration-700">E-Mail</label>

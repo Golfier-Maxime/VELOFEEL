@@ -165,7 +165,7 @@ export default {
                     ...doc.data(),
                 }
                 ))
-                // récupération des images des produit/velo
+                // récupération des images des produit/partenaier
                 // parcours de la liste 
                 this.listePartenaireSynchro.forEach(function (partenaire) {
                     const storage = getStorage();
@@ -221,7 +221,7 @@ export default {
             // Upload de l'image sur le Cloud Storage
             await uploadString(refStorage, this.imageData, "data_url").then((snapshot) => {
                 console.log("Uploaded a base64 string");
-                // Création du velo sur le Firestore
+                // Création du partenaires sur le Firestore
                 const db = getFirestore();
                 const docRef = addDoc(collection(db, "partenaire"), this.partenaire);
             });
@@ -245,7 +245,6 @@ export default {
             });
         },
 
-        // velo3
         async deletePartenaire(partenaire) {
             let text = "Press a button!\nEither OK or Cancel.";
             if (confirm(text) == true) {
