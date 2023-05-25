@@ -7,6 +7,7 @@ export default {
             name: "",
             email: "",
             message: "",
+            subject: "",
         };
     },
     methods: {
@@ -23,6 +24,8 @@ export default {
                     name: this.name,
                     email: this.email,
                     message: this.message,
+                    subject: this.subject,
+
                 }),
             });
             const result = await response.json();
@@ -35,6 +38,7 @@ export default {
         },
     },
 };
+
 </script>
 
 <template>
@@ -122,6 +126,8 @@ export default {
             <div class="lg:w-[500px] w-[300px]">
                 <!-- CONTACT FORM HERE -->
                 <form @submit.prevent="submitForm">
+                    <input type="hidden" name="subject" value="Nouveau Mail client (TEST)">
+                    <input type="hidden" name="from_name" value="Contact Client Site">
                     <div>
                         <label for="email"
                             class="block mb-2 mt-4 font-OpenSans font-bold text-Grey-Velofeel dark:text-Dark-Grey  duration-700">E-Mail</label>
@@ -131,23 +137,36 @@ export default {
                     </div>
                     <div>
                         <label for="subject"
+                            class="block mb-2 mt-4 font-OpenSans font-bold text-Grey-Velofeel dark:text-Dark-Grey  duration-700">Sujet
+                            du mail</label>
+                        <input type="text" name="subject" v-model="subject"
+                            class="shadow-sm bg-gray-50 border font-OpenSans border-gray-300  text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                            placeholder="Sujet du mail" required>
+                    </div>
+                    <div>
+                        <label for="name"
                             class="block mb-2 mt-4  font-OpenSans font-bold   text-Grey-Velofeel dark:text-Dark-Grey duration-700">Votre
                             Prénom - Nom</label>
                         <input type="text" name="name" v-model="name"
                             class="block p-3 w-full mt-4 text-sm font-OpenSans bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                             placeholder="Prénom - Nom " required>
                     </div>
-                    <label for="message"
-                        class="block mb-2 mt-4 font-OpenSans font-bold text-Grey-Velofeel dark:text-Dark-Grey   duration-700">Votre
-                        message</label>
-                    <textarea name="message" v-model="message" rows="6" placeholder="Message"
-                        class="block p-2.5 w-full mt-4 font-OpenSans bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"></textarea>
-                    <button type="submit" class="btn-produit px-12 py-2 font-OpenSans font-bold mt-4"
-                        @click="myFunction()">Envoyer</button>
+                    <div>
+                        <label for="message"
+                            class="block mb-2 mt-4 font-OpenSans font-bold text-Grey-Velofeel dark:text-Dark-Grey   duration-700">Votre
+                            message</label>
+                        <textarea name="message" v-model="message" rows="6" placeholder="Message"
+                            class="block p-2.5 w-full mt-4 font-OpenSans bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-produit px-12 py-2 font-OpenSans font-bold mt-4"
+                            @click="myFunction()">Envoyer</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </template>
+
 
 <style scoped></style>
