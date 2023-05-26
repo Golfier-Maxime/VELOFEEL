@@ -20,6 +20,8 @@
     "animated-tailwindcss": "^3.3.0",
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
     "tailwindcss": "^3.1.8",
     "vite": "^3.0.4"
   }
