@@ -300,9 +300,5 @@ export default {
                     Nous contacter pour plus d'info</p>
             </router-link>
         </div>
-
-
-
-
     </div>
 </template>
