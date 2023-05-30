@@ -340,14 +340,14 @@ export default {
             <!-- nom Partenaire -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Nom du Partenaire</p>
-                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le nom"
-                    v-model="partenaire.nomPartenaire" required />
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Nom" v-model="partenaire.nomPartenaire"
+                    required />
             </div>
             <!-- Lien partenaire -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">lien du site partenaire</p>
-                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le lien"
-                    v-model="partenaire.lienPartenaire" required />
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Lien" v-model="partenaire.lienPartenaire"
+                    required />
             </div>
             <div>
                 <p class="shadow_text mt-2 text-center font-prompt text-[18px] font-bold">Image</p>

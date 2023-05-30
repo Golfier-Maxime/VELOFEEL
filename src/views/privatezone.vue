@@ -358,43 +358,42 @@ export default {
             <!-- nom velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Nom de Velo</p>
-                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le nom" v-model="velo.nomProduit"
-                    required />
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Nom" v-model="velo.nomProduit" required />
             </div>
             <!-- desc velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Description de Velo</p>
                 <textarea type="text" class="mx-auto flex justify-center" v-model="velo.descProduit"
-                    placeholder="Ici le desc" required cols="40" rows="4"> </textarea>
+                    placeholder="Description" required cols="40" rows="4"> </textarea>
             </div>
             <!-- prix velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Prix du Velo</p>
-                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le prix" v-model="velo.prixProduit"
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Prix" v-model="velo.prixProduit"
                     required />
             </div>
             <!-- Lien velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">lien de la fiche technique</p>
-                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le lien" v-model="velo.lienProduit"
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Lien" v-model="velo.lienProduit"
                     required />
             </div>
             <!-- Taille velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Taille du velo</p>
-                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le lien" v-model="velo.tailleProduit"
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Taille" v-model="velo.tailleProduit"
                     required />
             </div>
             <!-- type velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Type de Velo</p>
-                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le type" v-model="velo.typeProduit"
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Type" v-model="velo.typeProduit"
                     required />
             </div>
             <!-- marque velo -->
             <div>
                 <p class="shadow_text mt-8 text-center font-prompt text-[18px] font-bold">Marque de Velo</p>
-                <input class="mx-auto flex justify-center w-[320px]" placeholder="Ici le type" v-model="velo.marqueProduit"
+                <input class="mx-auto flex justify-center w-[320px]" placeholder="Marque" v-model="velo.marqueProduit"
                     required />
             </div>
             <div>

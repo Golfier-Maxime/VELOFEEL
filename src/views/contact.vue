@@ -165,13 +165,10 @@ document.head.appendChild(script);
                         <textarea name="message" v-model="message" rows="6" placeholder="Message"
                             class="block p-2.5 w-full mt-4 font-OpenSans bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"></textarea>
                     </div>
-                    <div>
-                        <div class="h-captcha mt-4" data-captcha="true"></div>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn-produit px-12 py-2 font-OpenSans font-bold mt-4"
-                            @click="myFunction()">Envoyer</button>
-                    </div>
+
+                    <!-- <div class="h-captcha mt-4" data-captcha="true"></div> -->
+                    <button type="submit" class="btn-produit px-12 py-2 font-OpenSans font-bold mt-4">Envoyer</button>
+
                 </form>
             </div>
         </div>
