@@ -8,11 +8,21 @@ export default {
             email: "",
             message: "",
             subject: "",
+            hCaptchaResponse: "",
         };
     },
     methods: {
 
+        handleCaptchaSuccess(response) {
+            this.hCaptchaResponse = response;
+        },
+
         async submitForm() {
+            if (!this.hCaptchaResponse) {
+                alert("Veuillez remplir le champ reCAPTCHA");
+                return;
+            }
+
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: {
@@ -25,6 +35,7 @@ export default {
                     email: this.email,
                     message: this.message,
                     subject: this.subject,
+                    "h-captcha-response": this.hCaptchaResponse, // Inclure la réponse reCAPTCHA dans la requête
 
                 }),
             });
@@ -45,6 +56,7 @@ script.src = "https://web3forms.com/client/script.js";
 script.async = true;
 script.defer = true;
 document.head.appendChild(script);
+
 
 </script>
 
@@ -165,10 +177,11 @@ document.head.appendChild(script);
                         <textarea name="message" v-model="message" rows="6" placeholder="Message"
                             class="block p-2.5 w-full mt-4 font-OpenSans bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"></textarea>
                     </div>
-
-                    <!-- <div class="h-captcha mt-4" data-captcha="true"></div> -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <div class="h-captcha mt-4" data-captcha="true" @h-captcha-success="handleCaptchaSuccess"></div>
                     <button type="submit" class="btn-produit px-12 py-2 font-OpenSans font-bold mt-4">Envoyer</button>
 
+                    <!-- @click="myFunction()" -->
                 </form>
             </div>
         </div>
