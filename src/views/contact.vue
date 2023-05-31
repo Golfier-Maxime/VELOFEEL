@@ -1,4 +1,6 @@
 <script >
+// import { hCaptcha } from 'vue-hcaptcha';
+// import { VueReCaptcha } from 'vue-recaptcha-v3'
 const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_VUE_APP_WEB3FORMS_ACCESS_KEY;
 
 export default {
@@ -11,9 +13,19 @@ export default {
             hCaptchaResponse: "",
         };
     },
+
     methods: {
 
+        handleCaptchaSuccess(response) {
+            this.hCaptchaResponse = response;
+        },
+
         async submitForm() {
+            if (!this.hCaptchaResponse) {
+                alert("Veuillez remplir le champ reCAPTCHA");
+                return;
+            }
+
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: {
@@ -26,6 +38,7 @@ export default {
                     email: this.email,
                     message: this.message,
                     subject: this.subject,
+                    "h-captcha-response": this.hCaptchaResponse, // Inclure la réponse reCAPTCHA dans la requête
 
                 }),
             });
@@ -168,7 +181,11 @@ document.head.appendChild(script);
                             class="block p-2.5 w-full mt-4 font-OpenSans bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"></textarea>
                     </div>
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                    <div class="h-captcha mt-4" data-captcha="true" @h-captcha-success="handleCaptchaSuccess"></div>
+                    <div class="mt-4">
+                        <div class="h-captcha" data-sitekey="6LfG6FQmAAAAAC-I2iRaOzwPh9LXuugU_XihTfH3"
+                            @h-captcha-success="handleCaptchaSuccess">
+                        </div>
+                    </div>
                     <button type="submit" class="btn-produit px-12 py-2 font-OpenSans font-bold mt-4">Envoyer</button>
 
                     <!-- @click="myFunction()" -->
