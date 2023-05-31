@@ -13,16 +13,7 @@ export default {
     },
     methods: {
 
-        handleCaptchaSuccess(response) {
-            this.hCaptchaResponse = response;
-        },
-
         async submitForm() {
-            if (!this.hCaptchaResponse) {
-                alert("Veuillez remplir le champ reCAPTCHA");
-                return;
-            }
-
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: {
@@ -35,7 +26,6 @@ export default {
                     email: this.email,
                     message: this.message,
                     subject: this.subject,
-                    "h-captcha-response": this.hCaptchaResponse, // Inclure la réponse reCAPTCHA dans la requête
 
                 }),
             });
